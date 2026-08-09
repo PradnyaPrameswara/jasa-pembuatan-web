@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/layout/SiteHeader.astro';
+
+const projects = [
+  {
+    slug: 'fintech-platform',
+    title: 'Fintech Core Application',
+    category: 'Web Application',
+    year: '2026',
+    description: 'A complete overhaul of a legacy fintech dashboard, migrating to a modern React-based architecture with rigorous accessibility standards.',
+    gradient: 'from-foreground/5'
+  },
+  {
+    slug: 'global-retail',
+    title: 'Global Retail E-commerce',
+    category: 'E-commerce',
+    year: '2025',
+    description: 'Headless Shopify implementation featuring sub-second page transitions and a custom dynamic checkout flow.',
+    gradient: 'from-accent/5'
+  },
+  {
+    slug: 'architectural-firm',
+    title: 'Architectural Firm Portfolio',
+    category: 'Marketing Website',
+    year: '2025',
+    description: 'An editorial, highly optimized static site driven by a headless CMS, allowing the firm to effortlessly manage their case studies.',
+    gradient: 'from-muted-foreground/10'
+  }
+];
+---
+
+<Layout title="Work | Premium Web Agency">
+  <SiteHeader slot="header" />
+  
+  <div class="flex flex-col min-h-screen pt-32 pb-24 px-4 md:px-8">
+    <div class="container mx-auto">
+      <h1 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Selected Work</h1>
+      <p class="text-xl text-muted-foreground mb-16 max-w-2xl">
+        Recent projects demonstrating our technical capabilities and design discipline. We build platforms that perform.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {projects.map(project => (
+          <a href={`/work/${project.slug}`} class="group flex flex-col gap-4">
+            <div class="aspect-[4/3] bg-muted rounded-2xl overflow-hidden border border-border relative">
+              <div class={`absolute inset-0 bg-gradient-to-tr ${project.gradient} to-transparent mix-blend-overlay`}></div>
+              <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-out bg-muted-foreground/10"></div>
+            </div>
+            <div>
+              <h3 class="text-xl font-medium">{project.title}</h3>
+              <p class="text-muted-foreground text-sm mt-1">{project.category} • {project.year}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

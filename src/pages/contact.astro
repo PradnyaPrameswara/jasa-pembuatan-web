@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import { ContactForm } from '../components/interactive/ContactForm.tsx';
+---
+
+<Layout title="Contact | Premium Web Agency">
+  <SiteHeader slot="header" />
+  
+  <div class="flex flex-col min-h-screen pt-32 pb-24 px-4 md:px-8">
+    <div class="container mx-auto max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Discuss Your Project</h1>
+      <p class="text-xl text-muted-foreground mb-12 max-w-2xl">
+        Tell us about your technical challenges and business goals. We'll get back to you within 24 hours to schedule an initial consultation.
+      </p>
+      
+      <ContactForm client:load />
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+---
+
+<Layout title="Premium Web Development Agency | Engineering Precision">
+  <SiteHeader slot="header" />
+  
+  <div class="flex flex-col min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 md:pt-48 md:pb-32 px-4 md:px-8">
+      <div class="container mx-auto max-w-4xl">
+        <p class="text-sm font-medium tracking-widest text-muted-foreground uppercase mb-6">Engineering precision meets premium design</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-foreground leading-[1.05] mb-8">
+          We engineer scalable digital platforms for ambitious companies.
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
+          Partner with a technical agency that understands business outcomes. From high-performance marketing sites to complex web applications, we build software that scales.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="inline-flex h-12 items-center justify-center rounded-md bg-foreground px-8 text-base font-medium text-background shadow transition-transform active:scale-95 hover:bg-foreground/90">
+            Discuss Your Project
+          </a>
+          <a href="/work" class="inline-flex h-12 items-center justify-center rounded-md border border-border bg-transparent px-8 text-base font-medium text-foreground transition-colors hover:bg-muted active:scale-95">
+            View Selected Work
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work Preview -->
+    <section class="py-24 bg-surface px-4 md:px-8 border-t border-border/50">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+          <div>
+            <h2 class="text-3xl font-medium tracking-tight mb-4">Selected Work</h2>
+            <p class="text-muted-foreground">Recent technical and design engagements.</p>
+          </div>
+          <a href="/work" class="hidden md:inline-flex items-center text-sm font-medium hover:text-accent transition-colors mt-4 md:mt-0">
+            View all projects &rarr;
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <!-- Placeholder Project 1 -->
+          <a href="/work/fintech-platform" class="group flex flex-col gap-4">
+            <div class="aspect-[4/3] bg-muted rounded-2xl overflow-hidden border border-border relative">
+              <div class="absolute inset-0 bg-gradient-to-tr from-foreground/5 to-transparent mix-blend-overlay"></div>
+              <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-out bg-muted-foreground/10"></div>
+            </div>
+            <div>
+              <h3 class="text-xl font-medium">Fintech Core Application</h3>
+              <p class="text-muted-foreground text-sm mt-1">Web Application • 2026</p>
+            </div>
+          </a>
+          
+          <!-- Placeholder Project 2 -->
+          <a href="/work/global-retail" class="group flex flex-col gap-4">
+            <div class="aspect-[4/3] bg-muted rounded-2xl overflow-hidden border border-border relative">
+              <div class="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent mix-blend-overlay"></div>
+              <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-out bg-muted-foreground/10"></div>
+            </div>
+            <div>
+              <h3 class="text-xl font-medium">Global Retail E-commerce</h3>
+              <p class="text-muted-foreground text-sm mt-1">E-commerce • 2025</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

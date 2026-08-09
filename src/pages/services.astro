@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+
+const services = [
+  {
+    title: 'Website Design & Development',
+    description: 'We build high-performance marketing websites that communicate technical credibility and drive business outcomes. Every site is built for speed, accessibility, and scale.',
+    capabilities: ['Frontend Development', 'Performance Optimization', 'SEO', 'CMS Integration']
+  },
+  {
+    title: 'Web Applications',
+    description: 'Complex software requires robust engineering. We architect and build scalable web applications using React and modern server-side technologies.',
+    capabilities: ['Architecture', 'API Integration', 'State Management', 'Security']
+  },
+  {
+    title: 'E-commerce',
+    description: 'Bespoke e-commerce experiences designed for conversion and built on modern headless commerce platforms.',
+    capabilities: ['Headless Shopify', 'Payment Gateways', 'Performance', 'Cart Optimization']
+  },
+  {
+    title: 'Website Redesign & Optimization',
+    description: 'We audit, redesign, and refactor existing platforms to meet modern standards of performance, accessibility, and visual quality.',
+    capabilities: ['Accessibility Audits', 'Core Web Vitals', 'Design Systems', 'Code Refactoring']
+  }
+];
+---
+
+<Layout title="Services | Premium Web Agency">
+  <SiteHeader slot="header" />
+  
+  <div class="flex flex-col min-h-screen pt-32 pb-24 px-4 md:px-8">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Our Services</h1>
+      <p class="text-xl text-muted-foreground mb-16 max-w-2xl">
+        We specialize in engineering robust digital platforms. Our approach combines rigorous technical architecture with premium design execution.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {services.map(service => (
+          <div class="flex flex-col gap-4">
+            <h2 class="text-2xl font-medium">{service.title}</h2>
+            <p class="text-muted-foreground leading-relaxed">{service.description}</p>
+            <ul class="flex flex-wrap gap-2 mt-2">
+              {service.capabilities.map(cap => (
+                <li class="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground">
+                  {cap}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
