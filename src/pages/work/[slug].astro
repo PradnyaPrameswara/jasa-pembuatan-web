@@ -1,57 +1,65 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/layout/SiteHeader.astro';
+import SiteFooter from '../../components/layout/SiteFooter.astro';
 
 export function getStaticPaths() {
   return [
-    { params: { slug: 'fintech-platform' } },
-    { params: { slug: 'global-retail' } },
-    { params: { slug: 'architectural-firm' } },
+    { params: { slug: 'fintech-platform' }, props: { img: '/images/demo_webapp.png', type: 'Web Application' } },
+    { params: { slug: 'global-retail' }, props: { img: '/images/demo_ecommerce.png', type: 'E-commerce' } },
+    { params: { slug: 'architectural-firm' }, props: { img: '/images/demo_marketing.png', type: 'Marketing Website' } },
   ];
 }
 
 const { slug } = Astro.params;
+const { img, type } = Astro.props;
 ---
 
 <Layout title={`${slug.replace(/-/g, ' ')} | Premium Web Agency`}>
   <SiteHeader slot="header" />
-  
-  <article class="flex flex-col min-h-screen pt-32 pb-24 px-4 md:px-8">
-    <div class="container mx-auto max-w-4xl">
+
+  <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background">
+    <div class="container mx-auto max-w-[1000px]">
       <div class="mb-12">
-        <p class="text-sm font-medium tracking-widest text-muted-foreground uppercase mb-4">Case Study Placeholder</p>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight capitalize mb-6">
+        <p class="text-sm font-medium tracking-wide text-foreground uppercase mb-4 block">{type}</p>
+        <h1 class="text-display-2 capitalize mb-6 text-foreground text-balance">
           {slug.replace(/-/g, ' ')}
         </h1>
-        <p class="text-xl text-muted-foreground leading-relaxed">
+        <p class="text-xl text-muted-foreground leading-relaxed text-balance max-w-2xl">
           This is a placeholder case study route representing the architecture. In production, this would be populated from a CMS or local markdown collections.
         </p>
       </div>
-      
-      <div class="aspect-video bg-muted rounded-2xl border border-border mb-16 relative overflow-hidden flex items-center justify-center">
-        <span class="text-muted-foreground font-medium">Hero Image Placeholder</span>
+
+      <div class="w-full aspect-[4/3] md:aspect-[16/9] bg-white rounded-2xl md:rounded-[32px] border border-border mb-20 relative overflow-hidden shadow-sm">
+        <img src={img} alt={`${slug.replace(/-/g, ' ')} Hero Image`} class="w-full h-full object-cover" loading="lazy" />
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-        <div class="md:col-span-1 border-t border-border pt-6">
-          <h3 class="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-4">Capabilities</h3>
-          <ul class="space-y-2 text-foreground">
-            <li>Frontend Architecture</li>
-            <li>Design System</li>
-            <li>Performance Audit</li>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+        <div class="md:col-span-1 border-t border-border pt-8">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">Capabilities</h3>
+          <ul class="flex flex-col gap-3 text-foreground text-sm">
+            <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-border"></span>Frontend Architecture</li>
+            <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-border"></span>Design System</li>
+            <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-border"></span>Performance Audit</li>
           </ul>
         </div>
-        <div class="md:col-span-2 border-t border-border pt-6 space-y-6">
-          <h2 class="text-2xl font-medium">The Challenge</h2>
-          <p class="text-muted-foreground leading-relaxed">
-            Placeholder text explaining the technical and business challenges faced by the client. We focus on clear context rather than fabricated marketing speak.
-          </p>
-          <h2 class="text-2xl font-medium">The Approach</h2>
-          <p class="text-muted-foreground leading-relaxed">
-            Details regarding the architectural decisions, the design constraints, and the iterative engineering process used to deliver the final solution.
-          </p>
+        <div class="md:col-span-2 border-t border-border pt-8 space-y-12">
+          <div>
+            <h2 class="text-2xl font-medium text-foreground mb-4">The Challenge</h2>
+            <p class="text-muted-foreground text-lg leading-relaxed">
+              Placeholder text explaining the technical and business challenges faced by the client. We focus on clear context rather than fabricated marketing speak.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-medium text-foreground mb-4">The Approach</h2>
+            <p class="text-muted-foreground text-lg leading-relaxed">
+              Details regarding the architectural decisions, the design constraints, and the iterative engineering process used to deliver the final solution.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </article>
+  </main>
+
+  <SiteFooter />
 </Layout>
