@@ -1,3 +1,14 @@
+## Git Workflow
+
+**MANDATORY RULE**: Every new user-requested change set MUST begin on a new short-lived branch.
+- Never implement a new requested change directly on `main`.
+- One coherent user request = one branch.
+- Multiple files/edits belonging to the same request stay on that branch.
+- Preserve existing uncommitted work.
+- Do not force push.
+- Do not automatically merge.
+- Do not automatically push or commit unless explicitly requested.
+
 ## Development
 
 When starting the dev server, use background mode:

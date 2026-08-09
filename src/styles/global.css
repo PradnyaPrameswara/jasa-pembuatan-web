@@ -1,79 +1,232 @@
 @import "tailwindcss";
 
 @theme {
+  --color-canvas: #F5F5F7;
+  --color-white: #FFFFFF;
+  --color-ink-primary: #1D1D1F;
+  --color-ink-secondary: #424245;
+  --color-ink-muted: #86868B;
+  --color-hairline: #D2D2D7;
+
+  --color-blue-primary: #0071E3;
+  --color-blue-bright: #2997FF;
+  --color-blue-soft: #E8F2FF;
+  --color-cyan-optical: #64D2FF;
+
+  --color-black: #000000;
+  --color-surface-dark: #1C1C1E;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-surface: var(--surface);
-  --color-surface-elevated: var(--surface-elevated);
-  --color-surface-overlay: var(--surface-overlay);
-  --color-border: var(--border);
-  --color-glass-border: var(--glass-border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* Material variables */
+  --color-glass-fill: var(--glass-fill);
+  --color-glass-highlight: var(--glass-highlight);
+  --color-glass-shadow: var(--glass-shadow);
+
+  /* Fonts */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+
+  /* Easings */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @layer base {
   :root {
-    --background: hsl(210 20% 98%);
-    --foreground: hsl(210 20% 10%);
-    --muted: hsl(210 10% 94%);
-    --muted-foreground: hsl(210 10% 45%);
-    --surface: hsl(0 0% 100%);
-    --surface-elevated: hsl(0 0% 100%);
-    --surface-overlay: hsl(0 0% 100%);
-    --border: hsl(210 10% 90%);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --accent: hsl(210 100% 50%);
-    --accent-foreground: hsl(0 0% 100%);
+    --background: #F5F5F7; /* Canvas */
+    --foreground: #1D1D1F; /* Primary Ink */
+
+    --surface: #FFFFFF; /* White */
+
+    --border: #D2D2D7; /* Hairline */
+
+    --muted: #E8F2FF; /* Soft Blue or just a light gray */
+    --muted-foreground: #86868B; /* Muted Gray */
+
+    --primary: #0071E3; /* Primary Blue */
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #FFFFFF;
+    --secondary-foreground: #1D1D1F;
+
+    --accent: #E8F2FF;
+    --accent-foreground: #0071E3;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #FFFFFF;
+
+    --ring: #0071E3;
+
+    /* Glass properties for light mode */
+    --glass-fill: rgba(255, 255, 255, 0.6);
+    --glass-highlight: rgba(255, 255, 255, 0.8);
+    --glass-shadow: rgba(0, 0, 0, 0.05);
   }
 
-  .dark {
-    --background: hsl(210 20% 10%);
-    --foreground: hsl(210 20% 98%);
-    --muted: hsl(210 10% 15%);
-    --muted-foreground: hsl(210 10% 60%);
-    --surface: hsl(210 20% 12%);
-    --surface-elevated: hsl(210 20% 14%);
-    --surface-overlay: hsl(210 20% 16%);
-    --border: hsl(210 10% 20%);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --accent: hsl(210 100% 50%);
-    --accent-foreground: hsl(0 0% 100%);
-  }
-}
+  .dark-env {
+    --background: #000000; /* Black */
+    --foreground: #FFFFFF; /* White */
 
-@layer base {
+    --surface: #1C1C1E; /* Dark Surface */
+
+    --border: #424245; /* Secondary Ink */
+
+    --muted: #1C1C1E;
+    --muted-foreground: #86868B;
+
+    --primary: #2997FF; /* Bright Blue */
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #1C1C1E;
+    --secondary-foreground: #FFFFFF;
+
+    --accent: rgba(41, 151, 255, 0.15); /* Subdued bright blue for hover */
+    --accent-foreground: #2997FF;
+
+    --ring: #2997FF;
+
+    /* Glass properties for dark mode */
+    --glass-fill: rgba(28, 28, 30, 0.6);
+    --glass-highlight: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
+  }
+
   * {
-    @apply border-border outline-accent/50;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Scale */
+  h1, .text-display-1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  h2, .text-display-2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  h3, .text-display-3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  p {
+    line-height: 1.5;
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
-  .glass-subtle {
-    @apply bg-background/60 backdrop-blur-[8px];
+  /* Glass Material System */
+  .glass-thin {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
   }
-  .glass-surface {
-    @apply bg-background/70 backdrop-blur-[16px] border-t border-glass-border;
+  .dark-env .glass-thin {
+    background: rgba(28, 28, 30, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .glass-elevated {
-    @apply bg-background/80 backdrop-blur-[24px] shadow-md border border-glass-border;
+
+  .glass-regular {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   }
-  .glass-overlay {
-    @apply bg-surface-overlay/80 backdrop-blur-[40px] shadow-xl border border-glass-border;
+  .dark-env .glass-regular {
+    background: rgba(28, 28, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-thick {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06);
+  }
+  .dark-env .glass-thick {
+    background: rgba(28, 28, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Dark mode specific glass when forced */
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Gradient Recipes */
+  .gradient-blue-soft {
+    background: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(41, 151, 255, 0.05) 100%);
+  }
+  .gradient-light-material {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 247, 0.8) 100%);
+  }
+  .gradient-dark-material {
+    background: linear-gradient(180deg, rgba(28, 28, 30, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
+  }
+
+  /* Interaction Utilities */
+  .interactive-scale {
+    transition: transform 150ms var(--ease-out-strong), background-color 150ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .interactive-scale:active {
+      transform: scale(0.97);
+    }
+
+    .hover-scale-img {
+      transition: transform 700ms var(--ease-out-strong);
+    }
+    .group:hover .hover-scale-img {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
