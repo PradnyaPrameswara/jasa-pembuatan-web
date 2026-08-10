@@ -33,7 +33,7 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="glass-overlay w-[300px] sm:w-[400px] border-l border-glass-border"
+        className="bg-surface/95 backdrop-blur-md w-[300px] sm:w-[360px] border-l border-border shadow-2xl"
       >
         {/* Hidden title for screen readers */}
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
@@ -41,13 +41,13 @@ export function MobileNav() {
           Access site pages and contact form
         </SheetDescription>
 
-        <nav className="flex flex-col gap-6 mt-8">
+        <nav className="flex flex-col gap-5 mt-10 px-2">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-2xl font-medium text-muted-foreground hover:text-foreground transition-colors tracking-tight"
+              className="text-xl font-medium text-foreground/80 hover:text-foreground transition-colors tracking-tight py-2 border-b border-border/30 last:border-0"
             >
               {link.label}
             </a>
@@ -56,7 +56,7 @@ export function MobileNav() {
             <a
               href="/contact"
               onClick={() => setOpen(false)}
-              className="inline-flex h-12 w-full items-center justify-center rounded-md bg-foreground px-4 text-base font-medium text-background shadow transition-transform active:scale-95 hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="inline-flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow interactive-scale hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             >
               Discuss Your Project
             </a>
