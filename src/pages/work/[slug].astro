@@ -15,7 +15,7 @@ const { slug } = Astro.params;
 const { img, type } = Astro.props;
 ---
 
-<Layout title={`${slug.replace(/-/g, ' ')} | Premium Web Agency`}>
+<Layout title={`${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Premium Web Agency`}>
   <SiteHeader slot="header" />
 
   <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background">
@@ -26,12 +26,12 @@ const { img, type } = Astro.props;
           {slug.replace(/-/g, ' ')}
         </h1>
         <p class="text-xl text-muted-foreground leading-relaxed text-balance max-w-2xl">
-          This is a placeholder case study route representing the architecture. In production, this would be populated from a CMS or local markdown collections.
+          A deep dive into the architectural decisions and design engineering process behind this platform.
         </p>
       </div>
 
-      <div class="w-full aspect-[4/3] md:aspect-[16/9] bg-white rounded-2xl md:rounded-[32px] border border-border mb-20 relative overflow-hidden shadow-sm">
-        <img src={img} alt={`${slug.replace(/-/g, ' ')} Hero Image`} class="w-full h-full object-cover" loading="lazy" />
+      <div class="w-full aspect-[4/3] md:aspect-[16/9] bg-surface rounded-xl md:rounded-2xl mb-20 relative overflow-hidden">
+        <img src={img} alt={`${slug.replace(/-/g, ' ')} Hero Image`} class="w-full h-full object-cover object-top" loading="eager" />
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
@@ -47,15 +47,34 @@ const { img, type } = Astro.props;
           <div>
             <h2 class="text-2xl font-medium text-foreground mb-4">The Challenge</h2>
             <p class="text-muted-foreground text-lg leading-relaxed">
-              Placeholder text explaining the technical and business challenges faced by the client. We focus on clear context rather than fabricated marketing speak.
+              The objective was to migrate a legacy system to a modern web architecture without compromising performance or accessibility. The interface required a high-density data display while maintaining a clean, editorial aesthetic.
             </p>
           </div>
           <div>
             <h2 class="text-2xl font-medium text-foreground mb-4">The Approach</h2>
             <p class="text-muted-foreground text-lg leading-relaxed">
-              Details regarding the architectural decisions, the design constraints, and the iterative engineering process used to deliver the final solution.
+              We implemented a headless architecture combined with static generation for maximum edge performance. The design system was engineered from the ground up, focusing on subtle motion, fluid typography, and precise material interactions.
             </p>
           </div>
+        </div>
+      </div>
+
+      <!-- Secondary Media Sequence -->
+      <div class="flex flex-col gap-16 md:gap-32 pb-16">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
+          <div class="w-full md:w-1/2">
+            <h3 class="text-2xl font-medium text-foreground mb-4">Interface Details</h3>
+            <p class="text-muted-foreground text-lg leading-relaxed">
+              Careful attention was paid to the micro-interactions and typographic scale, ensuring that density did not compromise clarity.
+            </p>
+          </div>
+          <div class="w-full md:w-1/2 aspect-square md:aspect-[4/5] bg-surface rounded-xl md:rounded-2xl overflow-hidden relative">
+             <img src={img} alt="Interface detail view" class="w-full h-full object-cover object-left-bottom mix-blend-multiply opacity-80" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="w-full aspect-video md:aspect-[21/9] bg-surface rounded-xl md:rounded-2xl overflow-hidden relative">
+          <img src={img} alt="Wide landscape view of the project" class="w-full h-full object-cover object-center mix-blend-multiply opacity-80" loading="lazy" />
         </div>
       </div>
     </div>

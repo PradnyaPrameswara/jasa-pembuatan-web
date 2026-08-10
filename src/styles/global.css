@@ -239,16 +239,97 @@
     transition: transform 150ms var(--ease-out-strong), background-color 150ms ease;
   }
 
+  /* Button Material System */
+  .btn-interactive {
+    transition: transform 160ms var(--ease-out-strong), filter 200ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .btn-material-primary {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--primary) 92%, white) 0%,
+      var(--primary) 50%,
+      color-mix(in srgb, var(--primary) 90%, black) 100%
+    );
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--primary) 85%, black);
+    color: var(--primary-foreground);
+  }
+
+  .btn-material-destructive {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--destructive) 90%, white) 0%,
+      var(--destructive) 50%,
+      color-mix(in srgb, var(--destructive) 90%, black) 100%
+    );
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--destructive) 85%, black);
+    color: var(--destructive-foreground);
+  }
+
+  .btn-material-secondary {
+    background: linear-gradient(
+      to bottom,
+      #FFFFFF 0%,
+      var(--background) 100%
+    );
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 1px 2px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border);
+    color: var(--secondary-foreground);
+  }
+  .dark-env .btn-material-secondary {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--surface) 90%, white) 0%,
+      var(--surface) 100%
+    );
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 1px 2px rgba(0, 0, 0, 0.4);
+    border: 1px solid color-mix(in srgb, var(--border) 80%, black);
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .interactive-scale:active {
       transform: scale(0.97);
     }
 
     .hover-scale-img {
-      transition: transform 700ms var(--ease-out-strong);
+      transition: transform 600ms var(--ease-out-strong);
     }
     .group:hover .hover-scale-img {
-      transform: scale(1.05);
+      transform: scale(1.02);
+    }
+
+    /* Button Specific Interactions */
+    .btn-interactive:active {
+      transform: scale(0.97);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .dark-env .btn-interactive:active {
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .btn-material-primary:hover {
+      filter: brightness(1.05);
+    }
+    .btn-material-destructive:hover {
+      filter: brightness(1.05);
+    }
+    .btn-material-secondary:hover {
+      background: var(--background);
+    }
+    .dark-env .btn-material-secondary:hover {
+      filter: brightness(1.1);
     }
   }
 
