@@ -53,13 +53,11 @@ export function MobileNav() {
             </a>
           ))}
           <div className="mt-8">
-            <a
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="inline-flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow interactive-scale hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-            >
-              Discuss Your Project
-            </a>
+            <Button asChild variant="default" size="lg" className="w-full">
+              <a href="/contact" onClick={() => setOpen(false)}>
+                Discuss Your Project
+              </a>
+            </Button>
           </div>
         </nav>
       </SheetContent>

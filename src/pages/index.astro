@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import { FaqAccordion } from '../components/interactive/FaqAccordion';
+import { buttonVariants } from '../components/ui/button';
 ---
 
 <Layout title="Premium Web Development Agency | Engineering Precision">
@@ -23,7 +24,7 @@ import { FaqAccordion } from '../components/interactive/FaqAccordion';
                 Partner with a technical agency that understands business outcomes. From high-performance marketing sites to complex web applications, we build software that scales natively.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
-                <a href="/contact" class="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-base font-medium text-primary-foreground transition-transform hover:bg-primary/90">
+                <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
                   Discuss Your Project
                 </a>
               </div>
@@ -38,8 +39,8 @@ import { FaqAccordion } from '../components/interactive/FaqAccordion';
         </div>
 
         <!-- Hero Image (Large Image Focal Point) -->
-        <div class="mt-20 md:mt-32 w-full aspect-[16/9] lg:aspect-[21/9] rounded-2xl md:rounded-[32px] overflow-hidden bg-white shadow-sm border border-border relative">
-          <img src="/images/demo_marketing.png" alt="Premium marketing platform preview" class="w-full h-full object-cover" />
+        <div class="mt-20 md:mt-32 w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
+          <img src="/images/demo_marketing.png" alt="Premium marketing platform preview" class="w-full h-full object-cover object-top" />
 
           <!-- Contextual glass overlay anchored spatially -->
           <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 glass-regular p-4 md:p-6 rounded-xl md:rounded-2xl max-w-sm">
@@ -88,30 +89,52 @@ import { FaqAccordion } from '../components/interactive/FaqAccordion';
           <a href="/work" class="hidden md:block text-sm font-medium text-primary hover:underline underline-offset-4">View All Projects</a>
         </div>
 
-        <div class="flex flex-col gap-24 md:gap-40">
-          <!-- Large Project 1 -->
-          <div class="group relative flex flex-col md:flex-row gap-8 md:gap-16 items-center">
-            <div class="w-full md:w-2/3 aspect-[4/3] rounded-2xl md:rounded-[32px] overflow-hidden bg-white border border-border shadow-sm">
-              <img src="/images/demo_webapp.png" alt="Custom Web Application" class="w-full h-full object-cover transition-transform duration-700 ease-out-strong group-hover:scale-105" />
-            </div>
-            <div class="w-full md:w-1/3 flex flex-col gap-4">
-              <h3 class="text-2xl md:text-3xl font-medium text-foreground">Fintech Platform</h3>
-              <p class="text-muted-foreground leading-relaxed">Scalable transactional architecture handling robust data elements with sub-100ms response times.</p>
-              <div class="h-[1px] w-full bg-border my-4"></div>
-              <p class="text-sm text-foreground uppercase tracking-wider">Web Application</p>
+        <div class="flex flex-col gap-32 md:gap-48">
+          <!-- Project A: Featured (Fintech) -->
+          <div class="group flex flex-col gap-6 md:gap-10">
+            <!-- Media dominates, wide aspect ratio -->
+            <a href="/work/fintech-platform" class="block w-full lg:w-[85%] aspect-[16/10] md:aspect-[3/2] rounded-xl md:rounded-2xl overflow-hidden relative">
+              <img src="/images/demo_webapp.png" alt="Fintech Platform Dashboard" class="w-full h-full object-cover object-top hover-scale-img" />
+            </a>
+            <!-- Metadata beneath, aligned with strong whitespace -->
+            <div class="flex flex-col md:flex-row gap-4 md:gap-12 justify-between lg:w-[85%]">
+              <div class="max-w-xl">
+                <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Web Application</p>
+                <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Fintech Platform</h3>
+                <p class="text-lg text-muted-foreground leading-relaxed">Scalable transactional architecture handling robust data elements with sub-100ms response times.</p>
+              </div>
+              <div class="md:text-right flex-shrink-0">
+                <p class="text-sm font-medium text-foreground">2026</p>
+              </div>
             </div>
           </div>
 
-          <!-- Offset Project 2 -->
-          <div class="group relative flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-center md:pl-32">
-            <div class="w-full md:w-1/2 aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[32px] overflow-hidden bg-white border border-border shadow-sm">
-              <img src="/images/demo_ecommerce.png" alt="E-commerce Experience" class="w-full h-full object-cover transition-transform duration-700 ease-out-strong group-hover:scale-105" />
+          <!-- Project B: Asymmetrical / Offset (Retail) -->
+          <div class="group flex flex-col md:flex-row gap-8 md:gap-16 items-start lg:justify-end">
+            <div class="w-full md:w-[45%] flex flex-col gap-4 md:mt-24 order-2 md:order-1">
+              <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-2">E-Commerce</p>
+              <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Global Retail</h3>
+              <p class="text-lg text-muted-foreground leading-relaxed">Headless commerce architecture serving millions of monthly active users, engineered for lightning-fast cart interactions and robust product discovery.</p>
+              <div class="mt-4">
+                <a href="/work/global-retail" class="text-sm font-medium text-primary hover:underline underline-offset-4">Explore Architecture</a>
+              </div>
             </div>
-            <div class="w-full md:w-1/2 flex flex-col gap-4">
-              <h3 class="text-2xl md:text-3xl font-medium text-foreground">Global Retail</h3>
-              <p class="text-muted-foreground leading-relaxed">Headless commerce architecture serving millions of monthly active users, engineered for lightning-fast cart interactions and robust product discovery.</p>
-              <div class="h-[1px] w-full bg-border my-4"></div>
-              <p class="text-sm text-foreground uppercase tracking-wider">E-Commerce</p>
+            <!-- Taller aspect ratio, aligned right -->
+            <a href="/work/global-retail" class="block w-full md:w-[45%] aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative order-1 md:order-2">
+              <img src="/images/demo_ecommerce.png" alt="Global Retail E-commerce Experience" class="w-full h-full object-cover object-center hover-scale-img" />
+            </a>
+          </div>
+
+          <!-- Project C: Wide Moment (Marketing) -->
+          <div class="group flex flex-col gap-6 md:gap-10">
+            <!-- Full width or near full-width media -->
+            <a href="/work/architectural-firm" class="block w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
+              <img src="/images/demo_marketing.png" alt="Architectural Firm Portfolio" class="w-full h-full object-cover object-center hover-scale-img" />
+            </a>
+            <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+              <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Marketing Website</p>
+              <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Architectural Firm</h3>
+              <p class="text-lg text-muted-foreground leading-relaxed">An editorial, highly optimized static site driven by a headless CMS, allowing the firm to effortlessly manage their case studies.</p>
             </div>
           </div>
         </div>
@@ -163,7 +186,7 @@ import { FaqAccordion } from '../components/interactive/FaqAccordion';
           </a>
         </div>
 
-        <div class="w-full aspect-video rounded-2xl md:rounded-[32px] overflow-hidden bg-surface relative group">
+        <div class="w-full aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-zinc-900 relative group">
           <img src="/images/demo_webapp.png" alt="Banking Case Study preview" class="w-full h-full object-cover opacity-80 mix-blend-screen" />
         </div>
       </div>
@@ -235,7 +258,7 @@ import { FaqAccordion } from '../components/interactive/FaqAccordion';
         <p class="text-xl text-muted-foreground mb-12 text-balance">
           Let's discuss how we can engineer your next digital platform.
         </p>
-        <a href="/contact" class="inline-flex h-14 items-center justify-center rounded-full bg-primary px-10 text-lg font-medium text-primary-foreground transition-transform hover:bg-primary/90">
+        <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
           Start a Conversation
         </a>
       </div>

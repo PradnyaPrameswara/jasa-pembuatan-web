@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
+import { buttonVariants } from '../components/ui/button';
 ---
 
 <Layout title="About | Premium Web Agency">
@@ -36,7 +37,7 @@ import SiteFooter from '../components/layout/SiteFooter.astro';
           <p class="text-muted-foreground mb-8 text-lg">
             We take on a limited number of projects per quarter to ensure execution quality.
           </p>
-          <a href="/contact" class="inline-flex h-14 items-center justify-center rounded-full bg-primary px-10 text-lg font-medium text-primary-foreground transition-transform hover:bg-primary/90">
+          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
             Discuss Your Project
           </a>
         </section>
