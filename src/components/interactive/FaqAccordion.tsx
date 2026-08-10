@@ -1,10 +1,4 @@
 import * as React from "react"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../ui/accordion"
 
 const faqData = [
   {
@@ -47,17 +41,31 @@ const faqData = [
 
 export function FaqAccordion() {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <div className="w-full space-y-4">
       {faqData.map((item, index) => (
-        <AccordionItem key={index} value={`item-${index}`} className="border-border">
-          <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary transition-colors">
+        <details key={index} className="group border-b border-border [&_summary::-webkit-details-marker]:hidden">
+          <summary className="flex flex-1 items-center justify-between py-4 text-left font-medium transition-all hover:underline hover:cursor-pointer">
             {item.question}
-          </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground leading-relaxed">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div className="pb-4 text-muted-foreground">
             {item.answer}
-          </AccordionContent>
-        </AccordionItem>
+          </div>
+        </details>
       ))}
-    </Accordion>
+    </div>
   )
 }
