@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { initReveals } from './reveals';
-import { initParallax } from './parallax';
+import { initReveals } from './reveals.ts';
+import { initParallax } from './parallax.ts';
 
 gsap.registerPlugin(ScrollTrigger);
 
