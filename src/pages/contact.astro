@@ -10,12 +10,12 @@ import { ContactForm } from '../components/interactive/ContactForm.tsx';
 
   <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background">
     <div class="container mx-auto max-w-3xl">
-      <h1 class="text-display-2 mb-6 text-foreground text-balance">Discuss Your Project</h1>
-      <p class="text-xl text-muted-foreground mb-16 max-w-2xl leading-relaxed text-balance">
+      <h1 data-motion="hero-headline" class="text-display-2 mb-6 text-foreground text-balance">Discuss Your Project</h1>
+      <p data-motion="hero-copy" class="text-xl text-muted-foreground mb-16 max-w-2xl leading-relaxed text-balance">
         Tell us about your technical challenges and business goals. We'll get back to you within 24 hours to schedule an initial consultation.
       </p>
 
-      <div class="pt-8 border-t border-border">
+      <div data-motion="copy" class="pt-8 border-t border-border">
         <ContactForm client:load />
       </div>
     </div>
