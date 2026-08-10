@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { initReveals } from './reveals.ts';
-import { initParallax } from './parallax.ts';
+import { initHeroSequence, initFeaturedProject } from './reveals.ts';
+// import { initParallax } from './parallax.ts';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,12 +23,14 @@ export function initMotion() {
       reduceMotion: "(prefers-reduced-motion: reduce)"
     },
     (context) => {
-      initReveals(context);
+      initHeroSequence(context);
+      initFeaturedProject(context);
       
       // Parallax is purely decorative, so we disable it under reduced motion
       const conditions = context.conditions as { reduceMotion?: boolean; isMobile?: boolean; isDesktop?: boolean } | undefined;
       if (!conditions?.reduceMotion) {
-        initParallax(context);
+        // Disabled for now as P2/P3 candidate
+        // initParallax(context);
       }
 
       // Refresh ScrollTrigger to ensure all layout calculations are correct
