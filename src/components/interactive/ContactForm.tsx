@@ -2,6 +2,13 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 
 export function ContactForm() {
@@ -43,18 +50,17 @@ export function ContactForm() {
         </div>
         <div className="space-y-2">
           <Label htmlFor="budget">Budget Range</Label>
-          <select 
-            id="budget" 
-            name="budget" 
-            required
-            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-          >
-            <option value="" disabled selected hidden>Select a budget</option>
-            <option value="not-sure">Not sure yet</option>
-            <option value="10k-25k">$10k - $25k</option>
-            <option value="25k-50k">$25k - $50k</option>
-            <option value="50k+">$50k+</option>
-          </select>
+          <Select name="budget" required>
+            <SelectTrigger id="budget">
+              <SelectValue placeholder="Select a budget" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="not-sure">Not sure yet</SelectItem>
+              <SelectItem value="10k-25k">$10k - $25k</SelectItem>
+              <SelectItem value="25k-50k">$25k - $50k</SelectItem>
+              <SelectItem value="50k+">$50k+</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
