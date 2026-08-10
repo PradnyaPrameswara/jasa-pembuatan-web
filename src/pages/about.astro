@@ -10,13 +10,13 @@ import { buttonVariants } from '../components/ui/button';
 
   <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background">
     <div class="container mx-auto max-w-3xl">
-      <h1 class="text-display-2 mb-6 text-foreground text-balance">About the Agency</h1>
-      <p class="text-xl text-muted-foreground mb-16 leading-relaxed text-balance">
+      <h1 data-motion="hero-headline" class="text-display-2 mb-6 text-foreground text-balance">About the Agency</h1>
+      <p data-motion="hero-copy" class="text-xl text-muted-foreground mb-16 leading-relaxed text-balance">
         We are an independent web engineering and design firm based in Indonesia, partnering with ambitious companies worldwide.
       </p>
 
       <div class="space-y-16">
-        <section>
+        <section data-motion="copy">
           <div class="h-[1px] w-full bg-border mb-8"></div>
           <h2 class="text-xl font-medium mb-4 text-foreground">Our Philosophy</h2>
           <p class="text-muted-foreground text-lg leading-relaxed">
@@ -24,7 +24,7 @@ import { buttonVariants } from '../components/ui/button';
           </p>
         </section>
 
-        <section>
+        <section data-motion="copy">
           <div class="h-[1px] w-full bg-border mb-8"></div>
           <h2 class="text-xl font-medium mb-4 text-foreground">Technical Precision</h2>
           <p class="text-muted-foreground text-lg leading-relaxed">
@@ -32,7 +32,7 @@ import { buttonVariants } from '../components/ui/button';
           </p>
         </section>
 
-        <section class="border-t border-border pt-16 mt-20 text-center">
+        <section data-motion="copy" class="border-t border-border pt-16 mt-20 text-center">
           <h2 class="text-display-3 mb-6 text-foreground">Ready to start?</h2>
           <p class="text-muted-foreground mb-8 text-lg">
             We take on a limited number of projects per quarter to ensure execution quality.

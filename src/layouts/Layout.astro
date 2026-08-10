@@ -50,5 +50,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://example.
       <slot />
     </main>
     <slot name="footer" />
+    <script>
+      import { initMotion } from '../scripts/motion/index.ts';
+      initMotion();
+    </script>
   </body>
 </html>

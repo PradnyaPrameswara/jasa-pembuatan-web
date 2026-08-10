@@ -32,14 +32,14 @@ const services = [
 
   <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background relative overflow-hidden">
     <div class="container mx-auto max-w-[1000px] relative z-10">
-      <h1 class="text-display-2 mb-6 text-foreground text-balance">Our Services</h1>
-      <p class="text-xl text-muted-foreground mb-20 max-w-2xl leading-relaxed text-balance">
+      <h1 data-motion="hero-headline" class="text-display-2 mb-6 text-foreground text-balance">Our Services</h1>
+      <p data-motion="hero-copy" class="text-xl text-muted-foreground mb-20 max-w-2xl leading-relaxed text-balance">
         We specialize in engineering robust digital platforms. Our approach combines rigorous technical architecture with premium design execution.
       </p>
 
-      <div class="flex flex-col gap-16 md:gap-24">
+      <div data-motion="stagger-group" class="flex flex-col gap-16 md:gap-24">
         {services.map((service, index) => (
-          <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+          <div data-motion="stagger-item" class="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
             <div class="w-full md:w-1/2">
               <div class="h-[1px] w-full bg-border mb-6 block md:hidden"></div>
               <h2 class="text-2xl md:text-3xl font-medium text-foreground mb-4">{service.title}</h2>

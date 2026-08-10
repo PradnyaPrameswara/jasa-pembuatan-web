@@ -16,10 +16,10 @@ import { buttonVariants } from '../components/ui/button';
         <div class="flex flex-col md:flex-row justify-between items-start gap-12">
 
           <div class="max-w-3xl z-10">
-            <h1 class="text-display-1 text-foreground mb-8 text-balance">
+            <h1 data-motion="hero-headline" class="text-display-1 text-foreground mb-8 text-balance">
               We engineer scalable <br class="hidden lg:block"/> digital platforms.
             </h1>
-            <div class="max-w-xl">
+            <div data-motion="hero-copy" class="max-w-xl">
               <p class="text-xl text-muted-foreground leading-relaxed mb-10 text-balance">
                 Partner with a technical agency that understands business outcomes. From high-performance marketing sites to complex web applications, we build software that scales natively.
               </p>
@@ -39,7 +39,7 @@ import { buttonVariants } from '../components/ui/button';
         </div>
 
         <!-- Hero Image (Large Image Focal Point) -->
-        <div class="mt-20 md:mt-32 w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
+        <div data-motion="hero-media" class="mt-20 md:mt-32 w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
           <img src="/images/demo_marketing.png" alt="Premium marketing platform preview" class="w-full h-full object-cover object-top" />
 
           <!-- Contextual glass overlay anchored spatially -->
@@ -55,24 +55,24 @@ import { buttonVariants } from '../components/ui/button';
     <section class="py-20 md:py-32 bg-white px-4 md:px-8">
       <div class="container mx-auto max-w-[1440px]">
         <div class="flex flex-col md:flex-row justify-between gap-12 md:gap-24">
-          <div class="md:w-1/3">
+          <div data-motion="copy" class="md:w-1/3">
             <h2 class="text-display-3 text-foreground mb-4">Core Capabilities</h2>
             <p class="text-muted-foreground leading-relaxed">Trusted by engineering teams and design leaders to deliver the uncompromising quality they expect.</p>
           </div>
-          <div class="md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="flex flex-col gap-2">
+          <div data-motion="stagger-group" class="md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div data-motion="stagger-item" class="flex flex-col gap-2">
               <span class="text-sm font-semibold text-foreground tracking-wide">01</span>
               <span class="text-base text-muted-foreground">Frontend Architecture</span>
             </div>
-            <div class="flex flex-col gap-2">
+            <div data-motion="stagger-item" class="flex flex-col gap-2">
               <span class="text-sm font-semibold text-foreground tracking-wide">02</span>
               <span class="text-base text-muted-foreground">Design Engineering</span>
             </div>
-            <div class="flex flex-col gap-2">
+            <div data-motion="stagger-item" class="flex flex-col gap-2">
               <span class="text-sm font-semibold text-foreground tracking-wide">03</span>
               <span class="text-base text-muted-foreground">Performance Audits</span>
             </div>
-            <div class="flex flex-col gap-2">
+            <div data-motion="stagger-item" class="flex flex-col gap-2">
               <span class="text-sm font-semibold text-foreground tracking-wide">04</span>
               <span class="text-base text-muted-foreground">Design Systems</span>
             </div>
@@ -85,7 +85,7 @@ import { buttonVariants } from '../components/ui/button';
     <section class="py-24 md:py-40 bg-background px-4 md:px-8">
       <div class="container mx-auto max-w-[1440px]">
         <div class="flex justify-between items-end mb-16 md:mb-24">
-          <h2 class="text-display-2 text-foreground">Selected Work</h2>
+          <h2 data-motion="section-heading" class="text-display-2 text-foreground">Selected Work</h2>
           <a href="/work" class="hidden md:block text-sm font-medium text-primary hover:underline underline-offset-4">View All Projects</a>
         </div>
 
@@ -93,11 +93,11 @@ import { buttonVariants } from '../components/ui/button';
           <!-- Project A: Featured (Fintech) -->
           <div class="group flex flex-col gap-6 md:gap-10">
             <!-- Media dominates, wide aspect ratio -->
-            <a href="/work/fintech-platform" class="block w-full lg:w-[85%] aspect-[16/10] md:aspect-[3/2] rounded-xl md:rounded-2xl overflow-hidden relative">
+            <a data-motion="project-media" href="/work/fintech-platform" class="block w-full lg:w-[85%] aspect-[16/10] md:aspect-[3/2] rounded-xl md:rounded-2xl overflow-hidden relative">
               <img src="/images/demo_webapp.png" alt="Fintech Platform Dashboard" class="w-full h-full object-cover object-top hover-scale-img" />
             </a>
             <!-- Metadata beneath, aligned with strong whitespace -->
-            <div class="flex flex-col md:flex-row gap-4 md:gap-12 justify-between lg:w-[85%]">
+            <div data-motion="copy" class="flex flex-col md:flex-row gap-4 md:gap-12 justify-between lg:w-[85%]">
               <div class="max-w-xl">
                 <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Web Application</p>
                 <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Fintech Platform</h3>
@@ -111,7 +111,7 @@ import { buttonVariants } from '../components/ui/button';
 
           <!-- Project B: Asymmetrical / Offset (Retail) -->
           <div class="group flex flex-col md:flex-row gap-8 md:gap-16 items-start lg:justify-end">
-            <div class="w-full md:w-[45%] flex flex-col gap-4 md:mt-24 order-2 md:order-1">
+            <div data-motion="copy" class="w-full md:w-[45%] flex flex-col gap-4 md:mt-24 order-2 md:order-1">
               <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-2">E-Commerce</p>
               <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Global Retail</h3>
               <p class="text-lg text-muted-foreground leading-relaxed">Headless commerce architecture serving millions of monthly active users, engineered for lightning-fast cart interactions and robust product discovery.</p>
@@ -120,7 +120,7 @@ import { buttonVariants } from '../components/ui/button';
               </div>
             </div>
             <!-- Taller aspect ratio, aligned right -->
-            <a href="/work/global-retail" class="block w-full md:w-[45%] aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative order-1 md:order-2">
+            <a data-motion="project-media" href="/work/global-retail" class="block w-full md:w-[45%] aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative order-1 md:order-2">
               <img src="/images/demo_ecommerce.png" alt="Global Retail E-commerce Experience" class="w-full h-full object-cover object-center hover-scale-img" />
             </a>
           </div>
@@ -128,10 +128,10 @@ import { buttonVariants } from '../components/ui/button';
           <!-- Project C: Wide Moment (Marketing) -->
           <div class="group flex flex-col gap-6 md:gap-10">
             <!-- Full width or near full-width media -->
-            <a href="/work/architectural-firm" class="block w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
+            <a data-motion="project-media" href="/work/architectural-firm" class="block w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
               <img src="/images/demo_marketing.png" alt="Architectural Firm Portfolio" class="w-full h-full object-cover object-center hover-scale-img" />
             </a>
-            <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+            <div data-motion="copy" class="max-w-3xl mx-auto text-center flex flex-col items-center">
               <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Marketing Website</p>
               <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Architectural Firm</h3>
               <p class="text-lg text-muted-foreground leading-relaxed">An editorial, highly optimized static site driven by a headless CMS, allowing the firm to effortlessly manage their case studies.</p>
@@ -149,7 +149,7 @@ import { buttonVariants } from '../components/ui/button';
     <section class="py-24 md:py-40 bg-white px-4 md:px-8 border-y border-border">
       <div class="container mx-auto max-w-[1440px]">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div class="lg:col-span-5">
+          <div data-motion="copy" class="lg:col-span-5">
             <h2 class="text-display-3 text-foreground mb-8 text-balance">
               Design engineered for business outcomes.
             </h2>
@@ -158,13 +158,13 @@ import { buttonVariants } from '../components/ui/button';
             </p>
           </div>
           <div class="lg:col-span-1 hidden lg:block"></div>
-          <div class="lg:col-span-6 flex flex-col gap-12">
-            <div>
+          <div data-motion="stagger-group" class="lg:col-span-6 flex flex-col gap-12">
+            <div data-motion="stagger-item">
               <h3 class="text-xl font-medium text-foreground mb-3">Web Engineering</h3>
               <p class="text-muted-foreground leading-relaxed">Complex React and Astro applications tailored for high performance and scalability. We choose the right tool for the job, favoring standard HTML/CSS over heavy JS where appropriate.</p>
             </div>
             <div class="h-[1px] w-full bg-border"></div>
-            <div>
+            <div data-motion="stagger-item">
               <h3 class="text-xl font-medium text-foreground mb-3">Performance Tuning</h3>
               <p class="text-muted-foreground leading-relaxed">Audits and refactoring to achieve perfect Core Web Vitals and lightning-fast load times. We optimize everything from network requests to render cycles.</p>
             </div>
@@ -179,14 +179,14 @@ import { buttonVariants } from '../components/ui/button';
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(100,210,255,0.05)_0%,transparent_50%)] pointer-events-none"></div>
 
       <div class="container mx-auto max-w-[1440px] relative z-10">
-        <div class="flex flex-col md:flex-row gap-12 justify-between items-center mb-16">
+        <div data-motion="copy" class="flex flex-col md:flex-row gap-12 justify-between items-center mb-16">
           <h2 class="text-display-2 text-balance max-w-2xl">Redefining digital banking experiences.</h2>
           <a href="/work/fintech-platform" class="glass-regular px-6 py-3 rounded-full text-sm font-medium flex-shrink-0 transition-transform hover:bg-white/10 text-white">
             Read Case Study
           </a>
         </div>
 
-        <div class="w-full aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-zinc-900 relative group">
+        <div data-motion="project-media" class="w-full aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-zinc-900 relative group">
           <img src="/images/demo_webapp.png" alt="Banking Case Study preview" class="w-full h-full object-cover opacity-80 mix-blend-screen" />
         </div>
       </div>
@@ -195,10 +195,10 @@ import { buttonVariants } from '../components/ui/button';
     <!-- Philosophy (Minimalist Typography) -->
     <section class="py-32 md:py-48 bg-background px-4">
       <div class="container mx-auto max-w-4xl text-center">
-        <h2 class="text-display-2 text-foreground leading-tight text-balance">
+        <h2 data-motion="section-heading" class="text-display-2 text-foreground leading-tight text-balance">
           The details are not the details. <br class="hidden md:block" />They make the design.
         </h2>
-        <p class="text-muted-foreground mt-8 text-xl leading-relaxed max-w-2xl mx-auto">
+        <p data-motion="copy" class="text-muted-foreground mt-8 text-xl leading-relaxed max-w-2xl mx-auto">
           Our philosophy is simple: build interfaces where every invisible detail compounds into something that feels inevitably correct.
         </p>
       </div>
@@ -207,25 +207,25 @@ import { buttonVariants } from '../components/ui/button';
     <!-- Process & Technical Capabilities -->
     <section class="py-24 md:py-40 bg-white px-4 md:px-8 border-t border-border">
       <div class="container mx-auto max-w-[1440px]">
-        <div class="mb-20 max-w-3xl">
+        <div data-motion="copy" class="mb-20 max-w-3xl">
           <h2 class="text-display-3 text-foreground mb-6">How we build.</h2>
           <p class="text-lg text-muted-foreground">A deterministic approach to software engineering, ensuring quality from the first line of code to the final production deployment.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-          <div class="flex flex-col">
+        <div data-motion="stagger-group" class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          <div data-motion="stagger-item" class="flex flex-col">
             <span class="text-sm text-muted-foreground tracking-widest mb-4 block">01</span>
             <div class="h-[1px] w-full bg-border mb-8"></div>
             <h3 class="text-xl font-medium text-foreground mb-4">Discovery & Architecture</h3>
             <p class="text-muted-foreground leading-relaxed">We map out technical requirements, select the optimal tech stack, and define the data flow before any visual work begins.</p>
           </div>
-          <div class="flex flex-col">
+          <div data-motion="stagger-item" class="flex flex-col">
             <span class="text-sm text-muted-foreground tracking-widest mb-4 block">02</span>
             <div class="h-[1px] w-full bg-border mb-8"></div>
             <h3 class="text-xl font-medium text-foreground mb-4">Design Engineering</h3>
             <p class="text-muted-foreground leading-relaxed">Design and development happen in parallel. We prototype interactively to guarantee the final implementation matches the vision.</p>
           </div>
-          <div class="flex flex-col">
+          <div data-motion="stagger-item" class="flex flex-col">
             <span class="text-sm text-muted-foreground tracking-widest mb-4 block">03</span>
             <div class="h-[1px] w-full bg-border mb-8"></div>
             <h3 class="text-xl font-medium text-foreground mb-4">Deployment & Scale</h3>
@@ -252,15 +252,17 @@ import { buttonVariants } from '../components/ui/button';
     <!-- Final CTA -->
     <section class="py-32 md:py-48 bg-white px-4 md:px-8 text-center border-t border-border">
       <div class="container mx-auto max-w-3xl">
-        <h2 class="text-display-2 text-foreground mb-8 text-balance">
+        <h2 data-motion="section-heading" class="text-display-2 text-foreground mb-8 text-balance">
           Ready to build?
         </h2>
-        <p class="text-xl text-muted-foreground mb-12 text-balance">
-          Let's discuss how we can engineer your next digital platform.
-        </p>
-        <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
-          Start a Conversation
-        </a>
+        <div data-motion="copy">
+          <p class="text-xl text-muted-foreground mb-12 text-balance">
+            Let's discuss how we can engineer your next digital platform.
+          </p>
+          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
+            Start a Conversation
+          </a>
+        </div>
       </div>
     </section>
   </main>
