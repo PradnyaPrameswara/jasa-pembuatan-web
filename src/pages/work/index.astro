@@ -63,7 +63,7 @@ const projects = [
 
         <!-- Project 2: Asymmetrical Offset -->
         <div class="group flex flex-col md:flex-row gap-8 md:gap-16 items-start lg:justify-end mt-16 md:mt-0">
-          <div data-motion="copy" class="w-full md:w-[45%] flex flex-col gap-4 md:mt-24 order-2 md:order-1">
+          <div class="w-full md:w-[45%] flex flex-col gap-4 md:mt-24 order-2 md:order-1">
             <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-2">{projects[1].category}</p>
             <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">{projects[1].title}</h3>
             <p class="text-lg text-muted-foreground leading-relaxed">{projects[1].description}</p>
@@ -71,17 +71,17 @@ const projects = [
               <a href={`/work/${projects[1].slug}`} class="text-sm font-medium text-primary hover:underline underline-offset-4">Explore Case Study</a>
             </div>
           </div>
-          <a data-motion="project-media" href={`/work/${projects[1].slug}`} class="block w-full md:w-[45%] aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative order-1 md:order-2 bg-surface">
+          <a href={`/work/${projects[1].slug}`} class="block w-full md:w-[45%] aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative order-1 md:order-2 bg-surface">
             <img src={projects[1].image} alt={`${projects[1].title} preview`} class="w-full h-full object-cover object-center hover-scale-img" loading="lazy" />
           </a>
         </div>
 
         <!-- Project 3: Wide Moment -->
         <div class="group flex flex-col gap-6 md:gap-10 mt-16 md:mt-0">
-          <a data-motion="project-media" href={`/work/${projects[2].slug}`} class="block w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative bg-surface">
+          <a href={`/work/${projects[2].slug}`} class="block w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative bg-surface">
             <img src={projects[2].image} alt={`${projects[2].title} preview`} class="w-full h-full object-cover object-center hover-scale-img" loading="lazy" />
           </a>
-          <div data-motion="copy" class="max-w-3xl mx-auto text-center flex flex-col items-center">
+          <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
             <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">{projects[2].category}</p>
             <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">{projects[2].title}</h3>
             <p class="text-lg text-muted-foreground leading-relaxed">{projects[2].description}</p>
