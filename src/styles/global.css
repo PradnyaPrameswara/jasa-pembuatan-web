@@ -77,6 +77,13 @@
     --glass-fill: rgba(255, 255, 255, 0.6);
     --glass-highlight: rgba(255, 255, 255, 0.8);
     --glass-shadow: rgba(0, 0, 0, 0.05);
+
+    /* Header Semantic Tokens (Light) */
+    --header-surface-top: rgba(245, 245, 247, 0.45);
+    --header-surface-scrolled: rgba(245, 245, 247, 0.85);
+    --header-border-top: rgba(210, 210, 215, 0.1);
+    --header-border-scrolled: rgba(210, 210, 215, 0.8);
+    --header-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   }
 
   .dark-env {
@@ -105,6 +112,13 @@
     --glass-fill: rgba(28, 28, 30, 0.6);
     --glass-highlight: rgba(255, 255, 255, 0.1);
     --glass-shadow: rgba(0, 0, 0, 0.4);
+
+    /* Header Semantic Tokens (Dark) */
+    --header-surface-top: rgba(28, 28, 30, 0.45);
+    --header-surface-scrolled: rgba(28, 28, 30, 0.85);
+    --header-border-top: rgba(66, 66, 69, 0.1);
+    --header-border-scrolled: rgba(66, 66, 69, 0.8);
+    --header-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   }
 
   * {
@@ -192,6 +206,23 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  /* Header System */
+  .site-header {
+    background: var(--header-surface-top);
+    border-bottom: 1px solid var(--header-border-top);
+    box-shadow: none;
+    /* Static blur, do not animate blur filter aggressively */
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .site-header.is-scrolled {
+    background: var(--header-surface-scrolled);
+    border-bottom: 1px solid var(--header-border-scrolled);
+    box-shadow: var(--header-shadow);
+  }
+
   /* Gradient Recipes */
   .gradient-blue-soft {
     background: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(41, 151, 255, 0.05) 100%);
@@ -222,10 +253,10 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
     *, ::before, ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
   }
