@@ -4,9 +4,20 @@ import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import { FaqAccordion } from '../components/interactive/FaqAccordion';
 import { buttonVariants } from '../components/ui/button';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Pradnya",
+  "url": "https://production-domain-required.com",
+  "description": "Pradnya is an independent web engineering and design firm based in Indonesia."
+};
 ---
 
-<Layout title="Premium Web Development Agency | Engineering Precision">
+<Layout 
+  title="Pradnya — Web Design & Development"
+  description="Partner with Pradnya, a premium web development agency focused on technical precision and design engineering for scalable digital platforms."
+  structuredData={structuredData}
+>
   <SiteHeader slot="header" />
 
   <main class="flex flex-col">

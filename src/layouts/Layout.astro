@@ -5,15 +5,23 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  ogType?: string;
+  noindex?: boolean;
+  canonical?: string;
+  structuredData?: any;
 }
 
 const {
   title,
-  description = "Premium web development agency focused on technical precision and design.",
-  image = "/og-image.jpg"
+  description = "Pradnya is an independent web engineering and design firm.",
+  image = "/og-image.jpg",
+  ogType = "website",
+  noindex = false,
+  canonical,
+  structuredData
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://example.com");
+const canonicalURL = canonical ? new URL(canonical) : new URL(Astro.url.pathname, Astro.site || "https://production-domain-required.com");
 ---
 
 <!doctype html>
@@ -29,9 +37,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://example.
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pradnya" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -43,6 +53,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://example.
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
   </head>
   <body class="antialiased selection:bg-accent selection:text-accent-foreground flex min-h-screen flex-col">
     <slot name="header" />
