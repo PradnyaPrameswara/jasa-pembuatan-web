@@ -39,14 +39,8 @@ import { buttonVariants } from '../components/ui/button';
         </div>
 
         <!-- Hero Image (Large Image Focal Point) -->
-        <div data-motion="hero-media" class="mt-20 md:mt-32 w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
+        <div data-motion="hero-media" class="mt-20 md:mt-32 w-full aspect-[16/9] lg:aspect-[21/9] overflow-hidden relative" style="border-radius: var(--media-radius-featured)">
           <img src="/images/demo_marketing.png" alt="Premium marketing platform preview" class="w-full h-full object-cover object-top" />
-
-          <!-- Contextual glass overlay anchored spatially -->
-          <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 glass-regular p-4 md:p-6 rounded-xl md:rounded-2xl max-w-sm">
-            <p class="text-sm font-medium text-foreground">Global Reach</p>
-            <p class="text-xs text-muted-foreground mt-1">Engineered for a sub-200ms TTFB worldwide via edge infrastructure.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -93,7 +87,7 @@ import { buttonVariants } from '../components/ui/button';
           <!-- Project A: Featured (Fintech) -->
           <div class="group flex flex-col gap-6 md:gap-10">
             <!-- Media dominates, wide aspect ratio -->
-            <a data-motion="project-media" href="/work/fintech-platform" class="block w-full lg:w-[85%] aspect-[16/10] md:aspect-[3/2] rounded-xl md:rounded-2xl overflow-hidden relative">
+            <a data-motion="project-media" href="/work/fintech-platform" class="block w-full lg:w-[85%] aspect-[16/10] md:aspect-[3/2] overflow-hidden relative" style="border-radius: var(--media-radius-featured)">
               <img src="/images/demo_webapp.png" alt="Fintech Platform Dashboard" class="w-full h-full object-cover object-top hover-scale-img" />
             </a>
             <!-- Metadata beneath, aligned with strong whitespace -->
@@ -120,21 +114,27 @@ import { buttonVariants } from '../components/ui/button';
               </div>
             </div>
             <!-- Taller aspect ratio, aligned right -->
-            <a href="/work/global-retail" class="block w-full md:w-[45%] aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative order-1 md:order-2">
+            <a href="/work/global-retail" class="block w-full md:w-[45%] aspect-[4/5] overflow-hidden relative order-1 md:order-2" style="border-radius: var(--media-radius-secondary)">
               <img src="/images/demo_ecommerce.png" alt="Global Retail E-commerce Experience" class="w-full h-full object-cover object-center hover-scale-img" />
             </a>
           </div>
 
           <!-- Project C: Wide Moment (Marketing) -->
           <div class="group flex flex-col gap-6 md:gap-10">
-            <!-- Full width or near full-width media -->
-            <a href="/work/architectural-firm" class="block w-full aspect-[16/9] lg:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden relative">
+            <!-- Full width wide media -->
+            <a href="/work/architectural-firm" class="block w-full aspect-[16/9] lg:aspect-[21/9] overflow-hidden relative" style="border-radius: var(--media-radius-featured)">
               <img src="/images/demo_marketing.png" alt="Architectural Firm Portfolio" class="w-full h-full object-cover object-center hover-scale-img" />
             </a>
-            <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
-              <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Marketing Website</p>
-              <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Architectural Firm</h3>
-              <p class="text-lg text-muted-foreground leading-relaxed">An editorial, highly optimized static site driven by a headless CMS, allowing the firm to effortlessly manage their case studies.</p>
+            <!-- Left-aligned metadata, consistent with other projects -->
+            <div class="flex flex-col md:flex-row gap-4 md:gap-12 justify-between">
+              <div class="max-w-xl">
+                <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Marketing Website</p>
+                <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Architectural Firm</h3>
+                <p class="text-lg text-muted-foreground leading-relaxed">An editorial, highly optimized static site driven by a headless CMS, allowing the firm to effortlessly manage their case studies.</p>
+              </div>
+              <div class="md:text-right flex-shrink-0">
+                <p class="text-sm font-medium text-foreground">2026</p>
+              </div>
             </div>
           </div>
         </div>
@@ -186,8 +186,8 @@ import { buttonVariants } from '../components/ui/button';
           </a>
         </div>
 
-        <div class="w-full aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-zinc-900 relative group">
-          <img src="/images/demo_webapp.png" alt="Banking Case Study preview" class="w-full h-full object-cover opacity-80 mix-blend-screen" />
+        <div class="w-full aspect-video overflow-hidden bg-zinc-900 relative group" style="border-radius: var(--media-radius-featured)">
+          <img src="/images/demo_webapp.png" alt="Banking Case Study preview" class="w-full h-full object-cover" />
         </div>
       </div>
     </section>
