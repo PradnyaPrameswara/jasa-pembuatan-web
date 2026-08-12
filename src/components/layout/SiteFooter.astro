@@ -3,70 +3,65 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-black text-white py-20 px-4 md:px-8 border-t border-border">
-  <div class="container mx-auto max-w-7xl">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
+<footer class="dark-env bg-background border-t border-border text-foreground mt-auto relative z-10">
+  <div class="container mx-auto max-w-[1440px] px-6 md:px-12 pt-24 pb-12">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-8 mb-24">
 
-      <!-- Brand -->
-      <div class="lg:col-span-2">
-        <a href="/" class="text-2xl font-bold tracking-tight inline-block mb-6">
-          <span class="text-primary">P</span><span class="text-white">radnya.</span>
+      <!-- Brand & Positioning (Left/Top) -->
+      <div class="flex flex-col items-start lg:col-span-1">
+        <a href="/" class="text-display-3 font-medium tracking-tight text-foreground inline-block mb-4 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">
+          Pradnya<span class="text-primary">.</span>
         </a>
-        <p class="text-muted-foreground max-w-sm text-sm leading-relaxed mb-8">
-          Engineering scalable digital platforms for ambitious companies. Technical precision meets premium design.
+        <p class="text-lg text-muted-foreground max-w-sm leading-relaxed">
+          Engineering scalable digital platforms. Technical precision meets premium design.
         </p>
-        <div class="flex gap-4">
-          <a href="https://www.linkedin.com/in/pradnyaprameswara/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-white hover:border-white transition-colors" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+
+      <!-- Primary Navigation (Center) -->
+      <div class="flex lg:justify-center">
+        <nav class="flex flex-col space-y-4" aria-label="Footer Navigation">
+          <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Navigation</span>
+          <a href="/work" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">Work</a>
+          <a href="/services" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">Services</a>
+          <a href="/about" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">About</a>
+          <a href="/contact" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Contact & CTA (Right/Bottom) -->
+      <div class="flex flex-col items-start lg:items-end md:col-span-2 lg:col-span-1 mt-8 md:mt-0">
+        <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6">Start a conversation</span>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8 lg:flex-row-reverse">
+          <a
+            href="https://www.linkedin.com/in/pradnyaprameswara/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm"
+            aria-label="LinkedIn Profile"
+          >
+            LinkedIn
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-70"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </a>
-          <a href="#" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-white hover:border-white transition-colors" aria-label="Twitter">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          <a href="mailto:hello@example.com" class="text-foreground hover:text-primary transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">
+            hello@example.com
           </a>
         </div>
-      </div>
 
-      <!-- Navigation -->
-      <div>
-        <h3 class="font-medium mb-6 text-white tracking-wide">Navigation</h3>
-        <ul class="space-y-4 text-sm">
-          <li><a href="/work" class="text-muted-foreground hover:text-white transition-colors">Work</a></li>
-          <li><a href="/services" class="text-muted-foreground hover:text-white transition-colors">Services</a></li>
-          <li><a href="/about" class="text-muted-foreground hover:text-white transition-colors">About</a></li>
-          <li><a href="/contact" class="text-muted-foreground hover:text-white transition-colors">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Services -->
-      <div>
-        <h3 class="font-medium mb-6 text-white tracking-wide">Services</h3>
-        <ul class="space-y-4 text-sm">
-          <li><a href="/services#engineering" class="text-muted-foreground hover:text-white transition-colors">Web Engineering</a></li>
-          <li><a href="/services#design" class="text-muted-foreground hover:text-white transition-colors">Design Systems</a></li>
-          <li><a href="/services#performance" class="text-muted-foreground hover:text-white transition-colors">Performance Tuning</a></li>
-          <li><a href="/services#strategy" class="text-muted-foreground hover:text-white transition-colors">Technical Strategy</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h3 class="font-medium mb-6 text-white tracking-wide">Contact</h3>
-        <ul class="space-y-4 text-sm">
-          <li><a href="mailto:hello@example.com" class="text-muted-foreground hover:text-white transition-colors">hello@example.com</a></li>
-          <li class="pt-2">
-            <a href="/contact" class="inline-flex items-center text-primary hover:text-white transition-colors">
-              Start a project &rarr;
-            </a>
-          </li>
-        </ul>
+        <a href="/contact" class="btn-interactive btn-material-primary px-6 py-3 rounded-full font-medium inline-flex items-center focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4">
+          Discuss Your Project
+        </a>
       </div>
 
     </div>
 
-    <div class="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
+    <!-- Legal Row (Bottom) -->
+    <div class="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
       <p>&copy; {currentYear} Pradnya Prameswara. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      <div class="flex gap-8">
+        <a href="#" class="hover:text-foreground transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-foreground transition-colors">Terms of Service</a>
       </div>
     </div>
   </div>
