@@ -5,17 +5,41 @@ import SiteFooter from '../../components/layout/SiteFooter.astro';
 
 export function getStaticPaths() {
   return [
-    { params: { slug: 'fintech-platform' }, props: { img: '/images/demo_webapp.png', type: 'Web Application' } },
-    { params: { slug: 'global-retail' }, props: { img: '/images/demo_ecommerce.png', type: 'E-commerce' } },
-    { params: { slug: 'architectural-firm' }, props: { img: '/images/demo_marketing.png', type: 'Marketing Website' } },
+    { 
+      params: { slug: 'fintech-platform' }, 
+      props: { 
+        img: '/images/demo_webapp.png', 
+        type: 'Web Application',
+        description: 'Scalable transactional architecture handling robust data elements with sub-100ms response times.'
+      } 
+    },
+    { 
+      params: { slug: 'global-retail' }, 
+      props: { 
+        img: '/images/demo_ecommerce.png', 
+        type: 'E-commerce',
+        description: 'Headless commerce architecture serving millions of monthly active users, engineered for lightning-fast cart interactions and robust product discovery.'
+      } 
+    },
+    { 
+      params: { slug: 'architectural-firm' }, 
+      props: { 
+        img: '/images/demo_marketing.png', 
+        type: 'Marketing Website',
+        description: 'An editorial, highly optimized static site driven by a headless CMS, allowing the firm to effortlessly manage their case studies.'
+      } 
+    },
   ];
 }
 
 const { slug } = Astro.params;
-const { img, type } = Astro.props;
+const { img, type, description } = Astro.props;
 ---
 
-<Layout title={`${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Premium Web Agency`}>
+<Layout 
+  title={`${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Pradnya`}
+  description={description}
+>
   <SiteHeader slot="header" />
 
   <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background">
