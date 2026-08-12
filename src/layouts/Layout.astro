@@ -2,18 +2,18 @@
 import '../styles/global.css';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
   image?: string;
   ogType?: string;
   noindex?: boolean;
   canonical?: string;
-  structuredData?: any;
+  structuredData?: Record<string, any>;
 }
 
 const {
-  title,
-  description = "Pradnya is an independent web engineering and design firm.",
+  title = "Pradnya — Web Design & Development",
+  description = "Pradnya designs and develops focused web experiences.",
   image = "/og-image.jpg",
   ogType = "website",
   noindex = false,

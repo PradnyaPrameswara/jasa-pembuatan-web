@@ -6,16 +6,19 @@ import { FaqAccordion } from '../components/interactive/FaqAccordion';
 import { buttonVariants } from '../components/ui/button';
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Pradnya",
+  "@type": "Person",
+  "name": "Pradnya Prameswara",
   "url": "https://production-domain-required.com",
-  "description": "Pradnya is an independent web engineering and design firm based in Indonesia."
+  "sameAs": [
+    "https://www.linkedin.com/in/pradnyaprameswara/"
+  ],
+  "description": "Pradnya designs and develops focused web experiences."
 };
 ---
 
 <Layout 
   title="Pradnya — Web Design & Development"
-  description="Partner with Pradnya, a premium web development agency focused on technical precision and design engineering for scalable digital platforms."
+  description="Pradnya designs and develops focused web experiences, combining technical precision with premium design execution."
   structuredData={structuredData}
 >
   <SiteHeader slot="header" />
@@ -28,11 +31,11 @@ const structuredData = {
 
           <div class="max-w-3xl z-10">
             <h1 data-motion="hero-headline" class="text-display-1 text-foreground mb-8 text-balance">
-              We engineer scalable <br class="hidden lg:block"/> digital platforms.
+              I engineer scalable <br class="hidden lg:block"/> digital platforms.
             </h1>
             <div data-motion="hero-copy" class="max-w-xl">
               <p class="text-xl text-muted-foreground leading-relaxed mb-10 text-balance">
-                Partner with a technical agency that understands business outcomes. From high-performance marketing sites to complex web applications, we build software that scales natively.
+                Partner with a technical professional who understands business outcomes. From high-performance marketing sites to complex web applications, I build software that scales natively.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
                 <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
@@ -62,7 +65,7 @@ const structuredData = {
         <div class="flex flex-col md:flex-row justify-between gap-12 md:gap-24">
           <div class="md:w-1/3">
             <h2 class="text-display-3 text-foreground mb-4">Core Capabilities</h2>
-            <p class="text-muted-foreground leading-relaxed">Trusted by engineering teams and design leaders to deliver the uncompromising quality they expect.</p>
+            <p class="text-muted-foreground leading-relaxed">Delivering the uncompromising technical quality and architectural rigor that modern digital products require.</p>
           </div>
           <div class="md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="flex flex-col gap-2">
@@ -106,7 +109,7 @@ const structuredData = {
               <div class="max-w-xl">
                 <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-3">Web Application</p>
                 <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Fintech Platform</h3>
-                <p class="text-lg text-muted-foreground leading-relaxed">Scalable transactional architecture handling robust data elements with sub-100ms response times.</p>
+                <p class="text-lg text-muted-foreground leading-relaxed">Scalable transactional architecture designed to handle robust data structures and high-performance requirements.</p>
               </div>
               <div class="md:text-right flex-shrink-0">
                 <p class="text-sm font-medium text-foreground">2026</p>
@@ -119,7 +122,7 @@ const structuredData = {
             <div class="w-full md:w-[45%] flex flex-col gap-4 md:mt-24 order-2 md:order-1">
               <p class="text-sm font-medium tracking-wide text-muted-foreground uppercase mb-2">E-Commerce</p>
               <h3 class="text-3xl md:text-4xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">Global Retail</h3>
-              <p class="text-lg text-muted-foreground leading-relaxed">Headless commerce architecture serving millions of monthly active users, engineered for lightning-fast cart interactions and robust product discovery.</p>
+              <p class="text-lg text-muted-foreground leading-relaxed">Headless commerce architecture engineered for lightning-fast cart interactions, robust product discovery, and scalable experiences.</p>
               <div class="mt-4">
                 <a href="/work/global-retail" class="text-sm font-medium text-primary hover:underline underline-offset-4">Explore Architecture</a>
               </div>
@@ -165,19 +168,19 @@ const structuredData = {
               Design engineered for business outcomes.
             </h2>
             <p class="text-lg text-muted-foreground leading-relaxed text-balance">
-              We do not just paint pixels. We build foundational design systems and robust architectures that allow your product to scale seamlessly without accruing technical debt.
+              I do not just paint pixels. I build foundational design systems and robust architectures that allow your product to scale seamlessly without accruing technical debt.
             </p>
           </div>
           <div class="lg:col-span-1 hidden lg:block"></div>
           <div class="lg:col-span-6 flex flex-col gap-12">
             <div>
               <h3 class="text-xl font-medium text-foreground mb-3">Web Engineering</h3>
-              <p class="text-muted-foreground leading-relaxed">Complex React and Astro applications tailored for high performance and scalability. We choose the right tool for the job, favoring standard HTML/CSS over heavy JS where appropriate.</p>
+              <p class="text-muted-foreground leading-relaxed">Complex React and Astro applications tailored for high performance and scalability. I choose the right tool for the job, favoring standard HTML/CSS over heavy JS where appropriate.</p>
             </div>
             <div class="h-[1px] w-full bg-border"></div>
             <div>
               <h3 class="text-xl font-medium text-foreground mb-3">Performance Tuning</h3>
-              <p class="text-muted-foreground leading-relaxed">Audits and refactoring to achieve perfect Core Web Vitals and lightning-fast load times. We optimize everything from network requests to render cycles.</p>
+              <p class="text-muted-foreground leading-relaxed">Audits and refactoring to achieve excellent Core Web Vitals and lightning-fast load times. I optimize everything from network requests to render cycles.</p>
             </div>
           </div>
         </div>
@@ -210,7 +213,7 @@ const structuredData = {
           The details are not the details. <br class="hidden md:block" />They make the design.
         </h2>
         <p class="text-muted-foreground mt-8 text-xl leading-relaxed max-w-2xl mx-auto">
-          Our philosophy is simple: build interfaces where every invisible detail compounds into something that feels inevitably correct.
+          My philosophy is simple: engineer interfaces where every invisible detail compounds into something that feels inevitably correct.
         </p>
       </div>
     </section>
@@ -228,13 +231,13 @@ const structuredData = {
             <span class="text-sm text-muted-foreground tracking-widest mb-4 block">01</span>
             <div class="h-[1px] w-full bg-border mb-8"></div>
             <h3 class="text-xl font-medium text-foreground mb-4">Discovery & Architecture</h3>
-            <p class="text-muted-foreground leading-relaxed">We map out technical requirements, select the optimal tech stack, and define the data flow before any visual work begins.</p>
+            <p class="text-muted-foreground leading-relaxed">I map out technical requirements, select the optimal tech stack, and define the data flow before any visual work begins.</p>
           </div>
           <div class="flex flex-col">
             <span class="text-sm text-muted-foreground tracking-widest mb-4 block">02</span>
             <div class="h-[1px] w-full bg-border mb-8"></div>
             <h3 class="text-xl font-medium text-foreground mb-4">Design Engineering</h3>
-            <p class="text-muted-foreground leading-relaxed">Design and development happen in parallel. We prototype interactively to guarantee the final implementation matches the vision.</p>
+            <p class="text-muted-foreground leading-relaxed">Design and development happen in parallel. I prototype interactively to guarantee the final implementation matches the vision.</p>
           </div>
           <div class="flex flex-col">
             <span class="text-sm text-muted-foreground tracking-widest mb-4 block">03</span>
@@ -251,7 +254,7 @@ const structuredData = {
       <div class="container mx-auto max-w-[800px]">
         <div class="mb-16">
           <h2 class="text-display-3 text-foreground mb-4">Frequently Asked Questions</h2>
-          <p class="text-muted-foreground">Everything you need to know about partnering with us.</p>
+          <p class="text-muted-foreground">Everything you need to know about partnering with me.</p>
         </div>
 
         <div>
@@ -268,7 +271,7 @@ const structuredData = {
         </h2>
         <div>
           <p class="text-xl text-muted-foreground mb-12 text-balance">
-            Let's discuss how we can engineer your next digital platform.
+            Let's discuss how I can engineer your next digital platform.
           </p>
           <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
             Start a Conversation
