@@ -13,19 +13,27 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div id="header-sentinel" class="pointer-events-none absolute top-0 h-px w-full opacity-0" aria-hidden="true"></div>
-<header id="site-header" class="site-header sticky top-0 z-50 w-full px-3 pt-3 sm:px-5 lg:px-6">
-  <div class="site-header-shell mx-auto flex h-12 max-w-[1180px] items-center justify-between rounded-full px-4 sm:px-5 md:h-14 md:px-5">
+
+<header
+  id="site-header"
+  data-scrolled="false"
+  class="group sticky top-0 z-50 w-full bg-transparent px-3 pt-3 sm:px-5 lg:px-6"
+>
+  <div
+    class="mx-auto flex h-12 max-w-[1180px] items-center justify-between rounded-full border border-white/20 bg-[radial-gradient(circle_at_12%_-20%,rgba(0,255,255,.14),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.07))] px-4 text-white shadow-[inset_0_1px_0_rgba(255,255,255,.3),0_12px_38px_rgba(2,5,48,.1)] backdrop-blur-[26px] backdrop-saturate-[160%] transition-[background-color,border-color,box-shadow] duration-200 group-data-[scrolled=true]:border-white/30 group-data-[scrolled=true]:bg-[radial-gradient(circle_at_12%_-20%,rgba(0,255,255,.18),transparent_42%),linear-gradient(145deg,rgba(8,28,79,.46),rgba(255,255,255,.09))] group-data-[scrolled=true]:shadow-[inset_0_1px_0_rgba(255,255,255,.36),0_16px_46px_rgba(2,5,48,.16)] motion-reduce:transition-none sm:px-5 md:h-14 md:px-5"
+  >
     <a
       href="/"
-      class="site-header-brand inline-flex items-center rounded-full px-2 py-1 text-[15px] font-semibold tracking-[-0.03em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+      class="inline-flex items-center rounded-full px-2 py-1 text-[15px] font-semibold tracking-[-0.03em] text-white transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 motion-reduce:transition-none"
       aria-label="Pradnya home"
     >
-      Pradnya<span aria-hidden="true" class="text-[#00ffff]">.</span>
+      Pradnya<span aria-hidden="true" class="text-cyan-spectrum">.</span>
     </a>
 
     <nav class="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
       {links.map((link) => {
         const isActive = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
+
         return (
           <a
             href={link.href}
@@ -33,7 +41,9 @@ const currentPath = Astro.url.pathname;
             class={buttonVariants({
               variant: 'ghost',
               size: 'sm',
-              className: `site-header-nav-button ${isActive ? 'is-active' : ''}`,
+              className: isActive
+                ? 'bg-white/10 text-white'
+                : 'text-white/75 hover:bg-white/10 hover:text-white',
             })}
           >
             {link.label}
@@ -43,7 +53,7 @@ const currentPath = Astro.url.pathname;
 
       <a
         href="/contact"
-        class={buttonVariants({ variant: 'default', size: 'sm', className: 'site-header-cta ml-1 px-4' })}
+        class={buttonVariants({ variant: 'default', size: 'sm', className: 'ml-1 px-4' })}
       >
         Discuss Your Project
       </a>
@@ -60,7 +70,7 @@ const currentPath = Astro.url.pathname;
   if (sentinel && header) {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        header.classList.toggle('is-scrolled', !entry.isIntersecting);
+        header.dataset.scrolled = String(!entry.isIntersecting);
       },
       { rootMargin: '0px', threshold: 0 }
     );

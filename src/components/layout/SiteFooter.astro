@@ -4,39 +4,41 @@ import { buttonVariants } from '../ui/button';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="site-footer dark-env mt-auto relative z-10 px-3 pb-3 sm:px-5 sm:pb-5 lg:px-6 lg:pb-6">
-  <div class="site-footer-shell mx-auto max-w-[1440px] overflow-hidden rounded-[30px] px-6 pb-8 pt-16 sm:rounded-[34px] md:px-10 md:pb-10 md:pt-20 lg:px-12">
+<footer class="dark-env relative z-10 mt-auto bg-transparent px-3 pb-3 sm:px-5 sm:pb-5 lg:px-6 lg:pb-6">
+  <div
+    class="mx-auto max-w-[1440px] overflow-hidden rounded-[30px] border border-white/20 bg-[radial-gradient(circle_at_8%_-8%,rgba(0,255,255,.22),transparent_35%),radial-gradient(circle_at_94%_108%,rgba(0,0,255,.34),transparent_42%),linear-gradient(145deg,rgba(5,10,48,.62),rgba(5,10,48,.4)_48%,rgba(0,0,255,.2))] px-6 pb-8 pt-16 text-white shadow-[inset_0_1px_0_rgba(255,255,255,.28),inset_0_-1px_0_rgba(255,255,255,.06),0_26px_90px_rgba(1,4,40,.24)] backdrop-blur-[38px] backdrop-saturate-[172%] sm:rounded-[34px] md:px-10 md:pb-10 md:pt-20 lg:px-12"
+  >
     <div class="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-[1.25fr_0.75fr_1fr] lg:gap-10">
       <div class="flex flex-col items-start">
         <a
           href="/"
-          class="mb-5 inline-block rounded-md text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-none tracking-[-0.05em] text-white transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
+          class="mb-5 inline-block rounded-md text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-none tracking-[-0.05em] text-white transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent motion-reduce:transition-none"
         >
-          Pradnya<span class="text-[#00ffff]">.</span>
+          Pradnya<span class="text-cyan-spectrum">.</span>
         </a>
-        <p class="max-w-md text-[17px] leading-[1.6] text-white/66">
+        <p class="max-w-md text-[17px] leading-[1.6] text-white/65">
           Design engineering for fast, clear, and durable digital experiences.
         </p>
       </div>
 
       <nav class="flex flex-col" aria-label="Footer Navigation">
-        <span class="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/46">Navigation</span>
+        <span class="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">Navigation</span>
         <div class="flex flex-col gap-1">
-          <a href="/work" class="site-footer-link">Work</a>
-          <a href="/services" class="site-footer-link">Services</a>
-          <a href="/about" class="site-footer-link">About</a>
-          <a href="/contact" class="site-footer-link">Contact</a>
+          <a href="/work" class="-ml-3 w-fit rounded-full px-3 py-2 text-[15px] font-medium text-white/70 transition-[transform,background-color,color] hover:translate-x-0.5 hover:bg-white/10 hover:text-white motion-reduce:transform-none motion-reduce:transition-none">Work</a>
+          <a href="/services" class="-ml-3 w-fit rounded-full px-3 py-2 text-[15px] font-medium text-white/70 transition-[transform,background-color,color] hover:translate-x-0.5 hover:bg-white/10 hover:text-white motion-reduce:transform-none motion-reduce:transition-none">Services</a>
+          <a href="/about" class="-ml-3 w-fit rounded-full px-3 py-2 text-[15px] font-medium text-white/70 transition-[transform,background-color,color] hover:translate-x-0.5 hover:bg-white/10 hover:text-white motion-reduce:transform-none motion-reduce:transition-none">About</a>
+          <a href="/contact" class="-ml-3 w-fit rounded-full px-3 py-2 text-[15px] font-medium text-white/70 transition-[transform,background-color,color] hover:translate-x-0.5 hover:bg-white/10 hover:text-white motion-reduce:transform-none motion-reduce:transition-none">Contact</a>
         </div>
       </nav>
 
       <div class="flex flex-col items-start lg:items-end">
-        <span class="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/46">Start a conversation</span>
-        <p class="mb-7 max-w-sm text-[15px] leading-[1.6] text-white/64 lg:text-right">
+        <span class="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">Start a conversation</span>
+        <p class="mb-7 max-w-sm text-[15px] leading-[1.6] text-white/65 lg:text-right">
           Have a product, redesign, or web platform that needs a more precise execution?
         </p>
         <a
           href="/contact"
-          class={buttonVariants({ variant: 'default', size: 'lg', className: 'site-footer-cta' })}
+          class={buttonVariants({ variant: 'default', size: 'lg', className: 'min-w-[11.5rem]' })}
         >
           Discuss Your Project
         </a>
@@ -46,22 +48,22 @@ const currentYear = new Date().getFullYear();
             href="https://www.linkedin.com/in/pradnyaprameswara/"
             target="_blank"
             rel="noopener noreferrer"
-            class="site-footer-meta-link"
+            class="inline-flex items-center gap-1 text-[13px] font-medium text-white/60 transition-colors hover:text-white/90 motion-reduce:transition-none"
             aria-label="LinkedIn Profile"
           >
             LinkedIn
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </a>
-          <a href="mailto:hello@example.com" class="site-footer-meta-link">hello@example.com</a>
+          <a href="mailto:hello@example.com" class="text-[13px] font-medium text-white/60 transition-colors hover:text-white/90 motion-reduce:transition-none">hello@example.com</a>
         </div>
       </div>
     </div>
 
-    <div class="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 text-[12px] text-white/44 md:mt-18 md:flex-row md:items-center md:justify-between">
+    <div class="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 text-[12px] text-white/45 md:mt-18 md:flex-row md:items-center md:justify-between">
       <p>&copy; {currentYear} Pradnya Prameswara. All rights reserved.</p>
       <div class="flex flex-wrap gap-x-6 gap-y-2">
-        <a href="#" class="transition-colors hover:text-white/80">Privacy Policy</a>
-        <a href="#" class="transition-colors hover:text-white/80">Terms of Service</a>
+        <a href="#" class="transition-colors hover:text-white/80 motion-reduce:transition-none">Privacy Policy</a>
+        <a href="#" class="transition-colors hover:text-white/80 motion-reduce:transition-none">Terms of Service</a>
       </div>
     </div>
   </div>

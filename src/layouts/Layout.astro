@@ -1,7 +1,5 @@
 ---
 import '../styles/global.css';
-import '../styles/apple-spectrum.css';
-import '../styles/glass-controls.css';
 
 interface Props {
   title?: string;
@@ -34,14 +32,12 @@ const canonicalURL = canonical ? new URL(canonical) : new URL(Astro.url.pathname
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content="Pradnya" />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
@@ -49,7 +45,6 @@ const canonicalURL = canonical ? new URL(canonical) : new URL(Astro.url.pathname
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, canonicalURL)} />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
@@ -60,11 +55,11 @@ const canonicalURL = canonical ? new URL(canonical) : new URL(Astro.url.pathname
       <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     )}
   </head>
-  <body class="antialiased selection:bg-accent selection:text-accent-foreground flex min-h-screen flex-col">
+  <body class="flex min-h-screen flex-col selection:bg-white/20 selection:text-white">
     <div class="spectrum-environment" aria-hidden="true"></div>
     <div class="spectrum-glass-veil" aria-hidden="true"></div>
     <slot name="header" />
-    <main class="flex-grow">
+    <main class="relative z-10 flex-grow">
       <slot />
     </main>
     <slot name="footer" />
