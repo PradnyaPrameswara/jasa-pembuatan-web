@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://production-domain-required.com",
+  site: "https://www.pradnyaprameswara.web.id/",
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
