@@ -1,0 +1,181 @@
+:root {
+  --spectrum-cyan: #00FFFF;
+  --spectrum-prussian: #050A30;
+  --spectrum-blue: #0000FF;
+  --spectrum-glass-light: rgba(255, 255, 255, 0.62);
+  --spectrum-glass-medium: rgba(255, 255, 255, 0.46);
+  --spectrum-glass-dark: rgba(4, 8, 38, 0.56);
+  --spectrum-glass-border: rgba(255, 255, 255, 0.44);
+  --spectrum-glass-shadow: 0 24px 80px rgba(0, 0, 40, 0.18);
+}
+
+html {
+  background: #050A30;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 28%),
+    radial-gradient(circle at 88% 34%, rgba(0, 255, 255, 0.26) 0%, rgba(0, 255, 255, 0) 32%),
+    radial-gradient(circle at 20% 76%, rgba(0, 0, 255, 0.2) 0%, rgba(0, 0, 255, 0) 34%),
+    linear-gradient(180deg, var(--spectrum-cyan) 0%, var(--spectrum-cyan) 15%, var(--spectrum-prussian) 54%, var(--spectrum-blue) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.58) 0%,
+      rgba(255, 255, 255, 0.46) 24%,
+      rgba(255, 255, 255, 0.66) 52%,
+      rgba(255, 255, 255, 0.58) 74%,
+      rgba(255, 255, 255, 0.52) 100%
+    );
+  backdrop-filter: blur(42px) saturate(145%);
+  -webkit-backdrop-filter: blur(42px) saturate(145%);
+}
+
+/* Keep every route on the same continuous environment instead of painting an opaque page canvas. */
+body > main,
+body > main > main {
+  background: transparent !important;
+}
+
+/* Direct page sections become translucent so the global spectrum remains visible. */
+body > main > main > section.bg-white,
+body > main > main > section.bg-background,
+body > main > main > section.bg-black,
+body > main > main.home-geist > section {
+  background-color: transparent !important;
+}
+
+/* Apple-like material for large content sections without turning every element into glass. */
+body > main > main > section:not(.dark-env)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12));
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+body > main > main > section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Dark feature areas become deep translucent Prussian glass instead of opaque black. */
+body > main > main > section.dark-env,
+body > footer.dark-env {
+  background:
+    linear-gradient(180deg, rgba(5, 10, 48, 0.78), rgba(0, 0, 255, 0.52)) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(36px) saturate(155%);
+  -webkit-backdrop-filter: blur(36px) saturate(155%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    0 -24px 80px rgba(5, 10, 48, 0.14);
+}
+
+/* The existing header material now samples the spectrum beneath it. */
+.site-header {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.2)) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.34) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(28px) saturate(165%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(165%) !important;
+}
+
+.site-header.is-scrolled {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.38)) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.48) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.52),
+    0 12px 40px rgba(5, 10, 48, 0.13) !important;
+}
+
+/* Reuse existing glass primitives but tune them for the cyan/prussian/blue environment. */
+.glass-thin,
+.glass-regular,
+.glass-thick,
+.glass-panel,
+.glass-control,
+.glass-float,
+.hero-glass-shell,
+.glass-media-frame {
+  border-color: var(--spectrum-glass-border) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    var(--spectrum-glass-shadow) !important;
+  backdrop-filter: blur(30px) saturate(165%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(165%) !important;
+}
+
+.glass-panel,
+.glass-control,
+.glass-float,
+.hero-glass-shell,
+.glass-media-frame,
+.glass-regular {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.28)) !important;
+}
+
+.dark-env .glass-panel,
+.dark-env .glass-control,
+.dark-env .glass-float,
+.dark-env .glass-regular,
+.glass-dark {
+  background:
+    linear-gradient(145deg, rgba(5, 10, 48, 0.64), rgba(0, 0, 255, 0.28)) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+@media (max-width: 767px) {
+  body::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.56));
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+  }
+
+  .site-header,
+  .site-header.is-scrolled {
+    backdrop-filter: blur(22px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  body::before,
+  .site-header,
+  .site-header.is-scrolled,
+  .glass-thin,
+  .glass-regular,
+  .glass-thick,
+  .glass-panel,
+  .glass-control,
+  .glass-float,
+  .hero-glass-shell,
+  .glass-media-frame {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  body::before {
+    background: rgba(245, 247, 255, 0.82);
+  }
+}
