@@ -1,114 +1,145 @@
 :root {
-  --spectrum-cyan: #00FFFF;
-  --spectrum-prussian: #050A30;
-  --spectrum-blue: #0000FF;
-  --spectrum-glass-light: rgba(255, 255, 255, 0.62);
-  --spectrum-glass-medium: rgba(255, 255, 255, 0.46);
-  --spectrum-glass-dark: rgba(4, 8, 38, 0.56);
-  --spectrum-glass-border: rgba(255, 255, 255, 0.44);
-  --spectrum-glass-shadow: 0 24px 80px rgba(0, 0, 40, 0.18);
+  --spectrum-cyan: #00ffff;
+  --spectrum-prussian: #050a30;
+  --spectrum-blue: #0000ff;
+  --spectrum-glass-light: rgba(255, 255, 255, 0.42);
+  --spectrum-glass-medium: rgba(255, 255, 255, 0.26);
+  --spectrum-glass-dark: rgba(5, 10, 48, 0.42);
+  --spectrum-glass-border: rgba(255, 255, 255, 0.34);
+  --spectrum-glass-shadow: 0 28px 90px rgba(1, 4, 40, 0.2);
 }
 
 html {
-  background: #050A30;
+  min-height: 100%;
+  background: var(--spectrum-prussian);
 }
 
 body {
   position: relative;
   isolation: isolate;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 28%),
-    radial-gradient(circle at 88% 34%, rgba(0, 255, 255, 0.26) 0%, rgba(0, 255, 255, 0) 32%),
-    radial-gradient(circle at 20% 76%, rgba(0, 0, 255, 0.2) 0%, rgba(0, 0, 255, 0) 34%),
-    linear-gradient(180deg, var(--spectrum-cyan) 0%, var(--spectrum-cyan) 15%, var(--spectrum-prussian) 54%, var(--spectrum-blue) 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.58) 0%,
-      rgba(255, 255, 255, 0.46) 24%,
-      rgba(255, 255, 255, 0.66) 52%,
-      rgba(255, 255, 255, 0.58) 74%,
-      rgba(255, 255, 255, 0.52) 100%
-    );
-  backdrop-filter: blur(42px) saturate(145%);
-  -webkit-backdrop-filter: blur(42px) saturate(145%);
-}
-
-/* Keep every route on the same continuous environment instead of painting an opaque page canvas. */
-body > main,
-body > main > main {
   background: transparent !important;
 }
 
-/* Direct page sections become translucent so the global spectrum remains visible. */
-body > main > main > section.bg-white,
-body > main > main > section.bg-background,
-body > main > main > section.bg-black,
-body > main > main.home-geist > section {
-  background-color: transparent !important;
-}
-
-/* Apple-like material for large content sections without turning every element into glass. */
-body > main > main > section:not(.dark-env)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+/*
+ * One fixed environmental layer for the entire site.
+ * It never restarts at section boundaries, so the cyan → Prussian → blue
+ * spectrum remains visually continuous while scrolling.
+ */
+.spectrum-environment {
+  position: fixed;
+  inset: -12vmax;
+  z-index: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12));
-  border-top: 1px solid rgba(255, 255, 255, 0.32);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-}
-
-body > main > main > section {
-  position: relative;
-  isolation: isolate;
-}
-
-/* Dark feature areas become deep translucent Prussian glass instead of opaque black. */
-body > main > main > section.dark-env,
-body > footer.dark-env {
+  transform: scale(1.06);
   background:
-    linear-gradient(180deg, rgba(5, 10, 48, 0.78), rgba(0, 0, 255, 0.52)) !important;
-  border-color: rgba(255, 255, 255, 0.14) !important;
-  backdrop-filter: blur(36px) saturate(155%);
-  -webkit-backdrop-filter: blur(36px) saturate(155%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.11),
-    0 -24px 80px rgba(5, 10, 48, 0.14);
+    radial-gradient(ellipse at 18% 5%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.16) 18%, transparent 43%),
+    radial-gradient(ellipse at 82% 20%, rgba(0, 255, 255, 0.42) 0%, rgba(0, 255, 255, 0.16) 25%, transparent 54%),
+    radial-gradient(ellipse at 16% 72%, rgba(28, 79, 255, 0.42) 0%, rgba(28, 79, 255, 0.12) 28%, transparent 58%),
+    radial-gradient(ellipse at 86% 92%, rgba(0, 0, 255, 0.58) 0%, rgba(0, 0, 255, 0.18) 32%, transparent 62%),
+    linear-gradient(
+      180deg,
+      #00ffff 0%,
+      #00eff2 10%,
+      #02bfcf 22%,
+      #087286 35%,
+      #082b52 46%,
+      #050a30 56%,
+      #07114d 66%,
+      #081875 76%,
+      #0616aa 86%,
+      #0000ff 100%
+    );
+  filter: blur(26px) saturate(118%);
 }
 
-/* The existing header material now samples the spectrum beneath it. */
+/* A single optical veil softens transitions without introducing section seams. */
+.spectrum-glass-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.34), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06) 46%, rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(18px) saturate(132%);
+  -webkit-backdrop-filter: blur(18px) saturate(132%);
+}
+
+body > header,
+body > main,
+body > footer {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * All route canvases and top-level sections remain transparent.
+ * No section receives its own gradient, border, or backdrop layer.
+ */
+body > main,
+body > main > main,
+body > main > main > section,
+body > main > main.home-geist,
+body > footer.dark-env {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Remove page-level separators that can visually look like color cuts. */
+body > main > main > section,
+body > main > main > section.border-t,
+body > main > main > section.border-y,
+body > footer.dark-env {
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+/* The footer stays in the same spectrum instead of becoming a new dark block. */
+body > footer.dark-env {
+  color: #fff;
+  box-shadow: none !important;
+}
+
+/* Header samples the same continuous environment. */
 .site-header {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.2)) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.34) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(28px) saturate(165%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(165%) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.12)) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(30px) saturate(158%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(158%) !important;
 }
 
 .site-header.is-scrolled {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.38)) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.48) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.3) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.52),
-    0 12px 40px rgba(5, 10, 48, 0.13) !important;
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 14px 44px rgba(3, 8, 48, 0.12) !important;
 }
 
-/* Reuse existing glass primitives but tune them for the cyan/prussian/blue environment. */
+/* Reusable Apple-like glass materials. */
+.glass-thin,
+.glass-regular,
+.glass-thick,
+.glass-panel,
+.glass-control,
+.glass-float,
+.hero-glass-shell,
+.glass-media-frame,
+.glass-dark {
+  border-color: var(--spectrum-glass-border) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    var(--spectrum-glass-shadow) !important;
+  backdrop-filter: blur(32px) saturate(165%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(165%) !important;
+}
+
 .glass-thin,
 .glass-regular,
 .glass-thick,
@@ -117,22 +148,9 @@ body > footer.dark-env {
 .glass-float,
 .hero-glass-shell,
 .glass-media-frame {
-  border-color: var(--spectrum-glass-border) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    var(--spectrum-glass-shadow) !important;
-  backdrop-filter: blur(30px) saturate(165%) !important;
-  -webkit-backdrop-filter: blur(30px) saturate(165%) !important;
-}
-
-.glass-panel,
-.glass-control,
-.glass-float,
-.hero-glass-shell,
-.glass-media-frame,
-.glass-regular {
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.28)) !important;
+    radial-gradient(circle at 22% 0%, rgba(255, 255, 255, 0.44), transparent 44%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14)) !important;
 }
 
 .dark-env .glass-panel,
@@ -141,26 +159,45 @@ body > footer.dark-env {
 .dark-env .glass-regular,
 .glass-dark {
   background:
-    linear-gradient(145deg, rgba(5, 10, 48, 0.64), rgba(0, 0, 255, 0.28)) !important;
+    radial-gradient(circle at 20% 0%, rgba(0, 255, 255, 0.12), transparent 42%),
+    linear-gradient(145deg, rgba(5, 10, 48, 0.52), rgba(0, 0, 255, 0.2)) !important;
   border-color: rgba(255, 255, 255, 0.16) !important;
 }
 
+/* Internal content dividers are softened so they do not read as background seams. */
+body > main .divide-y > :not([hidden]) ~ :not([hidden]),
+body > main .border-t,
+body > main .border-y {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 @media (max-width: 767px) {
-  body::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.56));
-    backdrop-filter: blur(28px) saturate(140%);
-    -webkit-backdrop-filter: blur(28px) saturate(140%);
+  .spectrum-environment {
+    inset: -20vmax;
+    filter: blur(22px) saturate(112%);
+  }
+
+  .spectrum-glass-veil {
+    background:
+      radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.4), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.08));
+    backdrop-filter: blur(14px) saturate(125%);
+    -webkit-backdrop-filter: blur(14px) saturate(125%);
   }
 
   .site-header,
   .site-header.is-scrolled {
-    backdrop-filter: blur(22px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+    backdrop-filter: blur(24px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(145%) !important;
   }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  body::before,
+  .spectrum-environment {
+    filter: none;
+  }
+
+  .spectrum-glass-veil,
   .site-header,
   .site-header.is-scrolled,
   .glass-thin,
@@ -170,12 +207,13 @@ body > footer.dark-env {
   .glass-control,
   .glass-float,
   .hero-glass-shell,
-  .glass-media-frame {
+  .glass-media-frame,
+  .glass-dark {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
 
-  body::before {
-    background: rgba(245, 247, 255, 0.82);
+  .spectrum-glass-veil {
+    background: rgba(255, 255, 255, 0.12);
   }
 }
