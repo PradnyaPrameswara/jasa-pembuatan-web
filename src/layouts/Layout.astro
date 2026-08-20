@@ -52,13 +52,16 @@ const suppliedSchemas: JsonLd[] = structuredData
     ? structuredData
     : [structuredData]
   : [];
-const hasSuppliedPerson = suppliedSchemas.some((schema) => schema['@type'] === 'Person');
 
 const withoutContext = (schema: JsonLd): JsonLd => {
   const copy = { ...schema };
   delete copy['@context'];
   return copy;
 };
+
+const pageSpecificSchemas = suppliedSchemas
+  .filter((schema) => schema['@type'] !== 'Person')
+  .map(withoutContext);
 
 const pageJsonLd: JsonLd = {
   '@type': resolvedPageType,
@@ -79,12 +82,7 @@ const pageJsonLd: JsonLd = {
 
 const structuredGraph: JsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
-    websiteJsonLd,
-    ...(hasSuppliedPerson ? [] : [personJsonLd]),
-    pageJsonLd,
-    ...suppliedSchemas.map(withoutContext),
-  ],
+  '@graph': [websiteJsonLd, personJsonLd, pageJsonLd, ...pageSpecificSchemas],
 };
 ---
 
