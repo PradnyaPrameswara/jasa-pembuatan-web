@@ -14,12 +14,25 @@ import { Button } from "@/components/ui/button";
 const fieldClassName =
   "border-white/18 bg-white/[0.07] text-white placeholder:text-white/38 shadow-none backdrop-blur-xl focus-visible:border-white/30 focus-visible:ring-2 focus-visible:ring-cyan-spectrum/45";
 
+const HONEYPOT_FIELD_NAME = "website";
+
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const honeypotValue = formData.get(HONEYPOT_FIELD_NAME);
+
+    if (typeof honeypotValue === "string" && honeypotValue.trim().length > 0) {
+      // Silently absorb obvious bot submissions without exposing the trap.
+      setIsSubmitted(true);
+      return;
+    }
+
     // Integration boundary: frontend only. Do not fake a successful network submission.
+    // When a server endpoint is introduced, repeat the honeypot validation server-side.
     setIsSubmitted(true);
   };
 
@@ -29,6 +42,20 @@ export function ContactForm() {
       className="space-y-7"
       aria-label="Project inquiry form"
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[-10000px] top-auto h-px w-px overflow-hidden opacity-0"
+      >
+        <label htmlFor={HONEYPOT_FIELD_NAME}>Website</label>
+        <input
+          id={HONEYPOT_FIELD_NAME}
+          name={HONEYPOT_FIELD_NAME}
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-2.5">
           <Label htmlFor="name" className="text-sm font-medium text-white/78">
