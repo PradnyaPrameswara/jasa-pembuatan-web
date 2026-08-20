@@ -1,0 +1,244 @@
+/*
+ * Shared glass controls for the cyan → Prussian → blue environment.
+ * These classes are consumed by the existing shadcn Button primitive and
+ * static Astro surfaces such as the footer. Keep materials contextual.
+ */
+
+.btn-glass-primary,
+.btn-glass-secondary,
+.btn-glass-outline,
+.btn-glass-ghost,
+.btn-glass-destructive {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(24px) saturate(165%);
+  -webkit-backdrop-filter: blur(24px) saturate(165%);
+  transition:
+    transform 160ms var(--ease-out-strong),
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    filter 180ms ease;
+}
+
+.btn-glass-primary {
+  color: #fff;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0, 255, 255, 0.24), transparent 44%),
+    linear-gradient(145deg, rgba(5, 10, 48, 0.76), rgba(0, 0, 255, 0.46));
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 30px rgba(2, 5, 48, 0.22);
+}
+
+.btn-glass-secondary {
+  color: #050a30;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.7), transparent 48%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.22));
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 10px 28px rgba(2, 5, 48, 0.12);
+}
+
+.btn-glass-outline {
+  color: #050a30;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.44);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 8px 24px rgba(2, 5, 48, 0.08);
+}
+
+.btn-glass-ghost {
+  color: #050a30;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: blur(14px) saturate(145%);
+  -webkit-backdrop-filter: blur(14px) saturate(145%);
+}
+
+.btn-glass-destructive {
+  color: #fff;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.22), transparent 44%),
+    linear-gradient(145deg, rgba(145, 18, 32, 0.76), rgba(225, 48, 67, 0.48));
+  border-color: rgba(255, 210, 216, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 10px 28px rgba(70, 3, 18, 0.2);
+}
+
+.dark-env .btn-glass-secondary,
+.dark-env .btn-glass-outline,
+.dark-env .btn-glass-ghost {
+  color: #fff;
+}
+
+.dark-env .btn-glass-secondary {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(0, 255, 255, 0.14), transparent 46%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-env .btn-glass-outline {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.dark-env .btn-glass-ghost {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.site-footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.site-footer-shell {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  background:
+    radial-gradient(circle at 8% -8%, rgba(0, 255, 255, 0.22), transparent 35%),
+    radial-gradient(circle at 94% 108%, rgba(0, 0, 255, 0.34), transparent 42%),
+    linear-gradient(145deg, rgba(5, 10, 48, 0.62), rgba(5, 10, 48, 0.4) 48%, rgba(0, 0, 255, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 26px 90px rgba(1, 4, 40, 0.24);
+  backdrop-filter: blur(38px) saturate(172%);
+  -webkit-backdrop-filter: blur(38px) saturate(172%);
+}
+
+.site-footer-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(118deg, rgba(255, 255, 255, 0.12), transparent 26%),
+    radial-gradient(circle at 62% 0%, rgba(255, 255, 255, 0.08), transparent 34%);
+}
+
+.site-footer-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-left: -0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms var(--ease-out-strong);
+}
+
+.site-footer-meta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: color 160ms ease;
+}
+
+.site-footer-cta {
+  min-width: 11.5rem;
+  justify-content: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-glass-primary:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.5);
+    filter: brightness(1.06);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      0 14px 34px rgba(2, 5, 48, 0.26);
+  }
+
+  .btn-glass-secondary:hover,
+  .btn-glass-outline:hover {
+    transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .btn-glass-ghost:hover {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .btn-glass-destructive:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+  }
+
+  .btn-glass-primary:active,
+  .btn-glass-secondary:active,
+  .btn-glass-outline:active,
+  .btn-glass-ghost:active,
+  .btn-glass-destructive:active {
+    transform: scale(0.98);
+  }
+
+  .site-footer-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(2px);
+  }
+
+  .site-footer-meta-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer-shell {
+    backdrop-filter: blur(28px) saturate(158%);
+    -webkit-backdrop-filter: blur(28px) saturate(158%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-glass-primary,
+  .btn-glass-secondary,
+  .btn-glass-outline,
+  .btn-glass-ghost,
+  .btn-glass-destructive,
+  .site-footer-link,
+  .site-footer-meta-link {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .btn-glass-primary,
+  .btn-glass-secondary,
+  .btn-glass-outline,
+  .btn-glass-ghost,
+  .btn-glass-destructive,
+  .site-footer-shell {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-footer-shell {
+    background: rgba(5, 10, 48, 0.9);
+  }
+}
