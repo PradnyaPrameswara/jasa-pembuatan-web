@@ -7,6 +7,21 @@
   --spectrum-glass-dark: rgba(5, 10, 48, 0.42);
   --spectrum-glass-border: rgba(255, 255, 255, 0.34);
   --spectrum-glass-shadow: 0 28px 90px rgba(1, 4, 40, 0.2);
+
+  /* Spectrum theme semantics: no dark typography on the colored environment. */
+  --background: transparent;
+  --foreground: #f7fbff;
+  --surface: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.18);
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: rgba(241, 248, 255, 0.72);
+  --primary: #7df8ff;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.12);
+  --secondary-foreground: #f7fbff;
+  --accent: rgba(255, 255, 255, 0.12);
+  --accent-foreground: #ffffff;
+  --ring: #b8fbff;
 }
 
 html {
@@ -18,52 +33,54 @@ body {
   position: relative;
   isolation: isolate;
   min-height: 100vh;
+  color: var(--foreground) !important;
   background: transparent !important;
 }
 
 /*
  * One fixed environmental layer for the entire site.
- * It never restarts at section boundaries, so the cyan → Prussian → blue
- * spectrum remains visually continuous while scrolling.
+ * The gradient never restarts at header, section, or footer boundaries.
  */
 .spectrum-environment {
   position: fixed;
-  inset: -12vmax;
+  inset: -14vmax;
   z-index: 0;
   pointer-events: none;
-  transform: scale(1.06);
+  transform: scale(1.08);
   background:
-    radial-gradient(ellipse at 18% 5%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.16) 18%, transparent 43%),
-    radial-gradient(ellipse at 82% 20%, rgba(0, 255, 255, 0.42) 0%, rgba(0, 255, 255, 0.16) 25%, transparent 54%),
-    radial-gradient(ellipse at 16% 72%, rgba(28, 79, 255, 0.42) 0%, rgba(28, 79, 255, 0.12) 28%, transparent 58%),
-    radial-gradient(ellipse at 86% 92%, rgba(0, 0, 255, 0.58) 0%, rgba(0, 0, 255, 0.18) 32%, transparent 62%),
+    radial-gradient(ellipse at 18% 2%, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.1) 20%, transparent 46%),
+    radial-gradient(ellipse at 84% 18%, rgba(0, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0.1) 26%, transparent 56%),
+    radial-gradient(ellipse at 18% 72%, rgba(39, 92, 255, 0.34) 0%, rgba(39, 92, 255, 0.1) 30%, transparent 60%),
+    radial-gradient(ellipse at 88% 94%, rgba(0, 0, 255, 0.5) 0%, rgba(0, 0, 255, 0.16) 34%, transparent 64%),
     linear-gradient(
       180deg,
       #00ffff 0%,
-      #00eff2 10%,
-      #02bfcf 22%,
-      #087286 35%,
-      #082b52 46%,
-      #050a30 56%,
-      #07114d 66%,
-      #081875 76%,
-      #0616aa 86%,
+      #00e7ef 11%,
+      #05b7cb 23%,
+      #0a7792 35%,
+      #083c63 46%,
+      #050a30 58%,
+      #07134d 68%,
+      #081d76 78%,
+      #0628b3 89%,
       #0000ff 100%
     );
-  filter: blur(26px) saturate(118%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(32px) saturate(112%);
 }
 
-/* A single optical veil softens transitions without introducing section seams. */
+/* One optical veil only; no per-section veil means no horizontal color cuts. */
 .spectrum-glass-veil {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.34), transparent 38%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06) 46%, rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(18px) saturate(132%);
-  -webkit-backdrop-filter: blur(18px) saturate(132%);
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.25), transparent 40%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035) 48%, rgba(255, 255, 255, 0.07));
+  backdrop-filter: blur(14px) saturate(126%);
+  -webkit-backdrop-filter: blur(14px) saturate(126%);
 }
 
 body > header,
@@ -73,10 +90,6 @@ body > footer {
   z-index: 1;
 }
 
-/*
- * All route canvases and top-level sections remain transparent.
- * No section receives its own gradient, border, or backdrop layer.
- */
 body > main,
 body > main > main,
 body > main > main > section,
@@ -87,7 +100,6 @@ body > footer.dark-env {
   background-image: none !important;
 }
 
-/* Remove page-level separators that can visually look like color cuts. */
 body > main > main > section,
 body > main > main > section.border-t,
 body > main > main > section.border-y,
@@ -96,29 +108,22 @@ body > footer.dark-env {
   border-bottom-color: transparent !important;
 }
 
-/* The footer stays in the same spectrum instead of becoming a new dark block. */
 body > footer.dark-env {
   color: #fff;
   box-shadow: none !important;
 }
 
-/* Header samples the same continuous environment. */
-.site-header {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.12)) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.22) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(30px) saturate(158%) !important;
-  -webkit-backdrop-filter: blur(30px) saturate(158%) !important;
-}
-
+/*
+ * The header itself paints nothing. Only the floating inner shell is glass.
+ * This removes the full-width line visible at the old header height.
+ */
+.site-header,
 .site-header.is-scrolled {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.3) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 14px 44px rgba(3, 8, 48, 0.12) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 /* Reusable Apple-like glass materials. */
@@ -148,9 +153,10 @@ body > footer.dark-env {
 .glass-float,
 .hero-glass-shell,
 .glass-media-frame {
+  color: #f8fbff !important;
   background:
-    radial-gradient(circle at 22% 0%, rgba(255, 255, 255, 0.44), transparent 44%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14)) !important;
+    radial-gradient(circle at 22% 0%, rgba(255, 255, 255, 0.34), transparent 44%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08)) !important;
 }
 
 .dark-env .glass-panel,
@@ -158,37 +164,64 @@ body > footer.dark-env {
 .dark-env .glass-float,
 .dark-env .glass-regular,
 .glass-dark {
+  color: #f8fbff !important;
   background:
     radial-gradient(circle at 20% 0%, rgba(0, 255, 255, 0.12), transparent 42%),
-    linear-gradient(145deg, rgba(5, 10, 48, 0.52), rgba(0, 0, 255, 0.2)) !important;
+    linear-gradient(145deg, rgba(5, 10, 48, 0.48), rgba(0, 0, 255, 0.18)) !important;
   border-color: rgba(255, 255, 255, 0.16) !important;
 }
 
-/* Internal content dividers are softened so they do not read as background seams. */
+/* Home previously contained hard-coded Apple-neutral dark ink. Remap it to light spectrum ink. */
+.home-geist {
+  color: #f8fbff !important;
+}
+
+.home-geist :where(h1, h2, h3, h4, h5, h6) {
+  color: #ffffff !important;
+}
+
+.home-geist :where(p, span, li) {
+  color: rgba(244, 249, 255, 0.76) !important;
+}
+
+.home-geist a:not(.btn-interactive) {
+  color: #defcff !important;
+}
+
+.home-geist .btn-interactive {
+  color: #ffffff !important;
+}
+
 body > main .divide-y > :not([hidden]) ~ :not([hidden]),
 body > main .border-t,
 body > main .border-y {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+input,
+textarea,
+select {
+  color: #f8fbff;
+  caret-color: var(--spectrum-cyan);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(241, 248, 255, 0.5);
 }
 
 @media (max-width: 767px) {
   .spectrum-environment {
-    inset: -20vmax;
-    filter: blur(22px) saturate(112%);
+    inset: -22vmax;
+    filter: blur(28px) saturate(108%);
   }
 
   .spectrum-glass-veil {
     background:
-      radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.4), transparent 42%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.08));
-    backdrop-filter: blur(14px) saturate(125%);
-    -webkit-backdrop-filter: blur(14px) saturate(125%);
-  }
-
-  .site-header,
-  .site-header.is-scrolled {
-    backdrop-filter: blur(24px) saturate(145%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(145%) !important;
+      radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.3), transparent 44%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
   }
 }
 
@@ -198,8 +231,6 @@ body > main .border-y {
   }
 
   .spectrum-glass-veil,
-  .site-header,
-  .site-header.is-scrolled,
   .glass-thin,
   .glass-regular,
   .glass-thick,
@@ -214,6 +245,6 @@ body > main .border-y {
   }
 
   .spectrum-glass-veil {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.07);
   }
 }

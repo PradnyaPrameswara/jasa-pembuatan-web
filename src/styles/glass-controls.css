@@ -1,7 +1,6 @@
 /*
  * Shared glass controls for the cyan → Prussian → blue environment.
- * These classes are consumed by the existing shadcn Button primitive and
- * static Astro surfaces such as the footer. Keep materials contextual.
+ * Consumed by shadcn Button primitives and static Astro surfaces.
  */
 
 .btn-glass-primary,
@@ -27,7 +26,7 @@
   color: #fff;
   background:
     radial-gradient(circle at 20% 0%, rgba(0, 255, 255, 0.24), transparent 44%),
-    linear-gradient(145deg, rgba(5, 10, 48, 0.76), rgba(0, 0, 255, 0.46));
+    linear-gradient(145deg, rgba(5, 10, 48, 0.72), rgba(0, 0, 255, 0.4));
   border-color: rgba(255, 255, 255, 0.34);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
@@ -36,28 +35,28 @@
 }
 
 .btn-glass-secondary {
-  color: #050a30;
+  color: #f8fbff;
   background:
-    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.7), transparent 48%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.22));
-  border-color: rgba(255, 255, 255, 0.5);
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.34), transparent 48%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.07));
+  border-color: rgba(255, 255, 255, 0.38);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
     0 10px 28px rgba(2, 5, 48, 0.12);
 }
 
 .btn-glass-outline {
-  color: #050a30;
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.44);
+  color: #f8fbff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.34);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
     0 8px 24px rgba(2, 5, 48, 0.08);
 }
 
 .btn-glass-ghost {
-  color: #050a30;
-  background: rgba(255, 255, 255, 0.06);
+  color: rgba(248, 251, 255, 0.82);
+  background: rgba(255, 255, 255, 0.035);
   border-color: transparent;
   box-shadow: none;
   backdrop-filter: blur(14px) saturate(145%);
@@ -95,6 +94,89 @@
 
 .dark-env .btn-glass-ghost {
   background: rgba(255, 255, 255, 0.04);
+}
+
+/*
+ * Floating header: the outer header remains fully transparent so it cannot
+ * create a full-width horizontal seam. The inner shell alone receives glass.
+ */
+.site-header-shell {
+  position: relative;
+  color: #f8fbff;
+  background:
+    radial-gradient(circle at 12% -20%, rgba(0, 255, 255, 0.14), transparent 42%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.07));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 12px 38px rgba(2, 5, 48, 0.1);
+  backdrop-filter: blur(26px) saturate(160%);
+  -webkit-backdrop-filter: blur(26px) saturate(160%);
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.site-header.is-scrolled .site-header-shell {
+  background:
+    radial-gradient(circle at 12% -20%, rgba(0, 255, 255, 0.18), transparent 42%),
+    linear-gradient(145deg, rgba(8, 28, 79, 0.46), rgba(255, 255, 255, 0.09));
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 16px 46px rgba(2, 5, 48, 0.16);
+}
+
+.site-header-brand {
+  color: #ffffff;
+  text-shadow: 0 1px 18px rgba(0, 255, 255, 0.08);
+  transition: opacity 160ms ease;
+}
+
+.site-header-nav-button {
+  min-width: auto;
+  color: rgba(248, 251, 255, 0.72) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.site-header-nav-button.is-active,
+.site-header-nav-button[aria-current="page"] {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.site-header-cta {
+  min-width: auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 8px 24px rgba(2, 5, 48, 0.16);
+}
+
+.site-header-mobile-trigger {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.site-mobile-sheet {
+  color: #f8fbff !important;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(0, 255, 255, 0.15), transparent 38%),
+    linear-gradient(160deg, rgba(5, 10, 48, 0.84), rgba(6, 24, 93, 0.74)) !important;
+  border-left-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: -18px 0 60px rgba(1, 4, 40, 0.24) !important;
+  backdrop-filter: blur(34px) saturate(165%);
+  -webkit-backdrop-filter: blur(34px) saturate(165%);
+}
+
+.site-mobile-nav-button {
+  color: rgba(248, 251, 255, 0.88) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 .site-footer {
@@ -176,12 +258,13 @@
   .btn-glass-secondary:hover,
   .btn-glass-outline:hover {
     transform: translateY(-1px);
-    background-color: rgba(255, 255, 255, 0.28);
-    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 
   .btn-glass-ghost:hover {
-    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .btn-glass-destructive:hover {
@@ -197,6 +280,20 @@
     transform: scale(0.98);
   }
 
+  .site-header-brand:hover {
+    opacity: 0.82;
+  }
+
+  .site-header-nav-button:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .site-mobile-nav-button:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
   .site-footer-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
@@ -209,6 +306,11 @@
 }
 
 @media (max-width: 767px) {
+  .site-header-shell {
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+  }
+
   .site-footer-shell {
     backdrop-filter: blur(28px) saturate(158%);
     -webkit-backdrop-filter: blur(28px) saturate(158%);
@@ -221,6 +323,8 @@
   .btn-glass-outline,
   .btn-glass-ghost,
   .btn-glass-destructive,
+  .site-header-shell,
+  .site-header-brand,
   .site-footer-link,
   .site-footer-meta-link {
     transition: none;
@@ -233,12 +337,19 @@
   .btn-glass-outline,
   .btn-glass-ghost,
   .btn-glass-destructive,
+  .site-header-shell,
+  .site-mobile-sheet,
   .site-footer-shell {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
+  .site-header-shell {
+    background: rgba(5, 10, 48, 0.82);
+  }
+
+  .site-mobile-sheet,
   .site-footer-shell {
-    background: rgba(5, 10, 48, 0.9);
+    background: rgba(5, 10, 48, 0.92) !important;
   }
 }

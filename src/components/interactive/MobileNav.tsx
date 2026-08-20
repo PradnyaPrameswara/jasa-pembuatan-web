@@ -25,34 +25,35 @@ export function MobileNav() {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden text-foreground"
-          aria-label="Open Mobile Menu"
+          className="site-header-mobile-trigger md:hidden"
+          aria-label="Open mobile menu"
         >
-          <Menu className="h-6 w-6" />
+          <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent
-        side="right"
-        className="bg-surface/95 backdrop-blur-md w-[300px] sm:w-[360px] border-l border-border shadow-2xl"
-      >
-        {/* Hidden title for screen readers */}
+
+      <SheetContent side="right" className="site-mobile-sheet w-[300px] sm:w-[360px]">
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <SheetDescription className="sr-only">
           Access site pages and contact form
         </SheetDescription>
 
-        <nav className="flex flex-col gap-5 mt-10 px-2">
+        <nav className="mt-12 flex flex-col gap-2 px-1" aria-label="Mobile navigation">
           {links.map((link) => (
-            <a
+            <Button
               key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="text-xl font-medium text-foreground/80 hover:text-foreground transition-colors tracking-tight py-2 border-b border-border/30 last:border-0"
+              asChild
+              variant="ghost"
+              size="lg"
+              className="site-mobile-nav-button h-12 w-full justify-start px-4 text-left text-[17px]"
             >
-              {link.label}
-            </a>
+              <a href={link.href} onClick={() => setOpen(false)}>
+                {link.label}
+              </a>
+            </Button>
           ))}
-          <div className="mt-8">
+
+          <div className="mt-5">
             <Button asChild variant="default" size="lg" className="w-full">
               <a href="/contact" onClick={() => setOpen(false)}>
                 Discuss Your Project

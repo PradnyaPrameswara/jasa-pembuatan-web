@@ -8,28 +8,47 @@ const links = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<div id="header-sentinel" class="absolute top-0 w-full h-[1px] pointer-events-none opacity-0" aria-hidden="true"></div>
-<header id="site-header" class="sticky top-0 z-50 w-full site-header">
-  <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 md:px-8">
-    <a href="/" class="text-lg font-bold tracking-tight hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
-      <span class="text-primary">P</span><span class="text-foreground">radnya.</span>
+<div id="header-sentinel" class="pointer-events-none absolute top-0 h-px w-full opacity-0" aria-hidden="true"></div>
+<header id="site-header" class="site-header sticky top-0 z-50 w-full px-3 pt-3 sm:px-5 lg:px-6">
+  <div class="site-header-shell mx-auto flex h-12 max-w-[1180px] items-center justify-between rounded-full px-4 sm:px-5 md:h-14 md:px-5">
+    <a
+      href="/"
+      class="site-header-brand inline-flex items-center rounded-full px-2 py-1 text-[15px] font-semibold tracking-[-0.03em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+      aria-label="Pradnya home"
+    >
+      Pradnya<span aria-hidden="true" class="text-[#00ffff]">.</span>
     </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-7">
-      {links.map((link) => (
-        <a href={link.href} class="text-[13px] font-medium text-foreground/75 hover:text-foreground transition-colors tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
-          {link.label}
-        </a>
-      ))}
-      <a href="/contact" class={buttonVariants({ variant: 'default', size: 'sm', className: 'ml-2 text-[13px] px-4' })}>
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+      {links.map((link) => {
+        const isActive = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
+        return (
+          <a
+            href={link.href}
+            aria-current={isActive ? 'page' : undefined}
+            class={buttonVariants({
+              variant: 'ghost',
+              size: 'sm',
+              className: `site-header-nav-button ${isActive ? 'is-active' : ''}`,
+            })}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+
+      <a
+        href="/contact"
+        class={buttonVariants({ variant: 'default', size: 'sm', className: 'site-header-cta ml-1 px-4' })}
+      >
         Discuss Your Project
       </a>
     </nav>
 
-    <!-- Mobile Nav Toggle (React Island) -->
     <MobileNav client:media="(max-width: 767px)" />
   </div>
 </header>
@@ -41,15 +60,11 @@ const links = [
   if (sentinel && header) {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When sentinel is fully out of view, we've scrolled down
-        if (!entry.isIntersecting) {
-          header.classList.add('is-scrolled');
-        } else {
-          header.classList.remove('is-scrolled');
-        }
+        header.classList.toggle('is-scrolled', !entry.isIntersecting);
       },
       { rootMargin: '0px', threshold: 0 }
     );
+
     observer.observe(sentinel);
   }
 </script>
