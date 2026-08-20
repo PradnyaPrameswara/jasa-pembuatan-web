@@ -12,8 +12,8 @@ interface Props {
 }
 
 const {
-  title = "Pradnya — Web Design & Development",
-  description = "Pradnya designs and develops focused web experiences.",
+  title = "Anak Agung Gede Pradnya Prameswara — Fullstack Web Developer",
+  description = "Fresh Informatics Education graduate and Fullstack Web Developer based in Gianyar, Bali, focused on responsive, maintainable, user-focused software.",
   image = "/og-image.jpg",
   ogType = "website",
   noindex = false,
@@ -38,7 +38,7 @@ const canonicalURL = canonical ? new URL(canonical) : new URL(Astro.url.pathname
     <link rel="canonical" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    <meta property="og:site_name" content="Pradnya" />
+    <meta property="og:site_name" content="Pradnya Prameswara" />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
