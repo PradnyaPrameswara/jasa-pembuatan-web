@@ -67,9 +67,9 @@ const currentPath = Astro.url.pathname;
   const sentinel = document.getElementById('header-sentinel');
   const header = document.getElementById('site-header');
 
-  if (sentinel && header) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+  if (sentinel instanceof HTMLElement && header instanceof HTMLElement) {
+    const observer: IntersectionObserver = new IntersectionObserver(
+      ([entry]: IntersectionObserverEntry[]) => {
         header.dataset.scrolled = String(!entry.isIntersecting);
       },
       { rootMargin: '0px', threshold: 0 }
