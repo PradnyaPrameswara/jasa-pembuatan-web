@@ -3,48 +3,90 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import { buttonVariants } from '../components/ui/button';
+
+const aboutImage = 'https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2200';
 ---
 
-<Layout 
+<Layout
   title="About | Pradnya"
   description="Learn about Pradnya's approach to technical precision and design engineering for scalable digital platforms."
 >
   <SiteHeader slot="header" />
 
-  <main class="flex flex-col min-h-screen pt-32 pb-32 px-4 md:px-8 bg-background">
-    <div class="container mx-auto max-w-3xl">
-      <h1 data-motion="hero-headline" class="text-display-2 mb-6 text-foreground text-balance">About Pradnya</h1>
-      <p data-motion="hero-copy" class="text-xl text-muted-foreground mb-16 leading-relaxed text-balance">
-        I design and develop web experiences for ambitious companies worldwide.
-      </p>
-
-      <div class="space-y-16">
-        <section>
-          <div class="h-[1px] w-full bg-border mb-8"></div>
-          <h2 class="text-xl font-medium mb-4 text-foreground">Our Philosophy</h2>
-          <p class="text-muted-foreground text-lg leading-relaxed">
-            I believe that the best digital products sit at the intersection of rigorous technical engineering and premium, restrained design. I do not chase trends or rely on heavy, unnecessary client-side frameworks when a simpler, more robust architecture will serve the business better.
+  <main class="min-h-screen bg-transparent px-5 pb-32 pt-32 text-foreground sm:px-8 md:pt-40">
+    <div class="mx-auto max-w-[1180px]">
+      <section class="grid gap-12 pb-24 md:grid-cols-12 md:items-end md:pb-32">
+        <div class="md:col-span-7">
+          <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.16em] text-cyan-spectrum/85">About</p>
+          <h1 class="text-balance text-[clamp(3.7rem,8vw,7.1rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white">
+            Clear thinking behind every interface.
+          </h1>
+          <p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.55] text-white/68">
+            I design and build digital experiences for teams that value restraint, technical precision, and a product that remains maintainable after launch.
           </p>
-        </section>
+        </div>
 
-        <section>
-          <div class="h-[1px] w-full bg-border mb-8"></div>
-          <h2 class="text-xl font-medium mb-4 text-foreground">Technical Precision</h2>
-          <p class="text-muted-foreground text-lg leading-relaxed">
-            Every project I ship is held to the highest standards of accessibility, performance, and maintainability. I build systems that internal teams can actually scale, utilizing technologies like Astro for static perfection and React for targeted interactivity.
-          </p>
-        </section>
+        <figure class="media-shell overflow-hidden rounded-[28px] p-2 md:col-span-5 md:rounded-[34px] md:p-3">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-[22px] md:aspect-[5/4] md:rounded-[27px]">
+            <img src={aboutImage} alt="Bright minimal office prepared for focused design and engineering work" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,48,0)_58%,rgba(5,10,48,.26)_100%)]"></div>
+          </div>
+        </figure>
+      </section>
 
-        <section class="border-t border-border pt-16 mt-20 text-center">
-          <h2 class="text-display-3 mb-6 text-foreground">Ready to start?</h2>
-          <p class="text-muted-foreground mb-8 text-lg">
-            I take on a limited number of projects per quarter to ensure execution quality.
+      <section class="grid gap-5 md:grid-cols-2">
+        <article class="glass-panel rounded-[28px] p-7 md:p-10">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/78">01 · Philosophy</p>
+          <h2 class="mt-6 text-[clamp(2.2rem,4vw,3.7rem)] font-semibold leading-[1] tracking-[-0.05em] text-white">Restraint is a feature.</h2>
+          <p class="mt-6 text-[17px] leading-[1.66] text-white/66">
+            The strongest products do not need constant visual noise. Hierarchy, typography, spacing, and motion should make the interface easier to understand, not compete with the content.
           </p>
-          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg' })}>
-            Discuss Your Project
-          </a>
-        </section>
-      </div>
+        </article>
+
+        <article class="glass-panel rounded-[28px] p-7 md:p-10">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/78">02 · Engineering</p>
+          <h2 class="mt-6 text-[clamp(2.2rem,4vw,3.7rem)] font-semibold leading-[1] tracking-[-0.05em] text-white">Architecture before decoration.</h2>
+          <p class="mt-6 text-[17px] leading-[1.66] text-white/66">
+            I prefer small, explicit systems: Astro for the rendering layer, TypeScript throughout, and React only where an interaction genuinely needs state. That keeps the experience fast and the codebase easier to evolve.
+          </p>
+        </article>
+      </section>
+
+      <section class="grid gap-10 py-24 md:grid-cols-12 md:py-32">
+        <div class="md:col-span-4">
+          <p class="text-[12px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/78">Working principles</p>
+        </div>
+        <div class="space-y-0 md:col-span-8">
+          <div class="grid gap-3 border-t border-white/14 py-7 sm:grid-cols-[auto_1fr] sm:gap-8">
+            <span class="text-[12px] font-semibold text-white/42">01</span>
+            <div>
+              <h3 class="text-xl font-semibold tracking-[-0.025em] text-white">Clarity before complexity</h3>
+              <p class="mt-2 text-[16px] leading-[1.6] text-white/62">The interface should explain itself through structure before animation or visual effects enter the conversation.</p>
+            </div>
+          </div>
+          <div class="grid gap-3 border-t border-white/14 py-7 sm:grid-cols-[auto_1fr] sm:gap-8">
+            <span class="text-[12px] font-semibold text-white/42">02</span>
+            <div>
+              <h3 class="text-xl font-semibold tracking-[-0.025em] text-white">Performance is part of design</h3>
+              <p class="mt-2 text-[16px] leading-[1.6] text-white/62">A polished layout that responds slowly is not a premium experience. Rendering and interaction cost are treated as design constraints.</p>
+            </div>
+          </div>
+          <div class="grid gap-3 border-y border-white/14 py-7 sm:grid-cols-[auto_1fr] sm:gap-8">
+            <span class="text-[12px] font-semibold text-white/42">03</span>
+            <div>
+              <h3 class="text-xl font-semibold tracking-[-0.025em] text-white">Build for the next edit</h3>
+              <p class="mt-2 text-[16px] leading-[1.6] text-white/62">Reusable primitives, semantic markup, and explicit boundaries make future iteration cheaper and safer.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-panel rounded-[30px] px-6 py-14 text-center sm:px-10 md:py-20">
+        <p class="text-[12px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/78">Availability</p>
+        <h2 class="mx-auto mt-4 max-w-3xl text-[clamp(2.8rem,5vw,5.2rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">A limited number of projects, with direct attention.</h2>
+        <p class="mx-auto mt-6 max-w-2xl text-[17px] leading-[1.62] text-white/64">I keep the active project load intentionally small so design decisions, implementation quality, and iteration speed do not get diluted.</p>
+        <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'mt-8' })}>Discuss your project</a>
+      </section>
     </div>
   </main>
 
