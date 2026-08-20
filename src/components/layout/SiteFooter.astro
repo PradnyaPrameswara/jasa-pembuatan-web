@@ -1,67 +1,67 @@
 ---
-// src/components/layout/SiteFooter.astro
+import { buttonVariants } from '../ui/button';
+
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="dark-env bg-background border-t border-border text-foreground mt-auto relative z-10">
-  <div class="container mx-auto max-w-[1440px] px-6 md:px-12 pt-24 pb-12">
-    <!-- Main Footer Content -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-8 mb-24">
-
-      <!-- Brand & Positioning (Left/Top) -->
-      <div class="flex flex-col items-start lg:col-span-1">
-        <a href="/" class="text-display-3 font-medium tracking-tight text-foreground inline-block mb-4 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">
-          Pradnya<span class="text-primary">.</span>
+<footer class="site-footer dark-env mt-auto relative z-10 px-3 pb-3 sm:px-5 sm:pb-5 lg:px-6 lg:pb-6">
+  <div class="site-footer-shell mx-auto max-w-[1440px] overflow-hidden rounded-[30px] px-6 pb-8 pt-16 sm:rounded-[34px] md:px-10 md:pb-10 md:pt-20 lg:px-12">
+    <div class="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-[1.25fr_0.75fr_1fr] lg:gap-10">
+      <div class="flex flex-col items-start">
+        <a
+          href="/"
+          class="mb-5 inline-block rounded-md text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-none tracking-[-0.05em] text-white transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
+        >
+          Pradnya<span class="text-[#00ffff]">.</span>
         </a>
-        <p class="text-lg text-muted-foreground max-w-sm leading-relaxed">
-          Engineering scalable digital platforms. Technical precision meets premium design.
+        <p class="max-w-md text-[17px] leading-[1.6] text-white/66">
+          Design engineering for fast, clear, and durable digital experiences.
         </p>
       </div>
 
-      <!-- Primary Navigation (Center) -->
-      <div class="flex lg:justify-center">
-        <nav class="flex flex-col space-y-4" aria-label="Footer Navigation">
-          <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Navigation</span>
-          <a href="/work" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">Work</a>
-          <a href="/services" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">Services</a>
-          <a href="/about" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">About</a>
-          <a href="/contact" class="text-foreground hover:text-primary transition-colors font-medium w-fit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">Contact</a>
-        </nav>
-      </div>
+      <nav class="flex flex-col" aria-label="Footer Navigation">
+        <span class="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/46">Navigation</span>
+        <div class="flex flex-col gap-1">
+          <a href="/work" class="site-footer-link">Work</a>
+          <a href="/services" class="site-footer-link">Services</a>
+          <a href="/about" class="site-footer-link">About</a>
+          <a href="/contact" class="site-footer-link">Contact</a>
+        </div>
+      </nav>
 
-      <!-- Contact & CTA (Right/Bottom) -->
-      <div class="flex flex-col items-start lg:items-end md:col-span-2 lg:col-span-1 mt-8 md:mt-0">
-        <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6">Start a conversation</span>
+      <div class="flex flex-col items-start lg:items-end">
+        <span class="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/46">Start a conversation</span>
+        <p class="mb-7 max-w-sm text-[15px] leading-[1.6] text-white/64 lg:text-right">
+          Have a product, redesign, or web platform that needs a more precise execution?
+        </p>
+        <a
+          href="/contact"
+          class={buttonVariants({ variant: 'default', size: 'lg', className: 'site-footer-cta' })}
+        >
+          Discuss Your Project
+        </a>
 
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8 lg:flex-row-reverse">
+        <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 lg:justify-end">
           <a
             href="https://www.linkedin.com/in/pradnyaprameswara/"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm"
+            class="site-footer-meta-link"
             aria-label="LinkedIn Profile"
           >
             LinkedIn
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-70"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </a>
-          <a href="mailto:hello@example.com" class="text-foreground hover:text-primary transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-sm">
-            hello@example.com
-          </a>
+          <a href="mailto:hello@example.com" class="site-footer-meta-link">hello@example.com</a>
         </div>
-
-        <a href="/contact" class="btn-interactive btn-material-primary px-6 py-3 rounded-full font-medium inline-flex items-center focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4">
-          Discuss Your Project
-        </a>
       </div>
-
     </div>
 
-    <!-- Legal Row (Bottom) -->
-    <div class="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+    <div class="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 text-[12px] text-white/44 md:mt-18 md:flex-row md:items-center md:justify-between">
       <p>&copy; {currentYear} Pradnya Prameswara. All rights reserved.</p>
-      <div class="flex gap-8">
-        <a href="#" class="hover:text-foreground transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-foreground transition-colors">Terms of Service</a>
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        <a href="#" class="transition-colors hover:text-white/80">Privacy Policy</a>
+        <a href="#" class="transition-colors hover:text-white/80">Terms of Service</a>
       </div>
     </div>
   </div>
