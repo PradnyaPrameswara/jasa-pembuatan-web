@@ -10,8 +10,8 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
 const links = [
-  { href: "/work", label: "Work" },
-  { href: "/services", label: "Services" },
+  { href: "/work", label: "Experience" },
+  { href: "/services", label: "Capabilities" },
   { href: "/about", label: "About" },
 ];
 
@@ -37,7 +37,7 @@ export function MobileNav() {
       >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <SheetDescription className="sr-only">
-          Access site pages and start a project inquiry
+          Access experience, capabilities, profile, and contact information
         </SheetDescription>
 
         <nav className="mt-12 flex flex-col gap-2 px-1" aria-label="Mobile navigation">
@@ -67,7 +67,7 @@ export function MobileNav() {
                 className: "w-full",
               })}
             >
-              Discuss Your Project
+              Get in touch
             </a>
           </div>
         </nav>

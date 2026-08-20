@@ -6,41 +6,41 @@ import { buttonVariants } from '../../components/ui/button';
 
 const projects = [
   {
-    slug: 'fintech-platform',
-    title: 'Fintech Platform',
-    category: 'Web Application',
-    year: '2026',
-    description: 'A high-density transactional product shaped around fast decision-making, clear hierarchy, and dependable interaction patterns.',
-    image: 'https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Financial trading workspace with multiple analytics displays',
-    meta: 'Product systems · Data UI · Performance'
+    slug: 'widhi-asih-bali-export',
+    title: 'Widhi Asih Bali Export',
+    category: 'Professional Experience',
+    year: '2026 — Present',
+    description: 'Current professional experience as a Web Developer at Widhi Asih Bali Export, beginning in June 2026.',
+    image: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
+    imageAlt: 'Modern software development workspace',
+    meta: 'Web Developer · Fullstack growth · Maintainable software'
   },
   {
-    slug: 'global-retail',
-    title: 'Global Retail',
-    category: 'E-Commerce',
-    year: '2026',
-    description: 'A commerce experience designed around product discovery, frictionless payment, and a system that remains coherent at scale.',
-    image: 'https://images.unsplash.com/photo-1742836531244-de8454b8bc06?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Minimal contactless payment terminal in a premium retail setting',
-    meta: 'Commerce · Checkout · Conversion'
+    slug: 'diagnostic-assessment-system',
+    title: 'LLM-Based Diagnostic Assessment System',
+    category: 'Academic Project & Publication',
+    year: 'University Project',
+    description: "A diagnostic assessment system developed to identify students' initial abilities and apply software engineering to a practical education-sector problem.",
+    image: 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2400',
+    imageAlt: 'Computer workspace representing academic software development',
+    meta: 'Education technology · Diagnostic assessment · Software engineering'
   },
   {
-    slug: 'architectural-firm',
-    title: 'Architectural Firm',
-    category: 'Editorial Website',
-    year: '2026',
-    description: 'A restrained editorial platform where photography, project narratives, and structural clarity lead the browsing experience.',
-    image: 'https://images.unsplash.com/photo-1775735478842-c3bbcf5d2618?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Minimal modern architecture facade with horizontal geometric lines',
-    meta: 'Editorial · CMS · Art direction'
+    slug: 'informatics-teaching-internship',
+    title: 'SMP Negeri 6 Singaraja',
+    category: 'Informatics Teaching Internship',
+    year: 'Sep — Dec 2025',
+    description: 'Four-month Informatics teaching internship in Singaraja, Bali, completed during my university studies.',
+    image: 'https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2400',
+    imageAlt: 'Bright learning and working environment',
+    meta: 'Informatics education · Teaching · Problem solving'
   }
 ];
 ---
 
 <Layout
-  title="Selected Work | Pradnya"
-  description="Selected web development and design projects engineered by Pradnya. A showcase of technical capabilities and design discipline."
+  title="Experience & Projects | Pradnya Prameswara"
+  description="Professional experience, academic software work, and Informatics teaching experience from Pradnya Prameswara's CV."
 >
   <SiteHeader slot="header" />
 
@@ -48,22 +48,22 @@ const projects = [
     <div class="mx-auto max-w-[1280px]">
       <section class="grid gap-10 pb-20 md:grid-cols-[1.2fr_.8fr] md:items-end md:pb-28">
         <div class="max-w-4xl">
-          <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.16em] text-cyan-spectrum/85">Selected work</p>
+          <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.16em] text-cyan-spectrum/85">Experience & projects</p>
           <h1 class="text-balance text-[clamp(3.6rem,8vw,7.2rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white">
-            Digital systems with a clear point of view.
+            Practical experience across web development and education technology.
           </h1>
         </div>
         <div class="md:pb-2">
           <p class="max-w-xl text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.55] text-white/68">
-            Product interfaces, commerce platforms, and editorial websites built to stay fast, legible, and useful as they grow.
+            A factual view of my current Web Developer role, university software project, publication, and Informatics teaching internship.
           </p>
           <a href="/contact" class={buttonVariants({ variant: 'secondary', size: 'lg', className: 'mt-7' })}>
-            Start a project
+            Discuss an opportunity
           </a>
         </div>
       </section>
 
-      <section class="space-y-24 md:space-y-32" aria-label="Selected projects">
+      <section class="space-y-24 md:space-y-32" aria-label="Experience and selected projects">
         {projects.map((project, index) => (
           <article class="group grid gap-7 md:grid-cols-12 md:gap-10 lg:gap-14">
             <a
@@ -97,7 +97,7 @@ const projects = [
               <div class="mt-9 border-t border-white/14 pt-5 md:mt-14">
                 <p class="text-[12px] font-medium uppercase tracking-[0.12em] text-cyan-spectrum/80">{project.meta}</p>
                 <a href={`/work/${project.slug}`} class="mt-4 inline-flex items-center gap-2 text-[15px] font-semibold text-white transition-colors hover:text-cyan-spectrum">
-                  View case study <span aria-hidden="true">↗</span>
+                  View details <span aria-hidden="true">↗</span>
                 </a>
               </div>
             </div>

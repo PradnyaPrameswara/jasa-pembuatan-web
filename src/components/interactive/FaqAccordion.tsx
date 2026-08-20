@@ -8,40 +8,32 @@ import {
 
 const faqData = [
   {
-    question: "What types of projects do you take on?",
-    answer: "I focus on complex web applications, high-performance marketing sites, and bespoke design systems. I partner with startups and established businesses that value technical precision and premium design."
+    question: "What roles are you currently looking for?",
+    answer: "I am currently seeking full-time opportunities as a Fullstack Developer, Frontend Developer, or Backend Engineer."
   },
   {
-    question: "How long does a typical project take?",
-    answer: "Project timelines vary significantly based on scope. A focused landing page might take a few weeks, while a comprehensive web application or platform redesign can span several months."
+    question: "What is your current professional role?",
+    answer: "I am a Web Developer at Widhi Asih Bali Export, a role I started in June 2026."
   },
   {
-    question: "Do you handle both design and development?",
-    answer: "Yes. My approach integrates design and engineering from day one, ensuring that the visual direction is perfectly aligned with technical implementation."
+    question: "What is your educational background?",
+    answer: "I graduated from Universitas Pendidikan Ganesha with a bachelor's degree in Technical Teacher Education, studying from 2022 to 2026."
   },
   {
-    question: "How do revisions work?",
-    answer: "I structure my projects around iterative feedback loops. Key milestones include dedicated review periods where I refine the work based on your input before proceeding."
+    question: "What are your core technical skills?",
+    answer: "My CV lists HTML, TypeScript, and Astro as top skills. It also includes certifications in React frontend development, REST API, SQL, CSS, and Python."
   },
   {
-    question: "What technologies do you use?",
-    answer: "I specialize in modern web technologies, primarily React, Astro, Next.js, and Tailwind CSS, prioritizing performance, scalability, and maintainability."
+    question: "Do you have fullstack experience?",
+    answer: "Yes. My development background includes frontend interface work as well as API development, database management, backend systems, and application workflows."
   },
   {
-    question: "Do you handle hosting and deployment?",
-    answer: "Yes, I handle the entire deployment pipeline, utilizing platforms like Vercel, AWS, or custom infrastructure depending on the project's specific requirements."
+    question: "What academic software project have you built?",
+    answer: "During university I developed a diagnostic assessment system designed to identify students' initial abilities, applying software engineering to an education-sector problem."
   },
   {
-    question: "Do clients need to provide content before starting?",
-    answer: "While having finalized content is ideal, I can begin structural design and prototyping with placeholder content and collaborate with you to finalize the copy as the project progresses."
-  },
-  {
-    question: "Do you work with international clients?",
-    answer: "Absolutely. My workflow and communication processes are designed to support clients globally."
-  },
-  {
-    question: "Do you provide maintenance after launch?",
-    answer: "Yes, I offer ongoing maintenance and support retainers to ensure your platform remains secure, performant, and up-to-date with the latest web standards."
+    question: "Do you have teaching or mentoring experience?",
+    answer: "Yes. I completed an Informatics teaching internship at SMP Negeri 6 Singaraja from September to December 2025, and my CV also notes practical experience mentoring students in C++ programming."
   }
 ]
 
@@ -50,10 +42,10 @@ export function FaqAccordion() {
     <Accordion type="single" collapsible className="w-full">
       {faqData.map((item, index) => (
         <AccordionItem key={index} value={`item-${index}`} className="border-border">
-          <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary transition-colors">
+          <AccordionTrigger className="text-left font-medium text-foreground transition-colors hover:text-primary">
             {item.question}
           </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground leading-relaxed">
+          <AccordionContent className="leading-relaxed text-muted-foreground">
             {item.answer}
           </AccordionContent>
         </AccordionItem>

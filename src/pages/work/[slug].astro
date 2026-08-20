@@ -5,29 +5,38 @@ import SiteFooter from '../../components/layout/SiteFooter.astro';
 import { buttonVariants } from '../../components/ui/button';
 
 const projectData = {
-  'fintech-platform': {
-    title: 'Fintech Platform',
-    type: 'Web Application',
-    description: 'A high-density transactional product shaped around fast decision-making, clear hierarchy, and dependable interaction patterns.',
-    image: 'https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Financial trading workspace with multiple analytics displays',
-    capabilities: ['Product architecture', 'Data-dense interface', 'Performance tuning']
+  'widhi-asih-bali-export': {
+    title: 'Widhi Asih Bali Export',
+    type: 'Professional Experience',
+    period: 'June 2026 — Present',
+    location: 'Gianyar, Bali, Indonesia',
+    description: 'Current professional experience as a Web Developer at Widhi Asih Bali Export.',
+    image: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
+    imageAlt: 'Modern software development workspace',
+    highlights: ['Web Developer role', 'Professional web development experience', 'Current position since June 2026'],
+    overview: 'This is my current professional role listed in my CV. It contributes to my practical experience building and maintaining web-based software in a real working environment.'
   },
-  'global-retail': {
-    title: 'Global Retail',
-    type: 'E-Commerce',
-    description: 'A commerce experience designed around product discovery, frictionless payment, and a system that remains coherent at scale.',
-    image: 'https://images.unsplash.com/photo-1742836531244-de8454b8bc06?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Minimal contactless payment terminal in a premium retail setting',
-    capabilities: ['Commerce architecture', 'Checkout UX', 'Performance tuning']
+  'diagnostic-assessment-system': {
+    title: 'LLM-Based Diagnostic Assessment System',
+    type: 'Academic Project & Publication',
+    period: 'University Project',
+    location: 'Universitas Pendidikan Ganesha',
+    description: "A diagnostic assessment system designed to identify students' initial abilities.",
+    image: 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2400',
+    imageAlt: 'Computer workspace representing academic software development',
+    highlights: ['Diagnostic assessment', 'Education technology', 'Software engineering'],
+    overview: "The project applied software engineering to a practical problem in education. It is associated with the publication titled “Development of a Large Language Model-Based Diagnostic Assessment System for Detecting Students' Initial Abilities.”"
   },
-  'architectural-firm': {
-    title: 'Architectural Firm',
-    type: 'Editorial Website',
-    description: 'A restrained editorial platform where photography, project narratives, and structural clarity lead the browsing experience.',
-    image: 'https://images.unsplash.com/photo-1775735478842-c3bbcf5d2618?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Minimal modern architecture facade with horizontal geometric lines',
-    capabilities: ['Editorial direction', 'CMS architecture', 'Responsive systems']
+  'informatics-teaching-internship': {
+    title: 'SMP Negeri 6 Singaraja',
+    type: 'Informatics Teaching Internship',
+    period: 'September 2025 — December 2025',
+    location: 'Singaraja, Bali, Indonesia',
+    description: 'Four-month Informatics teaching internship completed during my university studies.',
+    image: 'https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2400',
+    imageAlt: 'Bright learning and working environment',
+    highlights: ['Informatics education', 'Teaching experience', 'Student mentoring'],
+    overview: 'Alongside software development, my background includes practical teaching and mentoring experience. My CV also notes experience mentoring students in C++ programming with a focus on algorithmic logic, problem solving, and competition preparation.'
   }
 } as const;
 
@@ -38,10 +47,10 @@ export function getStaticPaths() {
   }));
 }
 
-const { title, type, description, image, imageAlt, capabilities } = Astro.props;
+const { title, type, period, location, description, image, imageAlt, highlights, overview } = Astro.props;
 ---
 
-<Layout title={`${title} | Pradnya`} description={description}>
+<Layout title={`${title} | Pradnya Prameswara`} description={description}>
   <SiteHeader slot="header" />
 
   <main class="min-h-screen bg-transparent px-5 pb-32 pt-32 text-foreground sm:px-8 md:pt-40">
@@ -53,7 +62,7 @@ const { title, type, description, image, imageAlt, capabilities } = Astro.props;
           <p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.8vw,1.35rem)] leading-[1.55] text-white/68">{description}</p>
         </div>
         <a href="/work" class={buttonVariants({ variant: 'ghost', size: 'lg', className: 'justify-self-start md:justify-self-end' })}>
-          Back to work
+          Back to experience
         </a>
       </section>
 
@@ -66,54 +75,35 @@ const { title, type, description, image, imageAlt, capabilities } = Astro.props;
 
       <section class="grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
         <aside class="glass-panel rounded-[26px] p-6 md:col-span-4 md:p-8">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/46">Capabilities</p>
-          <ul class="mt-7 space-y-4">
-            {capabilities.map((capability: string) => (
+          <p class="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/46">Profile facts</p>
+          <dl class="mt-7 space-y-5">
+            <div><dt class="text-[11px] uppercase tracking-[0.12em] text-white/40">Period</dt><dd class="mt-1 text-[15px] text-white/76">{period}</dd></div>
+            <div><dt class="text-[11px] uppercase tracking-[0.12em] text-white/40">Location</dt><dd class="mt-1 text-[15px] text-white/76">{location}</dd></div>
+          </dl>
+          <p class="mt-8 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/46">Highlights</p>
+          <ul class="mt-4 space-y-3">
+            {highlights.map((highlight: string) => (
               <li class="flex items-center gap-3 text-[15px] text-white/76">
                 <span class="h-1.5 w-1.5 rounded-full bg-cyan-spectrum"></span>
-                {capability}
+                {highlight}
               </li>
             ))}
           </ul>
         </aside>
 
-        <div class="space-y-12 md:col-span-8">
+        <div class="md:col-span-8">
           <div class="border-t border-white/14 pt-7">
-            <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/75">01 · Challenge</p>
-            <h2 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.045em] text-white">Make complexity feel understandable.</h2>
-            <p class="mt-5 max-w-3xl text-[17px] leading-[1.65] text-white/66">
-              The work began by reducing competing priorities into a clear information hierarchy. Every visual decision had to support comprehension, speed, and confidence rather than add decorative noise.
-            </p>
-          </div>
-
-          <div class="border-t border-white/14 pt-7">
-            <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/75">02 · Approach</p>
-            <h2 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.045em] text-white">Build the system before polishing the surface.</h2>
-            <p class="mt-5 max-w-3xl text-[17px] leading-[1.65] text-white/66">
-              Structure, responsive behavior, reusable primitives, and performance budgets were established first. The visual language was then refined around those constraints so the final interface remained durable and easy to extend.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="grid gap-8 pb-20 md:grid-cols-12 md:items-center md:gap-12">
-        <div class="md:col-span-5">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/75">Interface detail</p>
-          <h2 class="mt-4 text-[clamp(2.2rem,4vw,3.8rem)] font-semibold leading-[1] tracking-[-0.05em] text-white">Precision without visual weight.</h2>
-          <p class="mt-5 text-[17px] leading-[1.62] text-white/65">Spacing, typography, image treatment, and interaction states were tuned to keep the experience calm even when the underlying product is complex.</p>
-        </div>
-
-        <div class="media-shell overflow-hidden rounded-[28px] p-2 md:col-span-7 md:rounded-[34px] md:p-3">
-          <div class="aspect-[4/3] overflow-hidden rounded-[22px] md:rounded-[27px]">
-            <img src={image} alt={`${imageAlt} — detail crop`} class="h-full w-full scale-105 object-cover object-center" loading="lazy" decoding="async" />
+            <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/75">Overview</p>
+            <h2 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.045em] text-white">Experience documented in my CV.</h2>
+            <p class="mt-5 max-w-3xl text-[17px] leading-[1.65] text-white/66">{overview}</p>
           </div>
         </div>
       </section>
 
       <section class="border-t border-white/14 py-16 text-center md:py-20">
-        <p class="text-[12px] font-semibold uppercase tracking-[0.15em] text-white/46">Have a similar challenge?</p>
-        <h2 class="mx-auto mt-4 max-w-3xl text-[clamp(2.6rem,5vw,5rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">Turn the complexity into a clear digital system.</h2>
-        <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'mt-8' })}>Discuss your project</a>
+        <p class="text-[12px] font-semibold uppercase tracking-[0.15em] text-white/46">Interested in working together?</p>
+        <h2 class="mx-auto mt-4 max-w-3xl text-[clamp(2.6rem,5vw,5rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">I am open to full-time software development opportunities.</h2>
+        <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'mt-8' })}>Get in touch</a>
       </section>
     </div>
   </main>
