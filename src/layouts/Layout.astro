@@ -4,13 +4,15 @@ import {
   PERSON_ID,
   SEO,
   WEBSITE_ID,
+  getRouteSocialImage,
+  inferPageType,
   normalizeCanonicalPath,
   personJsonLd,
   websiteJsonLd,
   type JsonLd,
+  type SeoPageType,
 } from '../lib/seo';
 
-type PageType = 'WebPage' | 'ProfilePage' | 'ContactPage' | 'CollectionPage';
 type OpenGraphType = 'website' | 'profile' | 'article';
 
 interface Props {
@@ -19,7 +21,7 @@ interface Props {
   image?: string;
   imageAlt?: string;
   ogType?: OpenGraphType;
-  pageType?: PageType;
+  pageType?: SeoPageType;
   noindex?: boolean;
   canonical?: string;
   structuredData?: JsonLd | JsonLd[];
@@ -28,8 +30,8 @@ interface Props {
 const {
   title = SEO.defaultTitle,
   description = SEO.defaultDescription,
-  image = SEO.defaultImage,
-  imageAlt = SEO.defaultImageAlt,
+  image,
+  imageAlt,
   ogType,
   pageType,
   noindex = false,
@@ -37,11 +39,15 @@ const {
   structuredData,
 } = Astro.props;
 
+const canonicalPath = normalizeCanonicalPath(Astro.url.pathname);
 const canonicalURL = canonical
   ? new URL(canonical, `${SEO.siteUrl}/`)
-  : new URL(normalizeCanonicalPath(Astro.url.pathname), `${SEO.siteUrl}/`);
-const imageURL = new URL(image, `${SEO.siteUrl}/`);
-const resolvedPageType: PageType = pageType ?? (Astro.url.pathname === '/' ? 'ProfilePage' : 'WebPage');
+  : new URL(canonicalPath, `${SEO.siteUrl}/`);
+const routeSocialImage = getRouteSocialImage(Astro.url.pathname);
+const resolvedImage = image ?? routeSocialImage.src;
+const resolvedImageAlt = imageAlt ?? routeSocialImage.alt;
+const imageURL = new URL(resolvedImage, `${SEO.siteUrl}/`);
+const resolvedPageType: SeoPageType = pageType ?? inferPageType(Astro.url.pathname);
 const resolvedOgType: OpenGraphType = ogType ?? (resolvedPageType === 'ProfilePage' ? 'profile' : 'website');
 const robotsContent = noindex
   ? 'noindex, nofollow, noarchive'
@@ -75,7 +81,7 @@ const pageJsonLd: JsonLd = {
   primaryImageOfPage: {
     '@type': 'ImageObject',
     url: imageURL.href,
-    caption: imageAlt,
+    caption: resolvedImageAlt,
   },
   ...(resolvedPageType === 'ProfilePage' ? { mainEntity: { '@id': PERSON_ID } } : {}),
 };
@@ -114,13 +120,13 @@ const structuredGraph: JsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageURL} />
     <meta property="og:image:secure_url" content={imageURL} />
-    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:image:alt" content={resolvedImageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
-    <meta name="twitter:image:alt" content={imageAlt} />
+    <meta name="twitter:image:alt" content={resolvedImageAlt} />
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredGraph)} />
   </head>
