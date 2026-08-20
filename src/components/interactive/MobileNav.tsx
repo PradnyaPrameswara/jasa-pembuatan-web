@@ -13,7 +13,6 @@ const links = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function MobileNav() {
@@ -38,7 +37,7 @@ export function MobileNav() {
       >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <SheetDescription className="sr-only">
-          Access site pages and contact form
+          Access site pages and start a project inquiry
         </SheetDescription>
 
         <nav className="mt-12 flex flex-col gap-2 px-1" aria-label="Mobile navigation">
