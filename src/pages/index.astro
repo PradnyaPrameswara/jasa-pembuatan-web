@@ -10,16 +10,14 @@ const structuredData = {
   "@type": "Person",
   "name": "Pradnya Prameswara",
   "url": "https://production-domain-required.com",
-  "sameAs": [
-    "https://www.linkedin.com/in/pradnyaprameswara/"
-  ],
+  "sameAs": ["https://www.linkedin.com/in/pradnyaprameswara/"],
   "description": "Pradnya designs and develops focused web experiences."
 };
 
 const imagery = {
-  hero: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=84&w=2400',
-  product: 'https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=84&w=2000',
-  studio: 'https://images.unsplash.com/photo-1737474707380-5ef35770d8a7?auto=format&fit=crop&q=84&w=2200',
+  hero: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
+  product: 'https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=86&w=2000',
+  studio: 'https://images.unsplash.com/photo-1737474707380-5ef35770d8a7?auto=format&fit=crop&q=86&w=2200',
 };
 ---
 
@@ -30,220 +28,186 @@ const imagery = {
 >
   <SiteHeader slot="header" />
 
-  <main class="flex flex-col overflow-hidden bg-[#f5f5f7]">
+  <main class="home-geist relative overflow-hidden bg-[#f5f5f7] text-[#1d1d1f]">
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,1)_0%,rgba(255,255,255,.75)_32%,rgba(245,245,247,0)_72%)]"></div>
+
     <!-- Hero -->
-    <section class="relative px-5 pb-20 pt-28 sm:px-8 md:pb-28 md:pt-40 lg:pt-48">
-      <div class="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[720px] bg-[radial-gradient(circle_at_50%_10%,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.7)_28%,rgba(245,245,247,0)_72%)]"></div>
-
+    <section class="relative px-5 pb-24 pt-28 sm:px-8 md:pb-32 md:pt-40 lg:pt-48">
       <div class="relative z-10 mx-auto max-w-[1280px]">
-        <div class="mx-auto max-w-5xl text-center">
-          <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#6e6e73] md:text-[13px]">
-            Independent design engineering · Bali / Remote
+        <div class="mx-auto max-w-[1000px] text-center">
+          <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.15em] text-[#6e6e73] md:text-[13px]">
+            Design engineering · Bali / Remote
           </p>
-          <h1 data-motion="hero-headline" class="text-balance text-[clamp(3.3rem,8vw,7.6rem)] font-semibold leading-[0.93] tracking-[-0.055em] text-[#1d1d1f]">
-            Digital products.<br />Engineered to feel effortless.
+          <h1 class="text-balance text-[clamp(3.5rem,8.6vw,7.8rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
+            Built to look simple.<br />Engineered to feel exceptional.
           </h1>
-          <p data-motion="hero-copy" class="mx-auto mt-8 max-w-3xl text-balance text-[clamp(1.15rem,2.1vw,1.55rem)] leading-[1.45] tracking-[-0.018em] text-[#6e6e73] md:mt-10">
-            I design and build fast, precise web experiences where interface, engineering, and business intent work as one system.
+          <p class="mx-auto mt-8 max-w-[760px] text-balance text-[clamp(1.15rem,2vw,1.5rem)] leading-[1.45] tracking-[-0.02em] text-[#6e6e73] md:mt-10">
+            Premium websites and digital products shaped through clear thinking, precise interfaces, and performance-focused engineering.
           </p>
 
-          <div class="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-4 md:mt-11">
-            <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'rounded-full px-7' })}>
+          <div class="mt-9 flex flex-wrap items-center justify-center gap-4 md:mt-11">
+            <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'rounded-full px-7 shadow-[0_8px_22px_rgba(0,113,227,.18)]' })}>
               Start a project
             </a>
-            <a href="/work" class="group inline-flex items-center gap-1.5 text-[17px] font-medium text-[#0066cc] transition-colors hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-4">
-              View selected work
-              <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">›</span>
+            <a href="/work" class="glass-control inline-flex h-10 items-center gap-1.5 rounded-full px-5 text-[15px] font-medium text-[#1d1d1f]">
+              View work <span aria-hidden="true">›</span>
             </a>
           </div>
         </div>
 
-        <figure data-motion="hero-media" class="relative mt-16 overflow-hidden rounded-[28px] bg-[#e8e8ed] shadow-[0_28px_80px_rgba(0,0,0,0.10)] md:mt-24 md:rounded-[34px]">
-          <div class="aspect-[4/5] sm:aspect-[16/11] lg:aspect-[16/9]">
-            <img
-              src={imagery.hero}
-              alt="Minimal workspace with a laptop, books, and soft natural light"
-              class="h-full w-full object-cover object-center"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+        <div class="relative mx-auto mt-16 max-w-[1180px] md:mt-24">
+          <div class="absolute -left-10 top-16 hidden h-48 w-48 rounded-full bg-white/90 blur-3xl lg:block"></div>
+          <div class="absolute -right-8 bottom-8 hidden h-56 w-56 rounded-full bg-[#dcebff]/70 blur-3xl lg:block"></div>
+
+          <figure class="hero-glass-shell relative overflow-hidden rounded-[30px] p-2 md:rounded-[38px] md:p-3">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-[#e8e8ed] sm:aspect-[16/11] lg:aspect-[16/9] md:rounded-[31px]">
+              <img
+                src={imagery.hero}
+                alt="Minimal creative workspace with soft natural light"
+                class="h-full w-full object-cover object-center"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,.02)_45%,rgba(0,0,0,.22)_100%)]"></div>
+
+              <div class="glass-caption absolute inset-x-4 bottom-4 flex flex-col gap-2 rounded-2xl px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between md:inset-x-6 md:bottom-6 md:px-5">
+                <div>
+                  <p class="text-[13px] font-semibold text-white">Quiet interface. Deliberate engineering.</p>
+                  <p class="mt-0.5 text-[12px] text-white/70">Designed to stay clear at every scale.</p>
+                </div>
+                <span class="text-[12px] font-medium text-white/75">Design · Build · Refine</span>
+              </div>
+            </div>
+          </figure>
+
+          <div class="glass-float absolute -bottom-9 left-1/2 hidden w-[min(90%,840px)] -translate-x-1/2 rounded-[22px] px-6 py-4 md:grid md:grid-cols-3 md:divide-x md:divide-white/50">
+            <div class="px-4 text-center">
+              <p class="text-[12px] font-medium text-[#86868b]">01</p>
+              <p class="mt-1 text-[15px] font-semibold">Strategy first</p>
+            </div>
+            <div class="px-4 text-center">
+              <p class="text-[12px] font-medium text-[#86868b]">02</p>
+              <p class="mt-1 text-[15px] font-semibold">Astro-led build</p>
+            </div>
+            <div class="px-4 text-center">
+              <p class="text-[12px] font-medium text-[#86868b]">03</p>
+              <p class="mt-1 text-[15px] font-semibold">Performance tuned</p>
+            </div>
           </div>
-          <figcaption class="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-2xl border border-white/40 bg-white/55 px-4 py-3 text-[12px] font-medium text-[#424245] shadow-sm backdrop-blur-xl md:inset-x-6 md:bottom-6 md:px-5">
-            <span>Quiet interfaces. Deliberate engineering.</span>
-            <span class="hidden text-[#6e6e73] sm:inline">Design · Build · Refine</span>
-          </figcaption>
-        </figure>
+        </div>
       </div>
     </section>
 
     <!-- Capabilities -->
-    <section class="bg-white px-5 py-20 sm:px-8 md:py-28">
+    <section class="relative px-5 py-24 sm:px-8 md:py-36">
       <div class="mx-auto max-w-[1180px]">
-        <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-          <div class="max-w-xl">
-            <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#86868b]">What I do</p>
-            <h2 class="text-balance text-[clamp(2.4rem,5vw,4.6rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#1d1d1f]">
-              One partner from first idea to production.
-            </h2>
-          </div>
+        <div class="mb-14 max-w-3xl md:mb-20">
+          <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#86868b]">Capabilities</p>
+          <h2 class="text-balance text-[clamp(2.8rem,5.8vw,5.4rem)] font-semibold leading-[0.96] tracking-[-0.055em]">
+            One system from first idea to final interaction.
+          </h2>
+        </div>
 
-          <div class="grid gap-9 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-12 lg:pt-2">
-            <div>
-              <span class="mb-3 block text-[13px] font-semibold text-[#1d1d1f]">01</span>
-              <h3 class="mb-2 text-xl font-semibold tracking-[-0.025em] text-[#1d1d1f]">Product direction</h3>
-              <p class="text-[17px] leading-[1.55] text-[#6e6e73]">Clarify the user journey, content hierarchy, and technical shape before implementation begins.</p>
-            </div>
-            <div>
-              <span class="mb-3 block text-[13px] font-semibold text-[#1d1d1f]">02</span>
-              <h3 class="mb-2 text-xl font-semibold tracking-[-0.025em] text-[#1d1d1f]">Design engineering</h3>
-              <p class="text-[17px] leading-[1.55] text-[#6e6e73]">Turn visual intent into responsive interfaces with careful typography, motion, and interaction details.</p>
-            </div>
-            <div>
-              <span class="mb-3 block text-[13px] font-semibold text-[#1d1d1f]">03</span>
-              <h3 class="mb-2 text-xl font-semibold tracking-[-0.025em] text-[#1d1d1f]">Web architecture</h3>
-              <p class="text-[17px] leading-[1.55] text-[#6e6e73]">Build maintainable Astro and React systems with a bias toward semantic HTML, speed, and longevity.</p>
-            </div>
-            <div>
-              <span class="mb-3 block text-[13px] font-semibold text-[#1d1d1f]">04</span>
-              <h3 class="mb-2 text-xl font-semibold tracking-[-0.025em] text-[#1d1d1f]">Performance refinement</h3>
-              <p class="text-[17px] leading-[1.55] text-[#6e6e73]">Profile real bottlenecks, reduce unnecessary JavaScript, and keep Core Web Vitals in the green.</p>
-            </div>
-          </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          <article class="glass-panel rounded-[28px] p-7 md:p-9">
+            <span class="text-[12px] font-semibold text-[#86868b]">01</span>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em]">Product direction</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-[#6e6e73]">Clarify content, hierarchy, user journeys, and the technical approach before implementation begins.</p>
+          </article>
+
+          <article class="glass-panel rounded-[28px] p-7 md:p-9">
+            <span class="text-[12px] font-semibold text-[#86868b]">02</span>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em]">Design engineering</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-[#6e6e73]">Translate visual intent into responsive interfaces with careful typography, motion, and interaction states.</p>
+          </article>
+
+          <article class="glass-panel rounded-[28px] p-7 md:p-9">
+            <span class="text-[12px] font-semibold text-[#86868b]">03</span>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em]">Web architecture</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-[#6e6e73]">Build Astro-first systems with React only where interaction genuinely requires client-side state.</p>
+          </article>
+
+          <article class="glass-panel rounded-[28px] p-7 md:p-9">
+            <span class="text-[12px] font-semibold text-[#86868b]">04</span>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em]">Performance refinement</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-[#6e6e73]">Reduce unnecessary JavaScript, tune rendering, and keep the experience fast on real devices.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Selected Work -->
-    <section class="px-5 py-24 sm:px-8 md:py-36">
+    <section class="bg-white px-5 py-24 sm:px-8 md:py-36">
       <div class="mx-auto max-w-[1280px]">
         <div class="mb-14 flex items-end justify-between gap-8 md:mb-20">
           <div>
             <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#86868b]">Selected work</p>
-            <h2 class="text-[clamp(2.7rem,5.5vw,5rem)] font-semibold leading-none tracking-[-0.045em] text-[#1d1d1f]">Built with intent.</h2>
+            <h2 class="text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold leading-none tracking-[-0.055em]">Built with intent.</h2>
           </div>
-          <a href="/work" class="hidden items-center gap-1 text-[17px] font-medium text-[#0066cc] md:inline-flex">
-            See all work <span aria-hidden="true">›</span>
-          </a>
+          <a href="/work" class="hidden text-[16px] font-medium text-[#0066cc] md:inline-flex">See all work&nbsp;›</a>
         </div>
 
-        <div class="space-y-24 md:space-y-36">
+        <div class="space-y-24 md:space-y-32">
           <article class="group">
-            <a href="/work/fintech-platform" class="block overflow-hidden rounded-[24px] bg-[#e8e8ed] md:rounded-[30px]">
-              <div class="aspect-[4/3] md:aspect-[16/9]">
-                <img
-                  src={imagery.product}
-                  alt="Minimal desk setup with laptop and accessories"
-                  class="hover-scale-img h-full w-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
+            <a href="/work/fintech-platform" class="media-shell block overflow-hidden rounded-[30px] p-2 md:rounded-[36px] md:p-3">
+              <div class="aspect-[4/3] overflow-hidden rounded-[24px] md:aspect-[16/9] md:rounded-[29px]">
+                <img src={imagery.product} alt="Minimal laptop workspace" class="hover-scale-img h-full w-full object-cover object-center" loading="lazy" decoding="async" />
               </div>
             </a>
-            <div class="mt-7 grid gap-5 md:grid-cols-[1fr_auto] md:items-start md:gap-12">
+            <div class="mt-7 grid gap-5 md:grid-cols-[1fr_auto] md:gap-12">
               <div class="max-w-2xl">
-                <p class="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[#86868b]">Product platform</p>
-                <h3 class="text-[clamp(2rem,4vw,3.35rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[#1d1d1f] transition-colors group-hover:text-[#0066cc]">Fintech Platform</h3>
-                <p class="mt-4 max-w-xl text-[17px] leading-[1.55] text-[#6e6e73]">A scalable transactional experience shaped around clear information hierarchy, dependable performance, and confident interaction states.</p>
+                <p class="mb-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-[#86868b]">Product platform</p>
+                <h3 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[1.02] tracking-[-0.045em]">Fintech Platform</h3>
+                <p class="mt-4 max-w-xl text-[17px] leading-[1.58] text-[#6e6e73]">A scalable transactional experience shaped around hierarchy, speed, and dependable interaction patterns.</p>
               </div>
-              <span class="text-[14px] font-medium text-[#6e6e73]">2026</span>
+              <span class="text-[13px] font-medium text-[#86868b]">2026</span>
             </div>
           </article>
 
           <article class="grid items-start gap-8 md:grid-cols-12 md:gap-10 lg:gap-16">
             <div class="order-2 md:order-1 md:col-span-5 md:pt-16 lg:pt-24">
-              <p class="mb-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-[#86868b]">Commerce systems</p>
-              <h3 class="text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[#1d1d1f]">Global Retail</h3>
-              <p class="mt-5 text-[17px] leading-[1.58] text-[#6e6e73]">A commerce architecture focused on fast discovery, low-friction purchasing, and a design system that can expand without visual drift.</p>
-              <a href="/work/global-retail" class="mt-7 inline-flex items-center gap-1 text-[17px] font-medium text-[#0066cc]">
-                Explore the project <span aria-hidden="true">›</span>
-              </a>
+              <p class="mb-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-[#86868b]">Commerce systems</p>
+              <h3 class="text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.045em]">Global Retail</h3>
+              <p class="mt-5 text-[17px] leading-[1.58] text-[#6e6e73]">A commerce architecture focused on discovery, purchasing speed, and a design system that stays coherent as it grows.</p>
+              <a href="/work/global-retail" class="mt-7 inline-flex text-[16px] font-medium text-[#0066cc]">Explore the project&nbsp;›</a>
             </div>
 
-            <a href="/work/global-retail" class="order-1 block overflow-hidden rounded-[24px] bg-[#e8e8ed] md:order-2 md:col-span-7 md:rounded-[30px]">
-              <div class="aspect-[4/5] md:aspect-[5/4]">
-                <img
-                  src={imagery.studio}
-                  alt="Premium minimalist office interior with natural materials"
-                  class="hover-scale-img h-full w-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
+            <a href="/work/global-retail" class="media-shell order-1 block overflow-hidden rounded-[30px] p-2 md:order-2 md:col-span-7 md:rounded-[36px] md:p-3">
+              <div class="aspect-[4/5] overflow-hidden rounded-[24px] md:aspect-[5/4] md:rounded-[29px]">
+                <img src={imagery.studio} alt="Premium minimalist studio interior" class="hover-scale-img h-full w-full object-cover object-center" loading="lazy" decoding="async" />
               </div>
             </a>
           </article>
         </div>
-
-        <a href="/work" class="mt-14 inline-flex items-center gap-1 text-[17px] font-medium text-[#0066cc] md:hidden">
-          See all work <span aria-hidden="true">›</span>
-        </a>
       </div>
     </section>
 
-    <!-- Dark feature -->
-    <section class="dark-env bg-black px-5 py-24 text-white sm:px-8 md:py-36">
-      <div class="mx-auto max-w-[1180px]">
+    <!-- Dark Glass Statement -->
+    <section class="dark-env relative overflow-hidden bg-black px-5 py-28 text-white sm:px-8 md:py-40">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-5%,rgba(71,127,255,.22)_0%,rgba(0,0,0,0)_42%)]"></div>
+      <div class="relative mx-auto max-w-[1180px]">
         <div class="mx-auto max-w-4xl text-center">
           <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#a1a1a6]">Design principle</p>
-          <h2 class="text-balance text-[clamp(3rem,7vw,6.8rem)] font-semibold leading-[0.94] tracking-[-0.052em] text-white">
-            Less interface.<br />More clarity.
-          </h2>
-          <p class="mx-auto mt-8 max-w-2xl text-balance text-[clamp(1.1rem,2vw,1.45rem)] leading-[1.5] tracking-[-0.015em] text-[#a1a1a6]">
-            The best interaction is often the one users never have to think about. Every layer should earn its place.
-          </p>
+          <h2 class="text-balance text-[clamp(3.2rem,7vw,6.8rem)] font-semibold leading-[0.93] tracking-[-0.06em]">Glass only when depth has meaning.</h2>
+          <p class="mx-auto mt-8 max-w-2xl text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-[#a1a1a6]">Translucency should clarify layers, not decorate them. Navigation, overlays, and controls get material depth. Content stays calm and readable.</p>
         </div>
 
-        <div class="mt-16 grid gap-px overflow-hidden rounded-[28px] bg-[#2c2c2e] md:mt-24 md:grid-cols-3">
-          <div class="bg-[#111113] p-8 md:p-10">
-            <span class="mb-12 block text-[13px] font-semibold text-[#86868b]">01</span>
-            <h3 class="text-2xl font-semibold tracking-[-0.03em] text-white">Content first</h3>
-            <p class="mt-3 text-[16px] leading-[1.55] text-[#a1a1a6]">Structure and hierarchy lead. Decoration follows only when it improves understanding.</p>
+        <div class="dark-glass-grid mt-16 grid gap-4 rounded-[30px] p-4 md:mt-24 md:grid-cols-3 md:p-5">
+          <div class="dark-glass-card rounded-[22px] p-7 md:p-8">
+            <span class="text-[12px] font-medium text-white/45">01</span>
+            <h3 class="mt-12 text-2xl font-semibold tracking-[-0.035em]">Clarity first</h3>
+            <p class="mt-3 text-[15px] leading-[1.6] text-white/58">Hierarchy and content always lead the visual system.</p>
           </div>
-          <div class="bg-[#111113] p-8 md:p-10">
-            <span class="mb-12 block text-[13px] font-semibold text-[#86868b]">02</span>
-            <h3 class="text-2xl font-semibold tracking-[-0.03em] text-white">Materials with purpose</h3>
-            <p class="mt-3 text-[16px] leading-[1.55] text-[#a1a1a6]">Translucency and depth are reserved for navigation and controls where spatial context matters.</p>
+          <div class="dark-glass-card rounded-[22px] p-7 md:p-8">
+            <span class="text-[12px] font-medium text-white/45">02</span>
+            <h3 class="mt-12 text-2xl font-semibold tracking-[-0.035em]">Material restraint</h3>
+            <p class="mt-3 text-[15px] leading-[1.6] text-white/58">Blur, reflection, and depth appear only where they improve spatial context.</p>
           </div>
-          <div class="bg-[#111113] p-8 md:p-10">
-            <span class="mb-12 block text-[13px] font-semibold text-[#86868b]">03</span>
-            <h3 class="text-2xl font-semibold tracking-[-0.03em] text-white">Motion with restraint</h3>
-            <p class="mt-3 text-[16px] leading-[1.55] text-[#a1a1a6]">Fast, interruptible transitions support orientation instead of competing for attention.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section class="bg-white px-5 py-24 sm:px-8 md:py-36">
-      <div class="mx-auto max-w-[1180px]">
-        <div class="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-          <div class="max-w-lg">
-            <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#86868b]">Process</p>
-            <h2 class="text-balance text-[clamp(2.6rem,5vw,4.7rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#1d1d1f]">From uncertainty to a production-ready system.</h2>
-          </div>
-
-          <div class="divide-y divide-[#d2d2d7] border-y border-[#d2d2d7]">
-            <div class="grid gap-4 py-8 sm:grid-cols-[54px_1fr] md:py-10">
-              <span class="text-[13px] font-semibold text-[#86868b]">01</span>
-              <div>
-                <h3 class="text-2xl font-semibold tracking-[-0.03em] text-[#1d1d1f]">Discover</h3>
-                <p class="mt-2 max-w-xl text-[17px] leading-[1.55] text-[#6e6e73]">Define the problem, constraints, users, content, and technical requirements before choosing solutions.</p>
-              </div>
-            </div>
-            <div class="grid gap-4 py-8 sm:grid-cols-[54px_1fr] md:py-10">
-              <span class="text-[13px] font-semibold text-[#86868b]">02</span>
-              <div>
-                <h3 class="text-2xl font-semibold tracking-[-0.03em] text-[#1d1d1f]">Design & build</h3>
-                <p class="mt-2 max-w-xl text-[17px] leading-[1.55] text-[#6e6e73]">Prototype in the browser, establish the system, and implement responsive behavior alongside visual decisions.</p>
-              </div>
-            </div>
-            <div class="grid gap-4 py-8 sm:grid-cols-[54px_1fr] md:py-10">
-              <span class="text-[13px] font-semibold text-[#86868b]">03</span>
-              <div>
-                <h3 class="text-2xl font-semibold tracking-[-0.03em] text-[#1d1d1f]">Refine & ship</h3>
-                <p class="mt-2 max-w-xl text-[17px] leading-[1.55] text-[#6e6e73]">Validate accessibility, performance, responsive behavior, and the small details that determine how polished a product feels.</p>
-              </div>
-            </div>
+          <div class="dark-glass-card rounded-[22px] p-7 md:p-8">
+            <span class="text-[12px] font-medium text-white/45">03</span>
+            <h3 class="mt-12 text-2xl font-semibold tracking-[-0.035em]">Fast motion</h3>
+            <p class="mt-3 text-[15px] leading-[1.6] text-white/58">Transitions stay short, responsive, and secondary to the task.</p>
           </div>
         </div>
       </div>
@@ -254,10 +218,12 @@ const imagery = {
       <div class="mx-auto max-w-[820px]">
         <div class="mb-14 text-center">
           <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#86868b]">FAQ</p>
-          <h2 class="text-[clamp(2.5rem,5vw,4.4rem)] font-semibold leading-none tracking-[-0.045em] text-[#1d1d1f]">A few useful answers.</h2>
+          <h2 class="text-[clamp(2.6rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.05em]">A few useful answers.</h2>
           <p class="mx-auto mt-5 max-w-xl text-[17px] leading-[1.55] text-[#6e6e73]">Everything you need to know about working together.</p>
         </div>
-        <FaqAccordion client:load />
+        <div class="glass-panel rounded-[28px] px-5 py-2 md:px-7">
+          <FaqAccordion client:load />
+        </div>
       </div>
     </section>
 
@@ -265,14 +231,10 @@ const imagery = {
     <section class="bg-white px-5 py-28 text-center sm:px-8 md:py-40">
       <div class="mx-auto max-w-4xl">
         <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#86868b]">Have something ambitious in mind?</p>
-        <h2 class="text-balance text-[clamp(3rem,7vw,6.7rem)] font-semibold leading-[0.94] tracking-[-0.052em] text-[#1d1d1f]">
-          Let’s make it feel inevitable.
-        </h2>
-        <p class="mx-auto mt-7 max-w-2xl text-balance text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-[#6e6e73]">
-          Bring the problem. I’ll help shape the experience, the system, and the implementation.
-        </p>
+        <h2 class="text-balance text-[clamp(3.2rem,7vw,6.7rem)] font-semibold leading-[0.93] tracking-[-0.06em]">Let’s make it feel inevitable.</h2>
+        <p class="mx-auto mt-7 max-w-2xl text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-[#6e6e73]">Bring the problem. I’ll help shape the experience, the system, and the implementation.</p>
         <div class="mt-9">
-          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'rounded-full px-8' })}>
+          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'rounded-full px-8 shadow-[0_8px_22px_rgba(0,113,227,.18)]' })}>
             Start a conversation
           </a>
         </div>
@@ -282,3 +244,73 @@ const imagery = {
 
   <SiteFooter />
 </Layout>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+  .home-geist {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: 'ss01' 1, 'cv01' 1, 'cv08' 1;
+  }
+
+  .hero-glass-shell,
+  .media-shell {
+    background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.42));
+    border: 1px solid rgba(255,255,255,.88);
+    box-shadow: 0 30px 90px rgba(0,0,0,.09), inset 0 1px 0 rgba(255,255,255,.95);
+    backdrop-filter: blur(28px) saturate(165%);
+    -webkit-backdrop-filter: blur(28px) saturate(165%);
+  }
+
+  .glass-caption {
+    background: linear-gradient(140deg, rgba(35,35,38,.48), rgba(28,28,30,.24));
+    border: 1px solid rgba(255,255,255,.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 10px 35px rgba(0,0,0,.15);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+  }
+
+  .glass-float,
+  .glass-panel,
+  .glass-control {
+    background: linear-gradient(145deg, rgba(255,255,255,.74), rgba(255,255,255,.48));
+    border: 1px solid rgba(255,255,255,.88);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 14px 42px rgba(0,0,0,.055);
+    backdrop-filter: blur(24px) saturate(170%);
+    -webkit-backdrop-filter: blur(24px) saturate(170%);
+  }
+
+  .glass-control {
+    transition: transform 160ms var(--ease-out-strong), background-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .dark-glass-grid {
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.09);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 28px 90px rgba(0,0,0,.32);
+    backdrop-filter: blur(26px) saturate(130%);
+    -webkit-backdrop-filter: blur(26px) saturate(130%);
+  }
+
+  .dark-glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.09);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .glass-control:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.82);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 16px 36px rgba(0,0,0,.075);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glass-control,
+    .hover-scale-img {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+</style>
