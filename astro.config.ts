@@ -5,7 +5,12 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://www.pradnyaprameswara.web.id/",
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.endsWith("/404") && !page.endsWith("/404/"),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

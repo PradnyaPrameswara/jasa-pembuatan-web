@@ -1,59 +1,134 @@
 ---
 import '../styles/global.css';
+import {
+  PERSON_ID,
+  SEO,
+  WEBSITE_ID,
+  getRouteSocialImage,
+  inferPageType,
+  normalizeCanonicalPath,
+  personJsonLd,
+  websiteJsonLd,
+  type JsonLd,
+  type SeoPageType,
+} from '../lib/seo';
+
+type OpenGraphType = 'website' | 'profile' | 'article';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
-  ogType?: string;
+  imageAlt?: string;
+  ogType?: OpenGraphType;
+  pageType?: SeoPageType;
   noindex?: boolean;
   canonical?: string;
-  structuredData?: Record<string, unknown>;
+  structuredData?: JsonLd | JsonLd[];
 }
 
 const {
-  title = "Anak Agung Gede Pradnya Prameswara — Fullstack Web Developer",
-  description = "Fresh Informatics Education graduate and Fullstack Web Developer based in Gianyar, Bali, focused on responsive, maintainable, user-focused software.",
-  image = "/og-image.jpg",
-  ogType = "website",
+  title = SEO.defaultTitle,
+  description = SEO.defaultDescription,
+  image,
+  imageAlt,
+  ogType,
+  pageType,
   noindex = false,
   canonical,
-  structuredData
+  structuredData,
 } = Astro.props;
 
-const canonicalURL = canonical ? new URL(canonical) : new URL(Astro.url.pathname, Astro.site || "https://production-domain-required.com");
+const canonicalPath = normalizeCanonicalPath(Astro.url.pathname);
+const canonicalURL = canonical
+  ? new URL(canonical, `${SEO.siteUrl}/`)
+  : new URL(canonicalPath, `${SEO.siteUrl}/`);
+const routeSocialImage = getRouteSocialImage(Astro.url.pathname);
+const resolvedImage = image ?? routeSocialImage.src;
+const resolvedImageAlt = imageAlt ?? routeSocialImage.alt;
+const imageURL = new URL(resolvedImage, `${SEO.siteUrl}/`);
+const resolvedPageType: SeoPageType = pageType ?? inferPageType(Astro.url.pathname);
+const resolvedOgType: OpenGraphType = ogType ?? (resolvedPageType === 'ProfilePage' ? 'profile' : 'website');
+const robotsContent = noindex
+  ? 'noindex, nofollow, noarchive'
+  : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+const suppliedSchemas: JsonLd[] = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+
+const withoutContext = (schema: JsonLd): JsonLd => {
+  const copy = { ...schema };
+  delete copy['@context'];
+  return copy;
+};
+
+const pageSpecificSchemas = suppliedSchemas
+  .filter((schema) => schema['@type'] !== 'Person')
+  .map(withoutContext);
+
+const pageJsonLd: JsonLd = {
+  '@type': resolvedPageType,
+  '@id': `${canonicalURL.href}#webpage`,
+  url: canonicalURL.href,
+  name: title,
+  description,
+  inLanguage: SEO.language,
+  isPartOf: { '@id': WEBSITE_ID },
+  about: { '@id': PERSON_ID },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: imageURL.href,
+    caption: resolvedImageAlt,
+  },
+  ...(resolvedPageType === 'ProfilePage' ? { mainEntity: { '@id': PERSON_ID } } : {}),
+};
+
+const structuredGraph: JsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [websiteJsonLd, personJsonLd, pageJsonLd, ...pageSpecificSchemas],
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={SEO.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="application-name" content={SEO.siteName} />
+    <meta name="author" content={SEO.fullName} />
+    <meta name="theme-color" content="#050a30" />
 
     <title>{title}</title>
-    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="robots" content={robotsContent} />
+    <meta name="googlebot" content={robotsContent} />
     <link rel="canonical" href={canonicalURL} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="sitemap" type="application/xml" href={`${SEO.siteUrl}/sitemap-index.xml`} />
+    <link rel="me" href={SEO.linkedin} />
+    <link rel="me" href={SEO.github} />
 
-    <meta property="og:site_name" content="Pradnya Prameswara" />
-    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SEO.siteName} />
+    <meta property="og:locale" content={SEO.locale} />
+    <meta property="og:type" content={resolvedOgType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, canonicalURL)} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:secure_url" content={imageURL} />
+    <meta property="og:image:alt" content={resolvedImageAlt} />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:image:alt" content={resolvedImageAlt} />
 
-    {structuredData && (
-      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    )}
+    <script type="application/ld+json" set:html={JSON.stringify(structuredGraph)} />
   </head>
   <body class="flex min-h-screen flex-col selection:bg-white/20 selection:text-white">
     <div class="spectrum-environment" aria-hidden="true"></div>
