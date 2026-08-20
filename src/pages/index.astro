@@ -8,22 +8,41 @@ import { buttonVariants } from '../components/ui/button';
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Pradnya Prameswara",
-  "url": "https://production-domain-required.com",
-  "sameAs": ["https://www.linkedin.com/in/pradnyaprameswara/"],
-  "description": "Pradnya designs and develops focused web experiences."
+  "name": "Anak Agung Gede Pradnya Prameswara",
+  "url": "https://www.pradnyaprameswara.web.id/",
+  "email": "mailto:agungpradnya7@gmail.com",
+  "jobTitle": "Fullstack Web Developer",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Gianyar",
+    "addressRegion": "Bali",
+    "addressCountry": "Indonesia"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/pradnyaprameswara/",
+    "https://github.com/PradnyaPrameswara"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universitas Pendidikan Ganesha"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Widhi Asih Bali Export"
+  },
+  "knowsAbout": ["HTML", "TypeScript", "Astro", "React", "REST API", "SQL", "Python"],
+  "description": "Fresh Informatics Education graduate and Fullstack Web Developer building responsive, maintainable, user-focused software solutions."
 };
 
 const imagery = {
   hero: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
-  product: 'https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=86&w=2000',
-  studio: 'https://images.unsplash.com/photo-1737474707380-5ef35770d8a7?auto=format&fit=crop&q=86&w=2200',
+  academic: 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2200',
 };
 ---
 
 <Layout
-  title="Pradnya — Web Design & Development"
-  description="Pradnya designs and develops focused web experiences, combining technical precision with premium design execution."
+  title="Anak Agung Gede Pradnya Prameswara — Fullstack Web Developer"
+  description="Fresh Informatics Education graduate and Fullstack Web Developer from Gianyar, Bali, building responsive and maintainable software solutions."
   structuredData={structuredData}
 >
   <SiteHeader slot="header" />
@@ -33,66 +52,46 @@ const imagery = {
 
     <section class="relative px-5 pb-24 pt-28 sm:px-8 md:pb-32 md:pt-40 lg:pt-48">
       <div class="relative z-10 mx-auto max-w-[1280px]">
-        <div class="mx-auto max-w-[1000px] text-center">
+        <div class="mx-auto max-w-[1050px] text-center">
           <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.15em] text-muted-foreground md:text-[13px]">
-            Design engineering · Bali / Remote
+            Fresh Graduate in Informatics Education · Fullstack Web Developer · Gianyar, Bali
           </p>
           <h1 class="text-balance text-[clamp(3.5rem,8.6vw,7.8rem)] font-semibold leading-[0.92] tracking-[-0.065em] text-white">
-            Built to look simple.<br />Engineered to feel exceptional.
+            Building responsive &amp;<br />maintainable software solutions.
           </h1>
-          <p class="mx-auto mt-8 max-w-[760px] text-balance text-[clamp(1.15rem,2vw,1.5rem)] leading-[1.45] tracking-[-0.02em] text-muted-foreground md:mt-10">
-            Premium websites and digital products shaped through clear thinking, precise interfaces, and performance-focused engineering.
+          <p class="mx-auto mt-8 max-w-[800px] text-balance text-[clamp(1.15rem,2vw,1.5rem)] leading-[1.45] tracking-[-0.02em] text-muted-foreground md:mt-10">
+            I am a recent Universitas Pendidikan Ganesha graduate focused on fullstack web development and software engineering, with experience across structured interfaces, APIs, databases, and application workflows.
           </p>
 
           <div class="mt-9 flex flex-wrap items-center justify-center gap-4 md:mt-11">
-            <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'px-7' })}>
-              Start a project
+            <a href="/work" class={buttonVariants({ variant: 'default', size: 'lg', className: 'px-7' })}>
+              View experience
             </a>
-            <a href="/work" class="glass-control inline-flex h-10 items-center gap-1.5 rounded-full px-5 text-[15px] font-medium text-white">
-              View work <span aria-hidden="true">›</span>
+            <a href="/contact" class="glass-control inline-flex h-10 items-center gap-1.5 rounded-full px-5 text-[15px] font-medium text-white">
+              Get in touch <span aria-hidden="true">›</span>
             </a>
           </div>
         </div>
 
         <div class="relative mx-auto mt-16 max-w-[1180px] md:mt-24">
-          <div class="absolute -left-10 top-16 hidden h-48 w-48 rounded-full bg-white/35 blur-3xl lg:block"></div>
-          <div class="absolute -right-8 bottom-8 hidden h-56 w-56 rounded-full bg-cyan-spectrum/15 blur-3xl lg:block"></div>
-
           <figure class="hero-glass-shell relative overflow-hidden rounded-[30px] p-2 md:rounded-[38px] md:p-3">
             <div class="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-white/10 sm:aspect-[16/11] md:rounded-[31px] lg:aspect-[16/9]">
-              <img
-                src={imagery.hero}
-                alt="Minimal creative workspace with soft natural light"
-                class="h-full w-full object-cover object-center"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
-              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,.02)_45%,rgba(5,10,48,.32)_100%)]"></div>
-
+              <img src={imagery.hero} alt="Modern software development workspace" class="h-full w-full object-cover object-center" loading="eager" fetchpriority="high" decoding="async" />
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,.02)_45%,rgba(5,10,48,.38)_100%)]"></div>
               <div class="glass-caption absolute inset-x-4 bottom-4 flex flex-col gap-2 rounded-2xl px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between md:inset-x-6 md:bottom-6 md:px-5">
                 <div>
-                  <p class="text-[13px] font-semibold text-white">Quiet interface. Deliberate engineering.</p>
-                  <p class="mt-0.5 text-[12px] text-white/70">Designed to stay clear at every scale.</p>
+                  <p class="text-[13px] font-semibold text-white">Web Developer · Widhi Asih Bali Export</p>
+                  <p class="mt-0.5 text-[12px] text-white/70">Current role since June 2026.</p>
                 </div>
-                <span class="text-[12px] font-medium text-white/75">Design · Build · Refine</span>
+                <span class="text-[12px] font-medium text-white/75">Gianyar · Bali · Indonesia</span>
               </div>
             </div>
           </figure>
 
-          <div class="glass-float absolute -bottom-9 left-1/2 hidden w-[min(90%,840px)] -translate-x-1/2 rounded-[22px] px-6 py-4 md:grid md:grid-cols-3 md:divide-x md:divide-white/20">
-            <div class="px-4 text-center">
-              <p class="text-[12px] font-medium text-white/50">01</p>
-              <p class="mt-1 text-[15px] font-semibold text-white">Strategy first</p>
-            </div>
-            <div class="px-4 text-center">
-              <p class="text-[12px] font-medium text-white/50">02</p>
-              <p class="mt-1 text-[15px] font-semibold text-white">Astro-led build</p>
-            </div>
-            <div class="px-4 text-center">
-              <p class="text-[12px] font-medium text-white/50">03</p>
-              <p class="mt-1 text-[15px] font-semibold text-white">Performance tuned</p>
-            </div>
+          <div class="glass-float absolute -bottom-9 left-1/2 hidden w-[min(90%,920px)] -translate-x-1/2 rounded-[22px] px-6 py-4 md:grid md:grid-cols-3 md:divide-x md:divide-white/20">
+            <div class="px-4 text-center"><p class="text-[12px] font-medium text-white/50">Education</p><p class="mt-1 text-[15px] font-semibold text-white">Undiksha · 2022–2026</p></div>
+            <div class="px-4 text-center"><p class="text-[12px] font-medium text-white/50">Top skills</p><p class="mt-1 text-[15px] font-semibold text-white">HTML · TypeScript · Astro</p></div>
+            <div class="px-4 text-center"><p class="text-[12px] font-medium text-white/50">Seeking</p><p class="mt-1 text-[15px] font-semibold text-white">Fullstack · Frontend · Backend</p></div>
           </div>
         </div>
       </div>
@@ -101,35 +100,30 @@ const imagery = {
     <section class="relative px-5 py-24 sm:px-8 md:py-36">
       <div class="mx-auto max-w-[1180px]">
         <div class="mb-14 max-w-3xl md:mb-20">
-          <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Capabilities</p>
-          <h2 class="text-balance text-[clamp(2.8rem,5.8vw,5.4rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">
-            One system from first idea to final interaction.
-          </h2>
+          <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Development profile</p>
+          <h2 class="text-balance text-[clamp(2.8rem,5.8vw,5.4rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">Frontend foundations with fullstack depth.</h2>
         </div>
 
         <div class="grid gap-5 md:grid-cols-2">
           <article class="glass-panel rounded-[28px] p-7 md:p-9">
             <span class="text-[12px] font-semibold text-white/50">01</span>
-            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Product direction</h3>
-            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Clarify content, hierarchy, user journeys, and the technical approach before implementation begins.</p>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Frontend development</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Structured, intuitive interfaces with reusable components, responsive layouts, and maintainable architecture.</p>
           </article>
-
           <article class="glass-panel rounded-[28px] p-7 md:p-9">
             <span class="text-[12px] font-semibold text-white/50">02</span>
-            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Design engineering</h3>
-            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Translate visual intent into responsive interfaces with careful typography, motion, and interaction states.</p>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Backend & APIs</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Experience with robust backend systems, API development, database management, and efficient application workflows.</p>
           </article>
-
           <article class="glass-panel rounded-[28px] p-7 md:p-9">
             <span class="text-[12px] font-semibold text-white/50">03</span>
-            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Web architecture</h3>
-            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Build Astro-first systems with React only where interaction genuinely requires client-side state.</p>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Core technologies</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">HTML, TypeScript, and Astro are listed as top skills, supported by React, REST API, SQL, CSS, and Python certifications.</p>
           </article>
-
           <article class="glass-panel rounded-[28px] p-7 md:p-9">
             <span class="text-[12px] font-semibold text-white/50">04</span>
-            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Performance refinement</h3>
-            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Reduce unnecessary JavaScript, tune rendering, and keep the experience fast on real devices.</p>
+            <h3 class="mt-10 text-2xl font-semibold tracking-[-0.035em] text-white">Software engineering</h3>
+            <p class="mt-3 max-w-lg text-[16px] leading-[1.6] text-muted-foreground">Focused on responsive, maintainable, user-focused software that solves practical real-world problems.</p>
           </article>
         </div>
       </div>
@@ -139,42 +133,26 @@ const imagery = {
       <div class="mx-auto max-w-[1280px]">
         <div class="mb-14 flex items-end justify-between gap-8 md:mb-20">
           <div>
-            <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Selected work</p>
-            <h2 class="text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold leading-none tracking-[-0.055em] text-white">Built with intent.</h2>
+            <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Experience & academic work</p>
+            <h2 class="text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold leading-none tracking-[-0.055em] text-white">A factual record of the work behind the profile.</h2>
           </div>
-          <a href="/work" class="hidden text-[16px] font-medium text-cyan-spectrum md:inline-flex">See all work&nbsp;›</a>
+          <a href="/work" class="hidden text-[16px] font-medium text-cyan-spectrum md:inline-flex">View all&nbsp;›</a>
         </div>
 
-        <div class="space-y-24 md:space-y-32">
-          <article class="group">
-            <a href="/work/fintech-platform" class="media-shell block overflow-hidden rounded-[30px] p-2 md:rounded-[36px] md:p-3">
-              <div class="aspect-[4/3] overflow-hidden rounded-[24px] md:aspect-[16/9] md:rounded-[29px]">
-                <img src={imagery.product} alt="Minimal laptop workspace" class="hover-scale-img h-full w-full object-cover object-center" loading="lazy" decoding="async" />
-              </div>
-            </a>
-            <div class="mt-7 grid gap-5 md:grid-cols-[1fr_auto] md:gap-12">
-              <div class="max-w-2xl">
-                <p class="mb-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">Product platform</p>
-                <h3 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">Fintech Platform</h3>
-                <p class="mt-4 max-w-xl text-[17px] leading-[1.58] text-muted-foreground">A scalable transactional experience shaped around hierarchy, speed, and dependable interaction patterns.</p>
-              </div>
-              <span class="text-[13px] font-medium text-white/50">2026</span>
-            </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          <article class="glass-panel rounded-[28px] p-7 md:p-9">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.12em] text-cyan-spectrum/80">Professional experience</p>
+            <h3 class="mt-6 text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">Widhi Asih Bali Export</h3>
+            <p class="mt-2 text-[14px] font-medium text-white/50">Web Developer · June 2026 — Present</p>
+            <p class="mt-5 text-[17px] leading-[1.58] text-muted-foreground">My current professional role and practical web development experience.</p>
+            <a href="/work/widhi-asih-bali-export" class="mt-7 inline-flex text-[16px] font-medium text-cyan-spectrum">View experience&nbsp;›</a>
           </article>
 
-          <article class="grid items-start gap-8 md:grid-cols-12 md:gap-10 lg:gap-16">
-            <div class="order-2 md:order-1 md:col-span-5 md:pt-16 lg:pt-24">
-              <p class="mb-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">Commerce systems</p>
-              <h3 class="text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">Global Retail</h3>
-              <p class="mt-5 text-[17px] leading-[1.58] text-muted-foreground">A commerce architecture focused on discovery, purchasing speed, and a design system that stays coherent as it grows.</p>
-              <a href="/work/global-retail" class="mt-7 inline-flex text-[16px] font-medium text-cyan-spectrum">Explore the project&nbsp;›</a>
-            </div>
-
-            <a href="/work/global-retail" class="media-shell order-1 block overflow-hidden rounded-[30px] p-2 md:order-2 md:col-span-7 md:rounded-[36px] md:p-3">
-              <div class="aspect-[4/5] overflow-hidden rounded-[24px] md:aspect-[5/4] md:rounded-[29px]">
-                <img src={imagery.studio} alt="Premium minimalist studio interior" class="hover-scale-img h-full w-full object-cover object-center" loading="lazy" decoding="async" />
-              </div>
-            </a>
+          <article class="glass-panel rounded-[28px] p-7 md:p-9">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.12em] text-cyan-spectrum/80">Academic project & publication</p>
+            <h3 class="mt-6 text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">LLM-Based Diagnostic Assessment System</h3>
+            <p class="mt-5 text-[17px] leading-[1.58] text-muted-foreground">A system developed to detect students' initial abilities and apply software engineering to an education-sector problem.</p>
+            <a href="/work/diagnostic-assessment-system" class="mt-7 inline-flex text-[16px] font-medium text-cyan-spectrum">View project&nbsp;›</a>
           </article>
         </div>
       </div>
@@ -182,27 +160,14 @@ const imagery = {
 
     <section class="dark-env relative bg-transparent px-5 py-28 text-white sm:px-8 md:py-40">
       <div class="relative mx-auto max-w-[1180px]">
-        <div class="mx-auto max-w-4xl text-center">
-          <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/60">Design principle</p>
-          <h2 class="text-balance text-[clamp(3.2rem,7vw,6.8rem)] font-semibold leading-[0.93] tracking-[-0.06em] text-white">Glass only when depth has meaning.</h2>
-          <p class="mx-auto mt-8 max-w-2xl text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-white/65">Translucency should clarify layers, not decorate them. Navigation, overlays, and controls get material depth. Content stays calm and readable.</p>
-        </div>
-
-        <div class="dark-glass-grid mt-16 grid gap-4 rounded-[30px] p-4 md:mt-24 md:grid-cols-3 md:p-5">
-          <div class="dark-glass-card rounded-[22px] p-7 md:p-8">
-            <span class="text-[12px] font-medium text-white/45">01</span>
-            <h3 class="mt-12 text-2xl font-semibold tracking-[-0.035em] text-white">Clarity first</h3>
-            <p class="mt-3 text-[15px] leading-[1.6] text-white/60">Hierarchy and content always lead the visual system.</p>
+        <div class="grid gap-10 md:grid-cols-12 md:items-center">
+          <div class="md:col-span-7">
+            <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/60">Education & mentoring</p>
+            <h2 class="text-balance text-[clamp(3.2rem,7vw,6.2rem)] font-semibold leading-[0.93] tracking-[-0.06em] text-white">Software development shaped by an Informatics Education background.</h2>
           </div>
-          <div class="dark-glass-card rounded-[22px] p-7 md:p-8">
-            <span class="text-[12px] font-medium text-white/45">02</span>
-            <h3 class="mt-12 text-2xl font-semibold tracking-[-0.035em] text-white">Material restraint</h3>
-            <p class="mt-3 text-[15px] leading-[1.6] text-white/60">Blur, reflection, and depth appear only where they improve spatial context.</p>
-          </div>
-          <div class="dark-glass-card rounded-[22px] p-7 md:p-8">
-            <span class="text-[12px] font-medium text-white/45">03</span>
-            <h3 class="mt-12 text-2xl font-semibold tracking-[-0.035em] text-white">Fast motion</h3>
-            <p class="mt-3 text-[15px] leading-[1.6] text-white/60">Transitions stay short, responsive, and secondary to the task.</p>
+          <div class="space-y-5 md:col-span-5">
+            <div class="dark-glass-card rounded-[22px] p-7"><p class="text-[12px] text-white/45">2022–2026</p><h3 class="mt-3 text-xl font-semibold text-white">Universitas Pendidikan Ganesha</h3><p class="mt-2 text-[15px] leading-[1.6] text-white/60">Bachelor's degree · Technical Teacher Education</p></div>
+            <div class="dark-glass-card rounded-[22px] p-7"><p class="text-[12px] text-white/45">Sep–Dec 2025</p><h3 class="mt-3 text-xl font-semibold text-white">SMP Negeri 6 Singaraja</h3><p class="mt-2 text-[15px] leading-[1.6] text-white/60">Informatics Teaching Intern · Singaraja, Bali</p></div>
           </div>
         </div>
       </div>
@@ -211,9 +176,9 @@ const imagery = {
     <section class="px-5 py-24 sm:px-8 md:py-32">
       <div class="mx-auto max-w-[820px]">
         <div class="mb-14 text-center">
-          <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">FAQ</p>
-          <h2 class="text-[clamp(2.6rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.05em] text-white">A few useful answers.</h2>
-          <p class="mx-auto mt-5 max-w-xl text-[17px] leading-[1.55] text-muted-foreground">Everything you need to know about working together.</p>
+          <p class="mb-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Profile FAQ</p>
+          <h2 class="text-[clamp(2.6rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.05em] text-white">Quick facts from my CV.</h2>
+          <p class="mx-auto mt-5 max-w-xl text-[17px] leading-[1.55] text-muted-foreground">Roles, education, skills, current experience, and academic work.</p>
         </div>
         <div class="glass-panel rounded-[28px] px-5 py-2 md:px-7">
           <FaqAccordion client:load />
@@ -223,13 +188,11 @@ const imagery = {
 
     <section class="bg-transparent px-5 py-28 text-center sm:px-8 md:py-40">
       <div class="mx-auto max-w-4xl">
-        <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Have something ambitious in mind?</p>
-        <h2 class="text-balance text-[clamp(3.2rem,7vw,6.7rem)] font-semibold leading-[0.93] tracking-[-0.06em] text-white">Let’s make it feel inevitable.</h2>
-        <p class="mx-auto mt-7 max-w-2xl text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-muted-foreground">Bring the problem. I’ll help shape the experience, the system, and the implementation.</p>
+        <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Currently seeking full-time opportunities</p>
+        <h2 class="text-balance text-[clamp(3.2rem,7vw,6.7rem)] font-semibold leading-[0.93] tracking-[-0.06em] text-white">Fullstack, frontend, or backend engineering.</h2>
+        <p class="mx-auto mt-7 max-w-2xl text-[clamp(1.1rem,2vw,1.4rem)] leading-[1.5] text-muted-foreground">I am looking for a role where I can contribute to efficient, scalable, and impactful technology solutions while continuing to grow as a software engineer.</p>
         <div class="mt-9">
-          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'px-8' })}>
-            Start a conversation
-          </a>
+          <a href="/contact" class={buttonVariants({ variant: 'default', size: 'lg', className: 'px-8' })}>Get in touch</a>
         </div>
       </div>
     </section>
