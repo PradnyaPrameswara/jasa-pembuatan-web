@@ -1,52 +1,16 @@
-# Technical Architecture
+# Current application architecture
 
-This document defines the structural architecture of the Astro application.
+This repository is an Astro-first personal portfolio with selected interactive islands.
 
-## Core Stack
+- `src/pages/` holds static Astro pages and the three `/work/[slug]` routes.
+- `src/layouts/Layout.astro` owns document structure, canonical links, Open Graph and structured data. Individual pages own the single visible `<main>`.
+- `src/data/profile.ts` holds verified LinkedIn/CV facts shared across pages, SEO and interactive components.
+- `src/data/work.ts` holds project and experience entries for both the listing and case-study routes.
+- `src/components/layout/` contains static header/footer markup and minimal browser behavior.
+- `src/components/interactive/` contains the mobile navigation, FAQ and contact-form React islands.
+- `src/components/ui/` provides shadcn/ui primitives (base-vega design style, Radix used only internally as required by existing primitives).
+- `src/styles/global.css` and Tailwind CSS v4 provide theme and visual materials.
 
-- **Astro:** The primary framework and renderer.
-- **React:** The interactive UI library (used as Astro Islands).
-- **Tailwind CSS:** The styling engine.
-- **shadcn/ui:** Unstyled, accessible component primitives.
-- **TypeScript:** Type safety across all layers.
+The static site has **no contact backend**. The contact form creates an email draft through `mailto:` and does not claim to send messages. No React effect hooks or page-level React hydration are required.
 
-## Separation of Concerns (Astro vs React)
-
-Astro is the default. React must only be used when client-side interactivity is strictly required.
-
-**Astro handles:**
-
-- Page routing (`src/pages/`).
-- Layout wrapping and SEO metadata (`src/layouts/`).
-- Static data fetching and CMS integration.
-- Presentation components that don't need hydration (e.g., footers, hero sections, static text blocks).
-
-**React handles:**
-
-- Complex accessible interactive components (e.g., Mobile Navigation Sheet).
-- Forms with complex validation states (e.g., the Contact form).
-- Interactive filtering or highly dynamic UI components.
-
-_Hydration:_ When a React component is used, it must be hydrated minimally (e.g., `client:load` for critical above-the-fold UI, `client:visible` or `client:idle` for anything else).
-
-## Directory Structure
-
-```text
-src/
-├── assets/          # Local static assets (images, fonts)
-├── components/
-│   ├── layout/      # SiteHeader, SiteFooter, etc.
-│   ├── sections/    # Large page sections (e.g., Hero, ServicesList)
-│   ├── shared/      # Reusable Astro components (e.g., SectionHeading, Container)
-│   ├── interactive/ # React components requiring hydration
-│   └── ui/          # shadcn/ui primitive components (React)
-├── data/            # Mock data, config files, content collections
-├── layouts/         # Base layout templates
-├── lib/             # Utility functions (e.g., cn for tailwind merge)
-├── pages/           # Astro routing (/, /work, /services, etc.)
-└── styles/          # globals.css and Tailwind base
-```
-
-## Content Strategy
-
-For V1, portfolio and service data will be housed in `src/data/` or using Astro Content Collections (`src/content/`) if markdown authoring is required. Data flows from these static sources into Astro pages and is passed down to components via props.
+Check `AGENTS.md`, `SKILL.md` and `docs/design-system.md` for binding constraints.

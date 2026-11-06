@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import { buttonVariants } from '../components/ui/button';
+import { profile } from '../data/profile';
 
 const studioImage = 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2200';
 
@@ -93,7 +94,7 @@ const capabilities = [
         <p class="text-[12px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/78">Technical profile</p>
         <div>
           <h2 class="max-w-4xl text-[clamp(2.7rem,5vw,5rem)] font-semibold leading-[0.97] tracking-[-0.055em] text-white">Frontend foundations with fullstack problem solving.</h2>
-          <p class="mt-6 max-w-2xl text-[17px] leading-[1.65] text-white/66">Top skills listed in my CV are HTML, TypeScript, and Astro. I also hold certifications covering React frontend development, REST APIs, SQL, CSS, and Python.</p>
+          <p class="mt-6 max-w-2xl text-[17px] leading-[1.65] text-white/66">My top skills include {profile.topSkills.join(', ')}. I also hold certifications covering React frontend development, REST APIs, SQL, CSS, and Python.</p>
         </div>
       </section>
     </div>
