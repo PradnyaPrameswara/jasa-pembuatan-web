@@ -1,6 +1,7 @@
 ---
 import { MobileNav } from '../interactive/MobileNav.tsx';
 import { buttonVariants } from '../ui/button';
+import { profile } from '../../data/profile';
 
 const links = [
   { href: '/work', label: 'Experience' },
@@ -24,7 +25,7 @@ const currentPath = Astro.url.pathname;
     <a
       href="/"
       class="inline-flex items-center rounded-full px-2 py-1 text-[15px] font-semibold tracking-[-0.03em] text-white transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 motion-reduce:transition-none"
-      aria-label="Pradnya Prameswara home"
+      aria-label={`${profile.displayName} home`}
     >
       Pradnya<span aria-hidden="true" class="text-cyan-spectrum">.</span>
     </a>
