@@ -1,0 +1,45 @@
+name: Install official shadcn components (temporary)
+
+on:
+  push:
+    branches: [refactor/shadcn-official-components]
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    if: github.ref == 'refs/heads/refactor/shadcn-official-components'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.14.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.23.4"
+      - name: Install existing pinned dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install official shadcn CLI
+        run: pnpm add -D shadcn@4.23.0
+      - name: Inspect shadcn project configuration
+        run: pnpm exec shadcn info
+      - name: Add official UI components without overwriting existing customized controls
+        run: pnpm exec shadcn add alert field --yes
+      - name: Refresh dependency lockfile
+        run: pnpm install --lockfile-only --no-frozen-lockfile
+      - name: Commit installed files to feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json pnpm-lock.yaml components.json src/components/ui src/styles/global.css
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+          else
+            git commit -m "chore: install shadcn CLI and official alert/field components"
+            git push origin HEAD:refs/heads/refactor/shadcn-official-components
+          fi
