@@ -1,0 +1,34 @@
+name: Add Playwright test dependency (temporary)
+on:
+  push:
+    branches: [test/shadcn-form-interaction]
+permissions:
+  contents: write
+jobs:
+  bootstrap:
+    if: github.ref == 'refs/heads/test/shadcn-form-interaction'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.14.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.23.4"
+      - name: Install from committed lockfile
+        run: pnpm install --frozen-lockfile
+      - name: Add Playwright test runner
+        run: pnpm add -D @playwright/test@1.56.1
+      - name: Commit lockfile and package changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json pnpm-lock.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: install Playwright for interaction regression tests"
+            git push origin HEAD:refs/heads/test/shadcn-form-interaction
+          fi

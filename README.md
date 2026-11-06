@@ -69,3 +69,7 @@ The `Field` components were adapted from the official registry without overwriti
 Keep static presentation in Astro and use React islands only where state or
 interaction requires it. The visual identity and responsive rules remain
 governed by `AGENTS.md` and `docs/design-system.md`.
+
+## Browser interaction regression tests
+
+`pnpm exec playwright test` validates required fields, email format, Select, mailto handoff, FAQ and mobile navigation in Chromium. Run `pnpm build` first if you are not using a locally running preview. CI installs Chromium and executes these tests after the normal build and screenshots. This does not send email or alter real contact data.
