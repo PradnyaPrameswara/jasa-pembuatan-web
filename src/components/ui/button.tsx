@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -45,21 +45,21 @@ const buttonVariants = cva(
   },
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+export type ButtonProps = React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants>;
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => (
+// React 19 forwards refs through ordinary props. Keep the project's custom
+// glass variants while matching modern shadcn data-slot and variant patterns.
+function Button({ className, variant, size, ...props }: ButtonProps) {
+  return (
     <button
-      ref={ref}
       data-slot="button"
+      data-variant={variant ?? "default"}
+      data-size={size ?? "default"}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  ),
-);
-
-Button.displayName = "Button";
+  );
+}
 
 export { Button, buttonVariants };
