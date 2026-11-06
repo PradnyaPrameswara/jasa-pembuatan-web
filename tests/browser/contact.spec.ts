@@ -43,10 +43,13 @@ test("homepage FAQ expands and collapses without a page navigation", async ({ pa
   const trigger = page.getByRole("button", { name: "What roles are you currently looking for?" });
   await trigger.scrollIntoViewIfNeeded();
   await expect(trigger).toBeVisible();
+  const answer = page.locator(".glass-panel")
+    .filter({ has: trigger })
+    .getByText(/full-time opportunities as a Fullstack Developer/);
   await trigger.click();
-  await expect(page.getByText(/full-time opportunities as a Fullstack Developer/)).toBeVisible();
+  await expect(answer).toBeVisible();
   await trigger.click();
-  await expect(page.getByText(/full-time opportunities as a Fullstack Developer/)).toBeHidden();
+  await expect(answer).toBeHidden();
 });
 
 test("mobile sheet can open, navigate and close", async ({ page, isMobile }) => {
