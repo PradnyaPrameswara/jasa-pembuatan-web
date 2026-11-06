@@ -1,7 +1,7 @@
 import React from "react";
 import { profile } from "@/data/profile";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Field, FieldLabel } from "@/components/ui/field";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { MailCheck } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
@@ -58,26 +58,26 @@ export function ContactForm() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="space-y-2.5">
-          <Label htmlFor="name" className="text-sm font-medium text-white/78">Name</Label>
+        <Field className="gap-2.5">
+          <FieldLabel htmlFor="name" className="text-sm font-medium text-white/78">Name</FieldLabel>
           <Input id="name" name="name" required autoComplete="name"
             placeholder="Your name" className={fieldClassName} />
-        </div>
-        <div className="space-y-2.5">
-          <Label htmlFor="email" className="text-sm font-medium text-white/78">Email</Label>
+        </Field>
+        <Field className="gap-2.5">
+          <FieldLabel htmlFor="email" className="text-sm font-medium text-white/78">Email</FieldLabel>
           <Input id="email" name="email" type="email" required autoComplete="email"
             placeholder="you@company.com" className={fieldClassName} />
-        </div>
+        </Field>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="space-y-2.5">
-          <Label htmlFor="company" className="text-sm font-medium text-white/78">Company / Organization</Label>
+        <Field className="gap-2.5">
+          <FieldLabel htmlFor="company" className="text-sm font-medium text-white/78">Company / Organization</FieldLabel>
           <Input id="company" name="company" autoComplete="organization"
             placeholder="Optional" className={fieldClassName} />
-        </div>
-        <div className="space-y-2.5">
-          <Label htmlFor="inquiry" className="text-sm font-medium text-white/78">Inquiry type</Label>
+        </Field>
+        <Field className="gap-2.5">
+          <FieldLabel htmlFor="inquiry" className="text-sm font-medium text-white/78">Inquiry type</FieldLabel>
           <Select name="inquiry" required>
             <SelectTrigger id="inquiry" className={fieldClassName + " w-full"}>
               <SelectValue placeholder="Select inquiry type" />
@@ -90,11 +90,11 @@ export function ContactForm() {
               <SelectItem value="Other">Other / not sure</SelectItem>
             </SelectContent>
           </Select>
-        </div>
+        </Field>
       </div>
 
-      <div className="space-y-2.5">
-        <Label htmlFor="budget" className="text-sm font-medium text-white/78">Budget range (optional)</Label>
+      <Field className="gap-2.5">
+        <FieldLabel htmlFor="budget" className="text-sm font-medium text-white/78">Budget range (optional)</FieldLabel>
         <Select name="budget">
           <SelectTrigger id="budget" className={fieldClassName + " w-full"}>
             <SelectValue placeholder="Not sure yet" />
@@ -106,16 +106,16 @@ export function ContactForm() {
             <SelectItem value="$50k+">$50k+</SelectItem>
           </SelectContent>
         </Select>
-      </div>
+      </Field>
 
-      <div className="space-y-2.5">
-        <Label htmlFor="description" className="text-sm font-medium text-white/78">
+      <Field className="gap-2.5">
+        <FieldLabel htmlFor="description" className="text-sm font-medium text-white/78">
           Opportunity or project details
-        </Label>
+        </FieldLabel>
         <Textarea id="description" name="description" rows={6} required
           placeholder="Describe the role, project, timeline, or expected outcome."
           className={fieldClassName + " min-h-36 resize-y"} />
-      </div>
+      </Field>
 
       <div className="flex flex-col gap-4 border-t border-white/14 pt-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-md text-xs leading-relaxed text-white/58">
