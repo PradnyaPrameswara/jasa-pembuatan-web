@@ -1,10 +1,12 @@
+import { profile } from "../data/profile";
+
 export type JsonLd = Record<string, unknown>;
 export type SeoPageType = "WebPage" | "ProfilePage" | "ContactPage" | "CollectionPage";
 
 export const SEO = {
-  siteName: "Pradnya Prameswara",
-  fullName: "Anak Agung Gede Pradnya Prameswara",
-  siteUrl: "https://www.pradnyaprameswara.web.id",
+  siteName: profile.displayName,
+  fullName: profile.fullName,
+  siteUrl: profile.website.replace(/\/$/, ""),
   locale: "en_US",
   language: "en",
   defaultTitle: "Anak Agung Gede Pradnya Prameswara | Fullstack Web Developer",
@@ -13,9 +15,9 @@ export const SEO = {
   defaultImage:
     "https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400",
   defaultImageAlt: "Modern software development workspace representing Pradnya Prameswara's portfolio",
-  email: "agungpradnya7@gmail.com",
-  linkedin: "https://www.linkedin.com/in/pradnyaprameswara/",
-  github: "https://github.com/PradnyaPrameswara",
+  email: profile.email,
+  linkedin: profile.linkedin,
+  github: profile.github,
 } as const;
 
 export const PERSON_ID = `${SEO.siteUrl}/#person`;
@@ -28,7 +30,7 @@ export const personJsonLd: JsonLd = {
   alternateName: SEO.siteName,
   url: `${SEO.siteUrl}/`,
   email: SEO.email,
-  jobTitle: "Fullstack Web Developer",
+  jobTitle: profile.jobTitle,
   description: SEO.defaultDescription,
   address: {
     "@type": "PostalAddress",
@@ -39,13 +41,13 @@ export const personJsonLd: JsonLd = {
   sameAs: [SEO.linkedin, SEO.github],
   alumniOf: {
     "@type": "CollegeOrUniversity",
-    name: "Universitas Pendidikan Ganesha",
+    name: profile.education.university,
   },
   worksFor: {
     "@type": "Organization",
-    name: "Widhi Asih Bali Export",
+    name: profile.employment.organization,
   },
-  knowsAbout: ["HTML", "TypeScript", "Astro", "React", "REST API", "SQL", "CSS", "Python"],
+  knowsAbout: [...profile.skills],
 };
 
 export const websiteJsonLd: JsonLd = {
