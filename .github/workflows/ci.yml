@@ -44,7 +44,8 @@ jobs:
 
   browser-screenshots:
     needs: quality
-    runs-on: ubuntu-latest
+    # Playwright 1.56 supports Ubuntu 24.04; current latest runner is 26.04.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
