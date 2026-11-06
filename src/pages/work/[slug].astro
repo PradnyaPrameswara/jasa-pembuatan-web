@@ -4,50 +4,21 @@ import SiteHeader from '../../components/layout/SiteHeader.astro';
 import SiteFooter from '../../components/layout/SiteFooter.astro';
 import { buttonVariants } from '../../components/ui/button';
 
-const projectData = {
-  'widhi-asih-bali-export': {
-    title: 'Widhi Asih Bali Export',
-    type: 'Professional Experience',
-    period: 'June 2026 — Present',
-    location: 'Gianyar, Bali, Indonesia',
-    description: 'Current professional experience as a Web Developer at Widhi Asih Bali Export.',
-    image: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
-    imageAlt: 'Modern software development workspace',
-    highlights: ['Web Developer role', 'Professional web development experience', 'Current position since June 2026'],
-    overview: 'This is my current professional role listed in my CV. It contributes to my practical experience building and maintaining web-based software in a real working environment.'
-  },
-  'diagnostic-assessment-system': {
-    title: 'LLM-Based Diagnostic Assessment System',
-    type: 'Academic Project & Publication',
-    period: 'University Project',
-    location: 'Universitas Pendidikan Ganesha',
-    description: "A diagnostic assessment system designed to identify students' initial abilities.",
-    image: 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Computer workspace representing academic software development',
-    highlights: ['Diagnostic assessment', 'Education technology', 'Software engineering'],
-    overview: "The project applied software engineering to a practical problem in education. It is associated with the publication titled “Development of a Large Language Model-Based Diagnostic Assessment System for Detecting Students' Initial Abilities.”"
-  },
-  'informatics-teaching-internship': {
-    title: 'SMP Negeri 6 Singaraja',
-    type: 'Informatics Teaching Internship',
-    period: 'September 2025 — December 2025',
-    location: 'Singaraja, Bali, Indonesia',
-    description: 'Four-month Informatics teaching internship completed during my university studies.',
-    image: 'https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Bright learning and working environment',
-    highlights: ['Informatics education', 'Teaching experience', 'Student mentoring'],
-    overview: 'Alongside software development, my background includes practical teaching and mentoring experience. My CV also notes experience mentoring students in C++ programming with a focus on algorithmic logic, problem solving, and competition preparation.'
-  }
-} as const;
+import { work, type WorkEntry } from '../../data/work';
 
 export function getStaticPaths() {
-  return Object.keys(projectData).map((slug) => ({
-    params: { slug },
-    props: projectData[slug as keyof typeof projectData]
+  return work.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
   }));
 }
 
-const { title, type, period, location, description, image, imageAlt, highlights, overview } = Astro.props;
+const { project } = Astro.props as { project: WorkEntry };
+const {
+  title, type, period, location, description,
+  image, imageAlt, highlights, overview,
+} = project;
+
 ---
 
 <Layout title={`${title} | Pradnya Prameswara`} description={description}>
