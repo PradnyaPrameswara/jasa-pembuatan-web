@@ -3,7 +3,10 @@ import tseslint from "typescript-eslint";
 
 export default [
   ...eslintPluginAstro.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommended.map((config) => ({
+    ...config,
+    files: ["**/*.{ts,tsx}"],
+  })),
   {
     name: "project/typescript-only",
     files: ["**/*.{js,jsx,mjs,cjs}"],
