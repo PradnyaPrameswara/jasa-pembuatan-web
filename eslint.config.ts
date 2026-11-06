@@ -1,7 +1,12 @@
 import eslintPluginAstro from "eslint-plugin-astro";
+import tseslint from "typescript-eslint";
 
 export default [
   ...eslintPluginAstro.configs.recommended,
+  ...tseslint.configs.recommended.map((config) => ({
+    ...config,
+    files: ["**/*.{ts,tsx}"],
+  })),
   {
     name: "project/typescript-only",
     files: ["**/*.{js,jsx,mjs,cjs}"],
@@ -11,7 +16,7 @@ export default [
         {
           selector: "Program",
           message:
-            "Committed JavaScript files are forbidden. Migrate this file to TypeScript (.ts/.tsx) or Astro.",
+            "Committed JavaScript source is forbidden. Use TypeScript (.ts/.tsx) or Astro.",
         },
       ],
     },

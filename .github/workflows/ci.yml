@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.14.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.23.4"
+          cache: pnpm
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: TypeScript
+        run: pnpm typecheck
+      - name: Astro check
+        run: pnpm check
+      - name: Production build
+        run: pnpm build
+      - name: Validate generated pages
+        run: |
+          test -f dist/index.html
+          test -f dist/about/index.html
+          test -f dist/services/index.html
+          test -f dist/contact/index.html
+          test -f dist/work/index.html
+          test -f dist/work/widhi-asih-bali-export/index.html
+          test -f dist/work/diagnostic-assessment-system/index.html
+          test -f dist/work/informatics-teaching-internship/index.html
+
+  browser-screenshots:
+    needs: quality
+    # Playwright 1.56 supports Ubuntu 24.04; current latest runner is 26.04.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.14.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.23.4"
+      - name: Install and build
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+      - name: Install Chromium
+        run: pnpm dlx playwright@1.56.1 install --with-deps chromium
+      - name: Capture responsive screenshots
+        run: |
+          mkdir -p browser-review
+          pnpm exec astro preview --host 127.0.0.1 --port 4321 > /tmp/astro-preview.log 2>&1 &
+          for attempt in $(seq 1 40); do
+            if curl --fail --silent http://127.0.0.1:4321/ > /dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4321/ > /dev/null
+          for width in 1440 1280 1024 768 430 390 375; do
+            pnpm dlx playwright@1.56.1 screenshot --browser chromium --full-page --viewport-size "$width,900" http://127.0.0.1:4321/ "browser-review/home-$width.png"
+          done
+          pnpm dlx playwright@1.56.1 screenshot --browser chromium --full-page --viewport-size "390,900" http://127.0.0.1:4321/contact/ browser-review/contact-390.png
+      - name: Upload browser-review screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-browser-review
+          path: browser-review/
+          if-no-files-found: warn

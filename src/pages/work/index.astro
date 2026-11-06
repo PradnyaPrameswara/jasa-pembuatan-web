@@ -4,38 +4,8 @@ import SiteHeader from '../../components/layout/SiteHeader.astro';
 import SiteFooter from '../../components/layout/SiteFooter.astro';
 import { buttonVariants } from '../../components/ui/button';
 
-const projects = [
-  {
-    slug: 'widhi-asih-bali-export',
-    title: 'Widhi Asih Bali Export',
-    category: 'Professional Experience',
-    year: '2026 — Present',
-    description: 'Current professional experience as a Web Developer at Widhi Asih Bali Export, beginning in June 2026.',
-    image: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
-    imageAlt: 'Modern software development workspace',
-    meta: 'Web Developer · Fullstack growth · Maintainable software'
-  },
-  {
-    slug: 'diagnostic-assessment-system',
-    title: 'LLM-Based Diagnostic Assessment System',
-    category: 'Academic Project & Publication',
-    year: 'University Project',
-    description: "A diagnostic assessment system developed to identify students' initial abilities and apply software engineering to a practical education-sector problem.",
-    image: 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Computer workspace representing academic software development',
-    meta: 'Education technology · Diagnostic assessment · Software engineering'
-  },
-  {
-    slug: 'informatics-teaching-internship',
-    title: 'SMP Negeri 6 Singaraja',
-    category: 'Informatics Teaching Internship',
-    year: 'Sep — Dec 2025',
-    description: 'Four-month Informatics teaching internship in Singaraja, Bali, completed during my university studies.',
-    image: 'https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2400',
-    imageAlt: 'Bright learning and working environment',
-    meta: 'Informatics education · Teaching · Problem solving'
-  }
-];
+import { work } from '../../data/work';
+
 ---
 
 <Layout
@@ -64,7 +34,7 @@ const projects = [
       </section>
 
       <section class="space-y-24 md:space-y-32" aria-label="Experience and selected projects">
-        {projects.map((project, index) => (
+        {work.map((project, index) => (
           <article class="group grid gap-7 md:grid-cols-12 md:gap-10 lg:gap-14">
             <a
               href={`/work/${project.slug}`}

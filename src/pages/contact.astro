@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import { ContactForm } from '../components/interactive/ContactForm.tsx';
+import { profile } from '../data/profile';
 
 const contactImage = 'https://images.unsplash.com/photo-1684560208006-274881cc4c4b?auto=format&fit=crop&q=84&w=2200';
 ---
@@ -33,18 +34,18 @@ const contactImage = 'https://images.unsplash.com/photo-1684560208006-274881cc4c
           <div class="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
             <div class="rounded-2xl border border-white/14 bg-white/[0.06] p-4 backdrop-blur-xl">
               <p class="text-[11px] font-semibold uppercase tracking-[0.13em] text-white/42">Email</p>
-              <a href="mailto:agungpradnya7@gmail.com" class="mt-2 block text-[15px] font-medium text-white/78 hover:text-cyan-spectrum">agungpradnya7@gmail.com</a>
+              <a href={`mailto:${profile.email}`} class="mt-2 block text-[15px] font-medium text-white/78 hover:text-cyan-spectrum">{profile.email}</a>
             </div>
             <div class="rounded-2xl border border-white/14 bg-white/[0.06] p-4 backdrop-blur-xl">
               <p class="text-[11px] font-semibold uppercase tracking-[0.13em] text-white/42">Location</p>
-              <p class="mt-2 text-[15px] font-medium text-white/78">Gianyar, Bali, Indonesia</p>
+              <p class="mt-2 text-[15px] font-medium text-white/78">{profile.location}</p>
             </div>
           </div>
 
           <div class="mt-4 flex flex-wrap gap-4 text-[13px] font-medium text-white/58">
-            <a href="https://www.linkedin.com/in/pradnyaprameswara/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-spectrum">LinkedIn</a>
-            <a href="https://github.com/PradnyaPrameswara" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-spectrum">GitHub</a>
-            <a href="https://www.pradnyaprameswara.web.id/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-spectrum">Portfolio</a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-cyan-spectrum">LinkedIn</a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" class="hover:text-cyan-spectrum">GitHub</a>
+            <a href={profile.website} target="_blank" rel="noopener noreferrer" class="hover:text-cyan-spectrum">Portfolio</a>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 ---
 import { buttonVariants } from '../ui/button';
+import { profile } from '../../data/profile';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -17,9 +18,9 @@ const currentYear = new Date().getFullYear();
           Pradnya<span class="text-cyan-spectrum">.</span>
         </a>
         <p class="max-w-md text-[17px] leading-[1.6] text-white/65">
-          Fresh Informatics Education graduate and Fullstack Web Developer building responsive, maintainable, user-focused software.
+          {profile.introduction}
         </p>
-        <p class="mt-4 text-[13px] font-medium text-white/48">Gianyar, Bali, Indonesia</p>
+        <p class="mt-4 text-[13px] font-medium text-white/48">{profile.location}</p>
       </div>
 
       <nav class="flex flex-col" aria-label="Footer Navigation">
@@ -46,18 +47,18 @@ const currentYear = new Date().getFullYear();
 
         <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 lg:justify-end">
           <a
-            href="https://www.linkedin.com/in/pradnyaprameswara/"
+            href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1 text-[13px] font-medium text-white/60 transition-colors hover:text-white/90 motion-reduce:transition-none"
           >LinkedIn</a>
           <a
-            href="https://github.com/PradnyaPrameswara"
+            href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1 text-[13px] font-medium text-white/60 transition-colors hover:text-white/90 motion-reduce:transition-none"
           >GitHub</a>
-          <a href="mailto:agungpradnya7@gmail.com" class="text-[13px] font-medium text-white/60 transition-colors hover:text-white/90 motion-reduce:transition-none">agungpradnya7@gmail.com</a>
+          <a href={`mailto:${profile.email}`} class="text-[13px] font-medium text-white/60 transition-colors hover:text-white/90 motion-reduce:transition-none">{profile.email}</a>
         </div>
       </div>
     </div>

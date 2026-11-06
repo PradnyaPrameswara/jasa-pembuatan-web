@@ -1,4 +1,6 @@
-# Product Decisions
+# Historical Product Decisions
+
+> Historical agency discovery notes. The current public site is a personal Fullstack Web Developer portfolio aligned with the owner's LinkedIn profile and CV. Existing agency-specific V1 concepts below do not override the current pages, current profile facts, or the repository's `AGENTS.md`.
 
 This document records the foundational product and business decisions locked during the initial discovery (`/grill-me`) phase.
 
