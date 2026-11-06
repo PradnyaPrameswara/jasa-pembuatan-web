@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -15,7 +15,11 @@ const links = [
   { href: "/about", label: "About" },
 ];
 
-export function MobileNav() {
+interface MobileNavProps {
+  currentPath: string;
+}
+
+export function MobileNav({ currentPath }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -45,12 +49,13 @@ export function MobileNav() {
             <a
               key={link.href}
               href={link.href}
+              aria-current={currentPath.startsWith(link.href) ? "page" : undefined}
               onClick={() => setOpen(false)}
               className={buttonVariants({
                 variant: "ghost",
                 size: "lg",
                 className:
-                  "h-12 w-full justify-start border-white/[0.08] bg-white/[0.035] px-4 text-left text-[17px] text-white/90 hover:bg-white/10 hover:text-white",
+                  "h-12 w-full justify-start border-white/[0.08] bg-white/[0.035] px-4 text-left text-[17px] text-white/90 hover:bg-white/10 hover:text-white aria-[current=page]:bg-white/15 aria-[current=page]:text-white",
               })}
             >
               {link.label}
@@ -60,6 +65,7 @@ export function MobileNav() {
           <div className="mt-5">
             <a
               href="/contact"
+              aria-current={currentPath.startsWith("/contact") ? "page" : undefined}
               onClick={() => setOpen(false)}
               className={buttonVariants({
                 variant: "default",

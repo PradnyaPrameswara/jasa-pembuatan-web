@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname;
       </a>
     </nav>
 
-    <MobileNav client:media="(max-width: 767px)" />
+    <MobileNav currentPath={currentPath} client:media="(max-width: 767px)" />
   </div>
 </header>
 

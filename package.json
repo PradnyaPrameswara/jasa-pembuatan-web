@@ -14,7 +14,9 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "ui:info": "shadcn info",
+    "ui:add": "shadcn add"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.2",

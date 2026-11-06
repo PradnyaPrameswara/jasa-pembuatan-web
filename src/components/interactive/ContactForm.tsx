@@ -2,6 +2,8 @@ import React from "react";
 import { profile } from "@/data/profile";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { MailCheck } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
@@ -125,14 +127,15 @@ export function ContactForm() {
       </div>
 
       {draftRequested && (
-        <p role="status" aria-live="polite" className="text-sm text-white/75">
-          Check your email app and send the draft to {profile.email}.
-          If it did not open, email{" "}
-          <a href={"mailto:" + profile.email} className="underline underline-offset-4">
-            {profile.email}
-          </a>{" "}
-          directly. No message was sent automatically.
-        </p>
+        <Alert className="border-white/20 bg-white/[0.08] text-white">
+          <MailCheck aria-hidden="true" className="size-4 text-cyan-spectrum" />
+          <AlertTitle>Check your email app</AlertTitle>
+          <AlertDescription className="text-white/75">
+            No message was sent automatically. Review and send the draft to{" "}
+            {profile.email}. If your email app did not open, use{" "}
+            <a href={`mailto:${profile.email}`}>{profile.email}</a> instead.
+          </AlertDescription>
+        </Alert>
       )}
     </form>
   );
