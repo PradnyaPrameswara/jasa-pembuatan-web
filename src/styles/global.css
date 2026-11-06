@@ -9,6 +9,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-input: var(--input);
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -35,6 +40,11 @@
     --background: transparent;
     --foreground: #f7fbff;
     --surface: rgb(255 255 255 / 0.1);
+    --card: #07134d;
+    --card-foreground: #ffffff;
+    --popover: #07134d;
+    --popover-foreground: #ffffff;
+    --input: rgb(255 255 255 / 0.18);
     --border: rgb(255 255 255 / 0.18);
     --muted: rgb(255 255 255 / 0.1);
     --muted-foreground: rgb(241 248 255 / 0.72);
@@ -53,6 +63,11 @@
     --background: transparent;
     --foreground: #ffffff;
     --surface: rgb(5 10 48 / 0.42);
+    --card: #07134d;
+    --card-foreground: #ffffff;
+    --popover: #07134d;
+    --popover-foreground: #ffffff;
+    --input: rgb(255 255 255 / 0.16);
     --border: rgb(255 255 255 / 0.16);
     --muted: rgb(255 255 255 / 0.08);
     --muted-foreground: rgb(241 248 255 / 0.68);
