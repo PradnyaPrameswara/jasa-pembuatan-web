@@ -40,6 +40,7 @@ const {
 } = Astro.props;
 
 const canonicalPath = normalizeCanonicalPath(Astro.url.pathname);
+const hasStockPhotography = ["/", "/about/", "/contact/", "/services/"].includes(canonicalPath);
 const canonicalURL = canonical
   ? new URL(canonical, `${SEO.siteUrl}/`)
   : new URL(canonicalPath, `${SEO.siteUrl}/`);
@@ -96,6 +97,9 @@ const structuredGraph: JsonLd = {
 <html lang={SEO.language}>
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    {hasStockPhotography && <link rel="preconnect" href="https://images.unsplash.com" crossorigin="anonymous" />}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
