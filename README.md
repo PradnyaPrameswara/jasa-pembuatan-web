@@ -64,9 +64,7 @@ The `Alert` component is installed from the official registry and used in
 the contact form to explain the mail-app handoff. Existing shadcn UI primitives
 are preserved (Button, Sheet, Accordion, Select, Input, Label, Textarea).
 
-Avoid overwriting customized primitives without reviewing the generated diff;
-the registry Field install currently requests an overwrite of the customized
-Label component. Do not use `--overwrite` indiscriminately.
+The `Field` components were adapted from the official registry without overwriting the customized `Label`. The unused `FieldSeparator` is excluded to avoid a dependency. Maintain `htmlFor`/`id` associations and do not use `--overwrite` without review.
 
 Keep static presentation in Astro and use React islands only where state or
 interaction requires it. The visual identity and responsive rules remain
