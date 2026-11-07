@@ -73,3 +73,7 @@ governed by `AGENTS.md` and `docs/design-system.md`.
 ## Browser interaction regression tests
 
 `pnpm exec playwright test` validates required fields, email format, Select, mailto handoff, FAQ and mobile navigation in Chromium. Run `pnpm build` first if you are not using a locally running preview. CI installs Chromium and executes these tests after the normal build and screenshots. This does not send email or alter real contact data.
+
+## Publishing checklist
+
+The canonical portfolio domain is `https://www.pradnyaprameswara.web.id/` (see `astro.config.ts`). Before publishing a merge, follow `docs/release-checklist.md` for image review, browser checks, 404 mapping, SEO and contact behavior. Source code and CI checks do not by themselves establish that the live domain has been deployed.

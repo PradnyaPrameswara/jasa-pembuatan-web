@@ -43,6 +43,8 @@ jobs:
           test -f dist/work/widhi-asih-bali-export/index.html
           test -f dist/work/diagnostic-assessment-system/index.html
           test -f dist/work/informatics-teaching-internship/index.html
+          test -f dist/404.html
+          grep -q 'noindex' dist/404.html
 
   browser-screenshots:
     needs: quality
