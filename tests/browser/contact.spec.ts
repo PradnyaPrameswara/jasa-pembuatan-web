@@ -43,6 +43,8 @@ test("homepage FAQ expands and collapses without a page navigation", async ({ pa
   const trigger = page.getByRole("button", { name: "What roles are you currently looking for?" });
   await trigger.scrollIntoViewIfNeeded();
   await expect(trigger).toBeVisible();
+  // client:visible hydration is asynchronous; do not click an unhydrated SSR button.
+  await expect(page.locator("astro-island[ssr]").filter({ has: trigger })).toHaveCount(0);
   const answer = page.locator(".glass-panel")
     .filter({ has: trigger })
     .getByText(/full-time opportunities as a Fullstack Developer/);
