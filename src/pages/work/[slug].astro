@@ -16,7 +16,7 @@ export function getStaticPaths() {
 const { project } = Astro.props as { project: WorkEntry };
 const {
   title, type, period, location, description,
-  image, imageAlt, highlights, overview,
+  image, imageAlt, visualNote, focus, highlights, overview,
 } = project;
 
 ---
@@ -39,10 +39,11 @@ const {
 
       <figure class="media-shell overflow-hidden rounded-[30px] p-2 md:rounded-[38px] md:p-3">
         <div class="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-white/10 md:aspect-[16/9] md:rounded-[31px]">
-          <img src={image} alt={imageAlt} class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+          <img src={image} alt={imageAlt} width="1200" height="750" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
           <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,48,0)_58%,rgba(5,10,48,.32)_100%)]"></div>
         </div>
       </figure>
+      <p class="mt-3 text-[12px] leading-relaxed text-white/55">{visualNote}</p>
 
       <section class="grid gap-8 py-20 md:grid-cols-12 md:gap-12 md:py-28">
         <aside class="glass-panel rounded-[26px] p-6 md:col-span-4 md:p-8">
@@ -51,7 +52,11 @@ const {
             <div><dt class="text-[11px] uppercase tracking-[0.12em] text-white/40">Period</dt><dd class="mt-1 text-[15px] text-white/76">{period}</dd></div>
             <div><dt class="text-[11px] uppercase tracking-[0.12em] text-white/40">Location</dt><dd class="mt-1 text-[15px] text-white/76">{location}</dd></div>
           </dl>
-          <p class="mt-8 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/46">Highlights</p>
+          <p class="mt-8 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/46">Focus areas</p>
+          <ul class="mt-3 flex flex-wrap gap-2" aria-label="Focus areas">
+            {focus.map((area: string) => <li class="rounded-full border border-white/20 px-3 py-1.5 text-[12px] text-white/75">{area}</li>)}
+          </ul>
+          <p class="mt-8 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/46">Verified highlights</p>
           <ul class="mt-4 space-y-3">
             {highlights.map((highlight: string) => (
               <li class="flex items-center gap-3 text-[15px] text-white/76">
@@ -65,7 +70,7 @@ const {
         <div class="md:col-span-8">
           <div class="border-t border-white/14 pt-7">
             <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-cyan-spectrum/75">Overview</p>
-            <h2 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.045em] text-white">Experience documented in my CV.</h2>
+            <h2 class="text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.045em] text-white">Context and contribution.</h2>
             <p class="mt-5 max-w-3xl text-[17px] leading-[1.65] text-white/66">{overview}</p>
           </div>
         </div>

@@ -47,8 +47,11 @@ import { work } from '../../data/work';
                   class="hover-scale-img h-full w-full object-cover object-center"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   decoding="async"
+                  width="1200"
+                  height="750"
                 />
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,48,0)_55%,rgba(5,10,48,.36)_100%)]"></div>
+                <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,48,0)_55%,rgba(5,10,48,.3)_100%)]"></div>
+                <span class="absolute bottom-4 left-4 rounded-full border border-white/25 bg-[#09112c]/70 px-3 py-1.5 text-[11px] font-semibold text-white/90 backdrop-blur-md sm:bottom-6 sm:left-6">Concept illustration</span>
               </div>
             </a>
 
@@ -62,6 +65,9 @@ import { work } from '../../data/work';
                   {project.title}
                 </h2>
                 <p class="mt-5 text-[17px] leading-[1.62] text-white/66">{project.description}</p>
+                <ul aria-label="Focus areas" class="mt-5 flex flex-wrap gap-2">
+                  {project.focus.map((area) => <li class="rounded-full border border-white/20 bg-white/[0.06] px-3 py-1.5 text-[12px] text-white/75">{area}</li>)}
+                </ul>
               </div>
 
               <div class="mt-9 border-t border-white/14 pt-5 md:mt-14">
