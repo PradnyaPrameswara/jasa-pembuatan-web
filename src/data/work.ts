@@ -14,8 +14,10 @@ export const work = [
     description:
       "Web Developer at Widhi Asih Bali Export, a professional position held since June 2026.",
     image:
-      "https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400",
-    imageAlt: "Illustrative modern software development workspace",
+      "/images/work/wabe-concept.svg",
+    imageAlt: "Original editorial concept art of a furniture-oriented website interface",
+    visualNote: "Concept illustration, not a screenshot of a private business system.",
+    focus: ["Business web applications", "Frontend and backend work", "Maintainability"],
     meta: "Web Developer · Web applications · Maintainable software",
     highlights: [
       "Web Developer role since June 2026",
@@ -36,8 +38,10 @@ export const work = [
     description:
       "A diagnostic assessment system developed to identify students' initial abilities using a large language model.",
     image:
-      "https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2400",
-    imageAlt: "Illustrative computer workspace for academic software development",
+      "/images/work/assessment-concept.svg",
+    imageAlt: "Original editorial concept art of a diagnostic interface and connected model nodes",
+    visualNote: "Concept illustration; it does not represent the actual research interface.",
+    focus: ["Diagnostic assessment", "LLM-based software", "Education technology"],
     meta: "Educational technology · Diagnostic assessment · Software engineering",
     highlights: [
       "Diagnostic assessment of students' initial abilities",
@@ -58,8 +62,10 @@ export const work = [
     description:
       "Informatics teaching internship, including C++ algorithm and competition mentoring.",
     image:
-      "https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2400",
-    imageAlt: "Illustrative learning and working environment",
+      "/images/work/teaching-concept.svg",
+    imageAlt: "Original editorial concept art showing introductory C++ learning",
+    visualNote: "Concept illustration; no student or classroom photographs are reproduced.",
+    focus: ["Informatics teaching", "C++ programming", "Algorithm mentoring"],
     meta: "Informatics education · C++ mentoring · Algorithmic thinking",
     highlights: [
       "Informatics teaching from September to December 2025",
