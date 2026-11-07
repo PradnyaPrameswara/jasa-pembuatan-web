@@ -96,6 +96,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  :where(a, button, [role="button"]):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+  }
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -266,6 +271,14 @@
     }
   }
 
+  @media (max-width: 639px) {
+    h1,
+    h2,
+    h3 {
+      overflow-wrap: anywhere;
+    }
+  }
+
   @media (max-width: 767px) {
     .spectrum-environment {
       inset: -22vmax;
@@ -293,7 +306,8 @@
     }
 
     .glass-control,
-    .hover-scale-img {
+    .hover-scale-img,
+    .group:hover .hover-scale-img {
       transition: none;
       transform: none;
     }
