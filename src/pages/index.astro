@@ -5,11 +5,9 @@ import SiteFooter from '../components/layout/SiteFooter.astro';
 import { FaqAccordion } from '../components/interactive/FaqAccordion';
 import { buttonVariants } from '../components/ui/button';
 import { profile } from '../data/profile';
+import { getUnsplashSrcSet } from '../lib/images';
 
-const imagery = {
-  hero: 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400',
-  academic: 'https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2200',
-};
+const heroImage = 'https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=80&w=1600';
 ---
 
 <Layout
@@ -47,7 +45,7 @@ const imagery = {
         <div class="relative mx-auto mt-16 max-w-[1180px] md:mt-24">
           <figure class="hero-glass-shell relative overflow-hidden rounded-[30px] p-2 md:rounded-[38px] md:p-3">
             <div class="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-white/10 sm:aspect-[16/11] md:rounded-[31px] lg:aspect-[16/9]">
-              <img src={imagery.hero} alt="Modern software development workspace" class="h-full w-full object-cover object-center" loading="eager" fetchpriority="high" decoding="async" />
+              <img src={heroImage} srcset={getUnsplashSrcSet(heroImage, [480, 768, 960, 1280, 1600, 1920])} sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(100vw - 64px), 1180px" width="1600" height="900" alt="Modern software development workspace" class="h-full w-full object-cover object-center" loading="eager" fetchpriority="high" decoding="async" />
               <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,.02)_45%,rgba(5,10,48,.38)_100%)]"></div>
               <div class="glass-caption absolute inset-x-4 bottom-4 flex flex-col gap-2 rounded-2xl px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between md:inset-x-6 md:bottom-6 md:px-5">
                 <div>
