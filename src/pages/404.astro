@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
+import { buttonVariants } from '../components/ui/button';
+---
+
+<Layout
+  title="Page not found | Pradnya Prameswara"
+  description="The page you requested is not available. Explore Pradnya Prameswara's experience and professional profile."
+  noindex={true}
+>
+  <SiteHeader slot="header" />
+
+  <main class="flex min-h-[65vh] items-center px-5 py-24 text-foreground sm:px-8 md:py-32">
+    <section class="mx-auto w-full max-w-[900px] text-center" aria-labelledby="not-found-title">
+      <p class="mb-5 text-[12px] font-semibold uppercase tracking-[0.16em] text-cyan-spectrum">404 · Page not found</p>
+      <h1 id="not-found-title" class="text-balance text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.06em] text-white">
+        This page isn't here.
+      </h1>
+      <p class="mx-auto mt-7 max-w-lg text-[clamp(1.05rem,2vw,1.3rem)] leading-relaxed text-white/75">
+        The link might have changed or the address may be incorrect. You can return to the homepage or explore my work.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a href="/" class={buttonVariants({ variant: 'default', size: 'lg' })}>Back to homepage</a>
+        <a href="/work" class={buttonVariants({ variant: 'secondary', size: 'lg' })}>View experience</a>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>
