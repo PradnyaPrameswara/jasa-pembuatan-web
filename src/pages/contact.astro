@@ -6,7 +6,7 @@ import SiteFooter from '../components/layout/SiteFooter.astro';
 import { ContactForm } from '../components/interactive/ContactForm.tsx';
 import { profile } from '../data/profile';
 
-const contactImage = 'https://images.unsplash.com/photo-1684560208006-274881cc4c4b?auto=format&fit=crop&q=80&w=1200';
+const contactImage = 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?auto=format&fit=crop&fm=jpg&q=80&w=1200';
 ---
 
 <Layout
@@ -27,7 +27,7 @@ const contactImage = 'https://images.unsplash.com/photo-1684560208006-274881cc4c
 
           <figure class="media-shell mt-10 overflow-hidden rounded-[26px] p-2 md:mt-12 md:rounded-[32px] md:p-3">
             <div class="relative aspect-[4/3] overflow-hidden rounded-[20px] md:rounded-[25px]">
-              <img src={contactImage} srcset={getUnsplashSrcSet(contactImage, [480, 768, 960, 1280])} sizes="(max-width: 767px) calc(100vw - 40px), 40vw" width="1200" height="900" alt="Organized software development workspace with planning notes" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+              <img src={contactImage} srcset={getUnsplashSrcSet(contactImage, [480, 768, 960, 1280])} sizes="(max-width: 767px) calc(100vw - 40px), 40vw" width="1200" height="900" alt="Minimal programming workspace with laptop and phone on a wooden desk" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
               <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,48,0)_58%,rgba(5,10,48,.3)_100%)]"></div>
             </div>
           </figure>

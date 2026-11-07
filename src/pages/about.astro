@@ -6,7 +6,7 @@ import SiteFooter from '../components/layout/SiteFooter.astro';
 import { buttonVariants } from '../components/ui/button';
 import { profile } from '../data/profile';
 
-const aboutImage = 'https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=80&w=1200';
+const aboutImage = 'https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=80&w=1200';
 
 ---
 
@@ -31,7 +31,7 @@ const aboutImage = 'https://images.unsplash.com/photo-1746021451691-4385f318ec13
 
         <figure class="media-shell overflow-hidden rounded-[28px] p-2 md:col-span-5 md:rounded-[34px] md:p-3">
           <div class="relative aspect-[4/3] overflow-hidden rounded-[22px] md:aspect-[5/4] md:rounded-[27px]">
-            <img src={aboutImage} srcset={getUnsplashSrcSet(aboutImage, [480, 768, 960, 1280])} sizes="(max-width: 767px) calc(100vw - 40px), 40vw" width="1200" height="900" alt="Bright professional workspace for focused software development" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+            <img src={aboutImage} srcset={getUnsplashSrcSet(aboutImage, [480, 768, 960, 1280])} sizes="(max-width: 767px) calc(100vw - 40px), 40vw" width="1200" height="900" alt="Minimal desk with laptop, keyboard and sunlight through a window" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
             <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,48,0)_58%,rgba(5,10,48,.26)_100%)]"></div>
           </div>
         </figure>

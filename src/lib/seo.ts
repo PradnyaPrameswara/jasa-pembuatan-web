@@ -13,8 +13,8 @@ export const SEO = {
   defaultDescription:
     "Fullstack Web Developer and Informatics Education graduate in Gianyar, Bali, building responsive, maintainable, user-focused web applications.",
   defaultImage:
-    "https://images.unsplash.com/photo-1752223638233-4c9545333f89?auto=format&fit=crop&fm=jpg&q=86&w=2400",
-  defaultImageAlt: "Modern software development workspace representing Pradnya Prameswara's portfolio",
+    "https://images.unsplash.com/photo-1751200065697-4461cc2b43cb?auto=format&fit=crop&fm=jpg&q=80&w=1600",
+  defaultImageAlt: "Night-time laptop and monitor workspace illustrating Pradnya Prameswara's portfolio",
   email: profile.email,
   linkedin: profile.linkedin,
   github: profile.github,
@@ -67,16 +67,16 @@ const routeSocialImages: Record<string, { src: string; alt: string }> = {
     alt: SEO.defaultImageAlt,
   },
   "/about/": {
-    src: "https://images.unsplash.com/photo-1746021451691-4385f318ec13?auto=format&fit=crop&q=84&w=2200",
-    alt: "Bright professional workspace representing Pradnya Prameswara's software development profile",
+    src: "https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=80&w=1600",
+    alt: "Sunlit minimalist desk illustrating Pradnya Prameswara's professional profile",
   },
   "/services/": {
-    src: "https://images.unsplash.com/photo-1761123261084-53c40fe1e607?auto=format&fit=crop&q=84&w=2200",
-    alt: "Software development workspace representing fullstack web development capabilities",
+    src: "https://images.unsplash.com/photo-1730130054404-c2bd8e7038c2?auto=format&fit=crop&fm=jpg&q=80&w=1600",
+    alt: "Developer using coding screens illustrating web development capabilities",
   },
   "/contact/": {
-    src: "https://images.unsplash.com/photo-1684560208006-274881cc4c4b?auto=format&fit=crop&q=84&w=2200",
-    alt: "Organized software development workspace representing contact and opportunity inquiries",
+    src: "https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?auto=format&fit=crop&fm=jpg&q=80&w=1600",
+    alt: "Minimal developer desk illustrating contact and collaboration",
   },
   "/work/": {
     src: SEO.defaultImage,
