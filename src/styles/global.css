@@ -306,7 +306,8 @@
     }
 
     .glass-control,
-    .hover-scale-img {
+    .hover-scale-img,
+    .group:hover .hover-scale-img {
       transition: none;
       transform: none;
     }
